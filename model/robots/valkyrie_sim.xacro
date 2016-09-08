@@ -3,7 +3,6 @@
     <gazebo>
       <plugin filename="libval_gazebo.so" name="SharedMemorySimInterfacePlugin">
           <robotNamespace>/val</robotNamespace>
-          <updateRateHz>500.0</updateRateHz>
       </plugin>
     </gazebo>
 
