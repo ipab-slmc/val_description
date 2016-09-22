@@ -1,23 +1,23 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie_nodes">
 
-    <xacro:property name="ForearmYawKp" value="20000" />
-    <xacro:property name="ForearmYawKd" value="400" />
+    <xacro:property name="ForearmYawKp" value="2000" />
+    <xacro:property name="ForearmYawKd" value="30" />
     <xacro:property name="ForearmYawKi" value="0.0" />
-    <xacro:property name="WristPitchKp" value="20000" />
-    <xacro:property name="WristPitchKd" value="400" />
+    <xacro:property name="WristPitchKp" value="2000" />
+    <xacro:property name="WristPitchKd" value="30" />
     <xacro:property name="WristPitchKi" value="0.0" />
-    <xacro:property name="WristRollKp" value="20000" />
-    <xacro:property name="WristRollKd" value="400" />
+    <xacro:property name="WristRollKp" value="2000" />
+    <xacro:property name="WristRollKd" value="30" />
     <xacro:property name="WristRollKi" value="0.0" />
 
-    <xacro:property name="LowerNeckPitchKp" value="20000" />
-    <xacro:property name="LowerNeckPitchKd" value="400" />
+    <xacro:property name="LowerNeckPitchKp" value="2000" />
+    <xacro:property name="LowerNeckPitchKd" value="30" />
     <xacro:property name="LowerNeckPitchKi" value="0.0" />
-    <xacro:property name="NeckYawKp" value="20000" />
-    <xacro:property name="NeckYawKd" value="400" />
+    <xacro:property name="NeckYawKp" value="2000" />
+    <xacro:property name="NeckYawKd" value="30" />
     <xacro:property name="NeckYawKi" value="0.0" />
-    <xacro:property name="UpperNeckPitchKp" value="20000" />
-    <xacro:property name="UpperNeckPitchKd" value="400" />
+    <xacro:property name="UpperNeckPitchKp" value="2000" />
+    <xacro:property name="UpperNeckPitchKd" value="30" />
     <xacro:property name="UpperNeckPitchKi" value="0.0" />
 
 </robot>
