@@ -2,6 +2,6 @@
 
 	<xacro:property name="SimApi" value="robot_hardware_interface/TurbodriverSimAPI" />
     <xacro:property name="ImuSensorSimApi" value="simulated_imu_sensor::SimulatedImuSensor" />
-    <xacro:property name="AtiSensorApi" value="TurbodriverForceTorqueSensor" />
+    <xacro:property name="ForceTorqueSensorApi" value="sensor_interface::SimForceTorqueSensor" />
     
 </robot>

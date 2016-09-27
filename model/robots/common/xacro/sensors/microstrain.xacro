@@ -19,7 +19,7 @@
         <topicName>${sensorName}/imu</topicName>
         <serviceName>${sensorName}/imu_service</serviceName>
         <gaussianNoise>0.0</gaussianNoise>
-        <updateRate>1000.0</updateRate> 
+        <updateRate>500.0</updateRate> 
       </plugin>
     </gazebo>
 
