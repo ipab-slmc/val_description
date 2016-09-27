@@ -1,5 +1,11 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie">
 
+    <gazebo>
+      <plugin filename="libval_gazebo.so" name="SharedMemorySimInterfacePlugin">
+          <robotNamespace>/val</robotNamespace>
+      </plugin>
+    </gazebo>
+
     <xacro:property name="mesh_root" value="package://val_description/model/meshes"/>
     <xacro:include filename="$(find val_description)/common/xacro/api/valkyrie_sim_api.xacro"/>
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
@@ -10,7 +16,6 @@
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_base_sim.xacro"/>
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_harness.xacro"/>
 
-    <!-- Commenting out this next line until the harness makes it into a gazebo_ros_pkgs release -->
     <xacro:add_sim_harness harnessed_link="${TorsoRollLinkName}" />    
 
 </robot>
