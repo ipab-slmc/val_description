@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<robot name="valkyrie_transmissions" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:property name="TorsoTransmissionType" value="TorsoPushrodTransmissionWithOutputVelocity"/>
+	<xacro:property name="leftAnkleTransmissionType" value="AnklePushrodTransmission"/>
+	<xacro:property name="rightAnkleTransmissionType" value="AnklePushrodTransmission"/>
+</robot>
