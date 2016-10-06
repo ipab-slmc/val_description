@@ -1,7 +1,7 @@
 <CoeffData>
   <Coeffs>
-    <Coeff description="" value="-1045" id="Pitch_offset"/>
-    <Coeff description="" value="3961" id="Yaw_offset"/>
+    <Coeff description="" value="1" id="Pitch_offset"/>
+    <Coeff description="" value="-1045" id="Yaw_offset"/>
     <Coeff description="" value="0.000767" id="Pitch_cnvtrad"/>
     <Coeff description="" value="-0.000767" id="Yaw_cnvtrad"/>
     <Coeff description="" value="256" id="Fing3_elecoffset"/>
