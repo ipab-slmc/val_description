@@ -51,8 +51,8 @@
 
     <!-- Arm Public -->
     <xacro:property name="ShoulderPitchPublicProcFirmware" value="${PublicTurboProcRotaryFirmwareExtension}" />
-    <xacro:property name="LeftShoulderPitchPublicFPGAFirmware" value="${PublicTurboFPGAFirmwareExtension01}" />
-    <xacro:property name="RightShoulderPitchPublicFPGAFirmware" value="${PublicTurboFPGAFirmwareExtension04}" />
+    <xacro:property name="leftShoulderPitchPublicFPGAFirmware" value="${PublicTurboFPGAFirmwareExtension01}" />
+    <xacro:property name="rightShoulderPitchPublicFPGAFirmware" value="${PublicTurboFPGAFirmwareExtension04}" />
     <xacro:property name="ShoulderRollPublicProcFirmware" value="${PublicTurboProcRotaryFirmwareExtension}" />
     <xacro:property name="ShoulderRollPublicFPGAFirmware" value="${PublicTurboFPGAFirmwareExtension02}" />
     <xacro:property name="ShoulderYawPublicProcFirmware" value="${PublicTurboProcRotaryFirmwareExtension}" />
@@ -63,8 +63,8 @@
     <xacro:property name="ForearmYawPublicFPGAFirmware" value="" />
     <!-- Arm Private -->
     <xacro:property name="ShoulderPitchPrivateProcFirmware" value="${PrivateTurboProcRotaryFirmwareExtension}" />
-    <xacro:property name="LeftShoulderPitchPrivateFPGAFirmware" value="${PrivateTurboFPGAFirmwareExtension01}" />
-    <xacro:property name="RightShoulderPitchPrivateFPGAFirmware" value="${PrivateTurboFPGAFirmwareExtension04}" />
+    <xacro:property name="leftShoulderPitchPrivateFPGAFirmware" value="${PrivateTurboFPGAFirmwareExtension01}" />
+    <xacro:property name="rightShoulderPitchPrivateFPGAFirmware" value="${PrivateTurboFPGAFirmwareExtension04}" />
     <xacro:property name="ShoulderRollPrivateProcFirmware" value="${PrivateTurboProcRotaryFirmwareExtension}" />
     <xacro:property name="ShoulderRollPrivateFPGAFirmware" value="${PrivateTurboFPGAFirmwareExtension02}" />
     <xacro:property name="ShoulderYawPrivateProcFirmware" value="${PrivateTurboProcRotaryFirmwareExtension}" />
