@@ -79,7 +79,7 @@
                 <PrivateFPGAURLExtension id="${AnkleRightActuatorPrivateFPGAFirmware}" />
             </fw>
             <fw id="RightLegJ6">
-                <Node id="/right_leg/ankle/right_actuator" />
+                <Node id="/right_leg/ankle/left_actuator" />
                 <PublicProcURLExtension id="${AnkleLeftActuatorPublicProcFirmware}" />
                 <PrivateProcURLExtension id="${AnkleLeftActuatorPrivateProcFirmware}" />
                 <PublicFPGAURLExtension id="${AnkleLeftActuatorPublicFPGAFirmware}" />
