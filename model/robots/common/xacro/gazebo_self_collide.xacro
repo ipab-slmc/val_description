@@ -5,6 +5,9 @@
       <self_collide>true</self_collide>
     </gazebo>
 
+    <gazebo reference="pelvis">
+      <self_collide>false</self_collide>
+    </gazebo>
     <gazebo reference="leftHipRollLink">
       <self_collide>false</self_collide>
     </gazebo>
