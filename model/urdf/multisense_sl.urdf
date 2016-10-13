@@ -295,6 +295,10 @@
     </inertial>
   </link>
 
+  <gazebo>
+    <plugin filename="libSRCMultiSenseSLPlugin.so" name="multisense_plugin"/>
+  </gazebo>
+
   <!-- imu link -->
   <link name="head_imu_link">
     <inertial>
