@@ -28,5 +28,7 @@
     <xacro:arm_transmissions_sim prefix="left"/>
     <xacro:arm_transmissions_sim prefix="right"/>
     <xacro:neck_transmissions_sim />
+    <xacro:thumb_transmissions_sim prefix="left"/>
+    <xacro:thumb_transmissions_sim prefix="right"/>
 
 </robot>
