@@ -247,7 +247,7 @@
         <hardwareInterface>PositionJointInterface</hardwareInterface>
       </joint>
       <actuator name="${actuatorName}">
-        <node name="${nodeName}"/>
+        <node name="${node1Name}"/>
         <mechanicalReduction>1</mechanicalReduction>
         <api name="${actuatorApi}" />
       </actuator>
@@ -258,12 +258,16 @@
     </transmission>
   </xacro:macro>
 
-  <xacro:macro name="simple_passive_transmission" params="jointName nodeName">
+  <xacro:macro name="simple_passive_transmission" params="jointName nodeName apiName">
     <transmission name="${jointName}PassiveTransmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
       </joint>
-      <node>${nodeName}</node>
+      <actuator name="${jointName}PassiveActuator">
+        <node name="${nodeName}"/>
+        <mechanicalReduction>1</mechanicalReduction>
+        <api name="${apiName}" />
+      </actuator>
     </transmission>
   </xacro:macro>
 

@@ -58,6 +58,11 @@
 	<xacro:property name="ThumbPitch2Node" value="/${prefix}_arm/forearm_sensors/thumb/pitch_2"/>
 	<xacro:property name="ThumbPitch3Node" value="/${prefix}_arm/forearm_sensors/thumb/pitch_3"/>
 
+	<xacro:property name="ThumbRollSimNode" value="/remap/${prefix}_hand/thumb/roll"/>
+	<xacro:property name="ThumbPitch1SimNode" value="/remap/${prefix}_hand/thumb/pitch_1"/>
+	<xacro:property name="ThumbPitch2SimNode" value="/remap/${prefix}_hand/thumb/pitch_2"/>
+	<xacro:property name="ThumbPitch3SimNode" value="/remap/${prefix}_hand/thumb/pitch_3"/>
+
 	<xacro:macro name="all_channels" >
 		<Channels>
 			<Channel id="/right_arm" />
