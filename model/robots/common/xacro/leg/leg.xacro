@@ -2,7 +2,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="leg">
   <xacro:include filename="$(find val_description)/common/xacro/joint_names/valkyrie_joint_names.xacro"/>
   <xacro:include filename="$(find val_description)/common/xacro/actuator_names/valkyrie_actuator_names.xacro"/>
-  <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_nodes.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/joint_axes.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/link_names.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/joint_limits.xacro"/>
@@ -193,7 +192,7 @@
     <xacro:simple_transmission jointName="${HipRollJointName}" actuatorName="${HipRollActuatorName}" nodeName="${HipRollNode}" actuatorApi="${SimApi}"/>
     <xacro:simple_transmission jointName="${HipPitchJointName}" actuatorName="${HipPitchActuatorName}" nodeName="${HipPitchNode}" actuatorApi="${SimApi}"/>
     <xacro:simple_transmission jointName="${KneePitchJointName}" actuatorName="${KneePitchActuatorName}" nodeName="${KneePitchNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_transmission jointName="${AnklePitchJointName}" actuatorName="${AnklePitchActuatorSimName}" nodeName="${AnklePitchActuatorSimNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_transmission jointName="${AnkleRollJointName}" actuatorName="${AnkleRollActuatorSimName}" nodeName="${AnkleRollActuatorSimNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${AnklePitchJointName}" actuatorName="${AnklePitchActuatorSimName}" nodeName="${AnklePitchActuatorNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${AnkleRollJointName}" actuatorName="${AnkleRollActuatorSimName}" nodeName="${AnkleRollActuatorNode}" actuatorApi="${SimApi}"/> 
   </xacro:macro>
 </robot>
