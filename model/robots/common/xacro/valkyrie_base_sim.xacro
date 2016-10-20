@@ -2,7 +2,7 @@
 
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
 
-    <shm_remap_file package="val_gazebo" relative_file_path="/configurations/valkyrie_sim_shm_remap.yaml"/>
+    <shm_remap_file package="val_gazebo" relative_file_path="/configuration/valkyrie_sim_shm_remap.yaml"/>
     
     <xacro:make_pelvis />
     <xacro:make_waist waist_root_link="${Pelvis_Link_Name}" />
@@ -33,6 +33,5 @@
     <xacro:arm_transmissions_sim prefix="right"/>
     <xacro:neck_transmissions_sim />
     <xacro:thumb_transmissions_sim prefix="left"/>
-    <xacro:thumb_transmissions_sim prefix="right"/>
 
 </robot>

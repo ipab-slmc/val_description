@@ -240,28 +240,27 @@
     </transmission>
   </xacro:macro>
 
-  <xacro:macro name="finger_transmission" params="joint1Name actuatorName node1Name actuatorApi joint2Name joint3Name ratio1 ratio2 node2Name node3Name">
-    <transmission name="${joint1Name}Transmission">
+  <xacro:macro name="finger_transmission" params="jointName actuatorName nodeName actuatorApi child1JointName child1Ratio child2JointName child2Ratio">
+    <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${joint1Name}">
+      <joint name="${jointName}">
         <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <child name="${child1JointName}" ratio="${child1Ratio}"/>
+        <child name="${child2JointName}" ratio="${child2Ratio}"/>
       </joint>
       <actuator name="${actuatorName}">
-        <node name="${node1Name}"/>
+        <node name="${nodeName}"/>
         <mechanicalReduction>1</mechanicalReduction>
         <api name="${actuatorApi}" />
       </actuator>
-      <children>
-        <joint name="${joint2Name}" ratio="${ratio1}" parent="${joint1Name}" childNode="${node2Name}"/>
-        <joint name="${joint3Name}" ratio="${ratio2}" parent="${joint1Name}" childNode="${node3Name}"/>
-      </children>
     </transmission>
   </xacro:macro>
 
   <xacro:macro name="simple_passive_transmission" params="jointName nodeName apiName">
-    <transmission name="${jointName}PassiveTransmission">
+    <transmission name="${jointName}PassiveTransmissionWithParent">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
+        <hardwareInterface>JointStateInterface</hardwareInterface>
       </joint>
       <actuator name="${jointName}PassiveActuator">
         <node name="${nodeName}"/>

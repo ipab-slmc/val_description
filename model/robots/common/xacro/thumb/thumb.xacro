@@ -103,7 +103,9 @@
 
   <xacro:macro name="thumb_transmissions_sim" params="prefix">
     <xacro:simple_position_transmission jointName="${ThumbRollJointName}" actuatorName="${prefix}ThumbRollActuator" nodeName="${ThumbRollNode}" actuatorApi="${SimApi}"/>
-    <xacro:finger_transmission joint1Name="${ThumbPitch1JointName}" actuatorName="${prefix}ThumbPitch1Actuator" node1Name="${ThumbPitch1Node}" actuatorApi="${SimApi}" joint2Name="${ThumbPitch2JointName}" joint3Name="${ThumbPitch3JointName}" ratio1="${Pulley2Ratio}" ratio2="${Pulley3Ratio}" node2Name="${ThumbPitch2Node}" node3Name="${ThumbPitch3Node}" />
+
+    <xacro:finger_transmission jointName="${ThumbPitch1JointName}" actuatorName="${prefix}ThumbPitch1Actuator" nodeName="${ThumbPitch1Node}" actuatorApi="${SimApi}" child1JointName="${ThumbPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${ThumbPitch2Node}" child2Ratio="${Pulley3Ratio}"/>
+    
     <xacro:simple_passive_transmission jointName="${ThumbPitch2JointName}" nodeName="${ThumbPitch2Node}" apiName="${SimApi}"/>
     <xacro:simple_passive_transmission jointName="${ThumbPitch3JointName}" nodeName="${ThumbPitch3Node}" apiName="${SimApi}"/>
   </xacro:macro>

@@ -33,7 +33,7 @@
 	<xacro:property name="left_foot_ATI_node" value="/left_leg/ankle/roll_actuator" />
 	<xacro:property name="right_foot_ATI_node" value="/right_leg/ankle/roll_actuator" />
 
-	<xacro:property name="ThumbRollNode" value="/remap/${prefix}_hand/thumb/roll"/>
+	<xacro:property name="ThumbRollNode" value="/${prefix}_hand/thumb_roll"/>
 	<xacro:property name="ThumbPitch1Node" value="/remap/${prefix}_hand/thumb/pitch_1"/>
 	<xacro:property name="ThumbPitch2Node" value="/remap/${prefix}_hand/thumb/pitch_2"/>
 	<xacro:property name="ThumbPitch3Node" value="/remap/${prefix}_hand/thumb/pitch_3"/>
