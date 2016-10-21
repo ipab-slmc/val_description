@@ -9,7 +9,7 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="testbenchActuator">
-        <node name="${testbenchNode}"/>
+        <node name="${testbench_node}"/>
         <mechanicalReduction>1</mechanicalReduction>
         <api name="${testbenchApi}" />
       </actuator>
