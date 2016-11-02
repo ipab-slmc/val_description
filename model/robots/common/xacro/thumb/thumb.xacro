@@ -8,6 +8,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/thumb/frame_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/thumb/mass_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/thumb/mechanical_info.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gains.xacro"/>
 
   <xacro:macro name="make_thumb" params="prefix reflect thumb_root_link">
     <xacro:standard_link name="${ThumbRollLinkName}"
@@ -46,52 +47,56 @@
                     visual_mesh="${mesh_root}/fingers/thumbj4_${prefix}.dae"
                     collision_mesh="${mesh_root}/fingers/thumbj4_${prefix}.dae"/>
 
-    <xacro:revolute_joint jointName="${ThumbRollJointName}"
+    <xacro:revolute_joint_ex jointName="${ThumbRollJointName}"
                           parent="${ThumbRollParentLinkName}" child="${ThumbRollLinkName}"
                           origin_xyz="${ThumbRollFrameOrigin_X} ${ThumbRollFrameOrigin_Y} ${ThumbRollFrameOrigin_Z}"
                           origin_rpy="${ThumbRollFrameOrientation_Roll} ${ThumbRollFrameOrientation_Pitch} ${ThumbRollFrameOrientation_Yaw}"
-                          axis="${ThumbRollRotationAxis}">
+                          axis="${ThumbRollRotationAxis}" damping="0.5" friction="0.5">
         <limit effort="${ThumbRollTorqueLimit}" lower="${ThumbRollPositionLimit_Lower}" upper="${ThumbRollPositionLimit_Upper}" velocity="${ThumbRollVelocityLimit}"/>
-    </xacro:revolute_joint>
+         <controller_gains Kp="${ThumbRollKp}" Kd="${ThumbRollKd}" Ki="${ThumbRollKi}"/>
+    </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint jointName="${ThumbPitch1JointName}"
+    <xacro:revolute_joint_ex jointName="${ThumbPitch1JointName}"
                           parent="${ThumbRollLinkName}" child="${ThumbPitch1LinkName}"
                           origin_xyz="${ThumbPitch1FrameOrigin_X} ${ThumbPitch1FrameOrigin_Y} ${ThumbPitch1FrameOrigin_Z}"
                           origin_rpy="${ThumbPitch1FrameOrientation_Roll} ${ThumbPitch1FrameOrientation_Pitch} ${ThumbPitch1FrameOrientation_Yaw}"
-                          axis="${ThumbPitch1RotationAxis}">
+                          axis="${ThumbPitch1RotationAxis}" damping="0.5" friction="0.5">
         <xacro:if value="${(reflect+1)/2}">
           <limit effort="${ThumbPitch1TorqueLimit}" lower="${-reflect * ThumbPitch1PositionLimit_Upper}" upper="${-reflect * ThumbPitch1PositionLimit_Lower}" velocity="${ThumbPitch1VelocityLimit}"/>
         </xacro:if>
         <xacro:if value="${(-reflect+1)/2}">
           <limit effort="${ThumbPitch1TorqueLimit}" lower="${ThumbPitch1PositionLimit_Lower}" upper="${ThumbPitch1PositionLimit_Upper}" velocity="${ThumbPitch1VelocityLimit}"/>
         </xacro:if>
-    </xacro:revolute_joint>
+        <controller_gains Kp="${ThumbPitch1Kp}" Kd="${ThumbPitch1Kd}" Ki="${ThumbPitch1Ki}"/>
+    </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint jointName="${ThumbPitch2JointName}"
+    <xacro:revolute_joint_ex jointName="${ThumbPitch2JointName}"
                           parent="${ThumbPitch1LinkName}" child="${ThumbPitch2LinkName}"
                           origin_xyz="${ThumbPitch2FrameOrigin_X} ${ThumbPitch2FrameOrigin_Y} ${ThumbPitch2FrameOrigin_Z}"
                           origin_rpy="${ThumbPitch2FrameOrientation_Roll} ${ThumbPitch2FrameOrientation_Pitch} ${ThumbPitch2FrameOrientation_Yaw}"
-                          axis="${ThumbPitch2RotationAxis}">
+                          axis="${ThumbPitch2RotationAxis}" damping="0.5" friction="0.5">
         <xacro:if value="${(reflect+1)/2}">
           <limit effort="${ThumbPitch2TorqueLimit}" lower="${-reflect * ThumbPitch2PositionLimit_Upper}" upper="${-reflect * ThumbPitch2PositionLimit_Lower}" velocity="${ThumbPitch2VelocityLimit}"/>
         </xacro:if>
         <xacro:if value="${(-reflect+1)/2}">
           <limit effort="${ThumbPitch2TorqueLimit}" lower="${ThumbPitch2PositionLimit_Lower}" upper="${ThumbPitch2PositionLimit_Upper}" velocity="${ThumbPitch2VelocityLimit}"/>
         </xacro:if>
-    </xacro:revolute_joint>
+        <controller_gains Kp="${ThumbPitch2Kp}" Kd="${ThumbPitch2Kd}" Ki="${ThumbPitch2Ki}"/>
+    </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint jointName="${ThumbPitch3JointName}"
+    <xacro:revolute_joint_ex jointName="${ThumbPitch3JointName}"
                           parent="${ThumbPitch2LinkName}" child="${ThumbPitch3LinkName}"
                           origin_xyz="${ThumbPitch3FrameOrigin_X} ${ThumbPitch3FrameOrigin_Y} ${ThumbPitch3FrameOrigin_Z}"
                           origin_rpy="${ThumbPitch3FrameOrientation_Roll} ${ThumbPitch3FrameOrientation_Pitch} ${ThumbPitch3FrameOrientation_Yaw}"
-                          axis="${ThumbPitch3RotationAxis}">
+                          axis="${ThumbPitch3RotationAxis}" damping="0.5" friction="0.5">
         <xacro:if value="${(reflect+1)/2}">
           <limit effort="${ThumbPitch3TorqueLimit}" lower="${-reflect * ThumbPitch3PositionLimit_Upper}" upper="${-reflect * ThumbPitch3PositionLimit_Lower}" velocity="${ThumbPitch3VelocityLimit}"/>
         </xacro:if>
         <xacro:if value="${(-reflect+1)/2}">
           <limit effort="${ThumbPitch3TorqueLimit}" lower="${ThumbPitch3PositionLimit_Lower}" upper="${ThumbPitch3PositionLimit_Upper}" velocity="${ThumbPitch3VelocityLimit}"/>
         </xacro:if>
-    </xacro:revolute_joint>
+        <controller_gains Kp="${ThumbPitch3Kp}" Kd="${ThumbPitch3Kd}" Ki="${ThumbPitch3Ki}"/>
+    </xacro:revolute_joint_ex>
   </xacro:macro>
 
   <xacro:macro name="thumb_transmissions_hw" params="prefix reflect">
@@ -104,7 +109,7 @@
   <xacro:macro name="thumb_transmissions_sim" params="prefix">
     <xacro:simple_position_transmission jointName="${ThumbRollJointName}" actuatorName="${prefix}ThumbRollActuator" nodeName="${ThumbRollNode}" actuatorApi="${SimApi}"/>
 
-    <xacro:finger_transmission jointName="${ThumbPitch1JointName}" actuatorName="${prefix}ThumbPitch1Actuator" nodeName="${ThumbPitch1Node}" actuatorApi="${SimApi}" child1JointName="${ThumbPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${ThumbPitch2Node}" child2Ratio="${Pulley3Ratio}"/>
+    <xacro:finger_transmission jointName="${ThumbPitch1JointName}" actuatorName="${prefix}ThumbPitch1Actuator" nodeName="${ThumbPitch1Node}" actuatorApi="${SimApi}" child1JointName="${ThumbPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${ThumbPitch3JointName}" child2Ratio="${Pulley3Ratio}"/>
     
     <xacro:simple_passive_transmission jointName="${ThumbPitch2JointName}" nodeName="${ThumbPitch2Node}" apiName="${SimApi}"/>
     <xacro:simple_passive_transmission jointName="${ThumbPitch3JointName}" nodeName="${ThumbPitch3Node}" apiName="${SimApi}"/>

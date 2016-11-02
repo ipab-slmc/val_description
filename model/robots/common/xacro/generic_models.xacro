@@ -257,7 +257,7 @@
   </xacro:macro>
 
   <xacro:macro name="simple_passive_transmission" params="jointName nodeName apiName">
-    <transmission name="${jointName}PassiveTransmissionWithParent">
+    <transmission name="${jointName}PassiveTransmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
         <hardwareInterface>JointStateInterface</hardwareInterface>

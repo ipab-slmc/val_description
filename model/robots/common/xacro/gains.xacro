@@ -20,4 +20,17 @@
     <xacro:property name="UpperNeckPitchKd" value="0" />
     <xacro:property name="UpperNeckPitchKi" value="0.0" />
 
+    <xacro:property name="ThumbRollKp" value="5.0" />
+    <xacro:property name="ThumbRollKd" value="0.0" />
+    <xacro:property name="ThumbRollKi" value="0.0" />
+    <xacro:property name="ThumbPitch1Kp" value="5.0" />
+    <xacro:property name="ThumbPitch1Kd" value="0.0" />
+    <xacro:property name="ThumbPitch1Ki" value="0.0" />
+    <xacro:property name="ThumbPitch2Kp" value="5.0" />
+    <xacro:property name="ThumbPitch2Kd" value="0.0" />
+    <xacro:property name="ThumbPitch2Ki" value="0.0" />
+    <xacro:property name="ThumbPitch3Kp" value="5.0" />
+    <xacro:property name="ThumbPitch3Kd" value="0.0" />
+    <xacro:property name="ThumbPitch3Ki" value="0.0" />
+
 </robot>
