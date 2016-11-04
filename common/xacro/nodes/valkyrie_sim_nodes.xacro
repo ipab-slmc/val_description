@@ -1,10 +1,10 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie_sim_nodes">
 
-	<xacro:property name="HipYawNode" value="/pelvis_neck/pelvis_${prefix}_leg_j1" />
-	<xacro:property name="TrunkYawNode" value="/pelvis_neck/pelvis_waist" /> <!--Yaw-->
-	<xacro:property name="LowerNeckPitchNode" value="/pelvis_neck/neck_j1" />
-	<xacro:property name="NeckYawNode" value="/pelvis_neck/neck_j2" />
-	<xacro:property name="UpperNeckPitchNode" value="/pelvis_neck/neck_j3" />
+	<xacro:property name="HipYawNode" value="/pelvis/${prefix}_leg_j1" />
+	<xacro:property name="TrunkYawNode" value="/pelvis/waist" /> <!--Yaw-->
+	<xacro:property name="LowerNeckPitchNode" value="/neck/j1" />
+	<xacro:property name="NeckYawNode" value="/neck/j2" />
+	<xacro:property name="UpperNeckPitchNode" value="/neck/j3" />
 
 	<xacro:property name="HipRollNode" value="/${prefix}_leg/j2" />
 	<xacro:property name="HipPitchNode" value="/${prefix}_leg/j3" />
@@ -37,6 +37,18 @@
 	<xacro:property name="ThumbPitch1Node" value="/${prefix}_hand/thumb_pitch_1"/>
 	<xacro:property name="ThumbPitch2Node" value="/${prefix}_hand/thumb_pitch_2"/>
 	<xacro:property name="ThumbPitch3Node" value="/${prefix}_hand/thumb_pitch_3"/>
+
+	<xacro:property name="IndexFingerPitch1Node" value="/${prefix}_hand/index_finger_pitch_1"/>
+	<xacro:property name="IndexFingerPitch2Node" value="/${prefix}_hand/index_finger_pitch_2"/>
+	<xacro:property name="IndexFingerPitch3Node" value="/${prefix}_hand/index_finger_pitch_3"/>
+
+	<xacro:property name="MiddleFingerPitch1Node" value="/${prefix}_hand/middle_finger_pitch_1"/>
+	<xacro:property name="MiddleFingerPitch2Node" value="/${prefix}_hand/middle_finger_pitch_2"/>
+	<xacro:property name="MiddleFingerPitch3Node" value="/${prefix}_hand/middle_finger_pitch_3"/>
+
+	<xacro:property name="PinkyPitch1Node" value="/${prefix}_hand/pinky_pitch_1"/>
+	<xacro:property name="PinkyPitch2Node" value="/${prefix}_hand/pinky_pitch_2"/>
+	<xacro:property name="PinkyPitch3Node" value="/${prefix}_hand/pinky_pitch_3"/>
 
 	<xacro:macro name="all_channels" >
 		<Channels>
