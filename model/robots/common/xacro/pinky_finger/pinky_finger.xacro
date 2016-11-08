@@ -89,7 +89,7 @@
   </xacro:macro>
 
   <xacro:macro name="pinky_transmissions_sim" params="prefix">
-    <xacro:simple_transmission_with_child_joints jointName="${PinkyPitch1JointName}" actuatorName="${prefix}PinkyPitch1Actuator" nodeName="${PinkyPitch1Node}" actuatorApi="${SimApi}" child1JointName="${PinkyPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${PinkyPitch3JointName}" child2Ratio="${Pulley3Ratio}"/>
+    <xacro:simple_transmission_with_two_child_joints jointName="${PinkyPitch1JointName}" actuatorName="${prefix}PinkyPitch1Actuator" nodeName="${PinkyPitch1Node}" actuatorApi="${SimApi}" child1JointName="${PinkyPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${PinkyPitch3JointName}" child2Ratio="${Pulley3Ratio}"/>
     
     <xacro:simple_passive_transmission jointName="${PinkyPitch2JointName}" nodeName="${PinkyPitch2Node}" apiName="${SimApi}"/>
     <xacro:simple_passive_transmission jointName="${PinkyPitch3JointName}" nodeName="${PinkyPitch3Node}" apiName="${SimApi}"/>

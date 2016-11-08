@@ -88,7 +88,7 @@
   </xacro:macro>
 
   <xacro:macro name="middle_finger_transmissions_sim" params="prefix">
-    <xacro:simple_transmission_with_child_joints jointName="${MiddleFingerPitch1JointName}" actuatorName="${prefix}MiddleFingerPitch1Actuator" nodeName="${MiddleFingerPitch1Node}" actuatorApi="${SimApi}" child1JointName="${MiddleFingerPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${MiddleFingerPitch3JointName}" child2Ratio="${Pulley3Ratio}"/>
+    <xacro:simple_transmission_with_two_child_joints jointName="${MiddleFingerPitch1JointName}" actuatorName="${prefix}MiddleFingerPitch1Actuator" nodeName="${MiddleFingerPitch1Node}" actuatorApi="${SimApi}" child1JointName="${MiddleFingerPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${MiddleFingerPitch3JointName}" child2Ratio="${Pulley3Ratio}"/>
     
     <xacro:simple_passive_transmission jointName="${MiddleFingerPitch2JointName}" nodeName="${MiddleFingerPitch2Node}" apiName="${SimApi}"/>
     <xacro:simple_passive_transmission jointName="${MiddleFingerPitch3JointName}" nodeName="${MiddleFingerPitch3Node}" apiName="${SimApi}"/>

@@ -43,15 +43,13 @@
     </link>
 
     <xacro:make_thumb prefix="left" reflect="1" thumb_root_link="leftPalm"/>
-    <xacro:make_index_finger prefix="left" reflect="1" index_finger_root_link="leftPalm"/>
+    <!-- <xacro:make_index_finger prefix="left" reflect="1" index_finger_root_link="leftPalm"/>
     <xacro:make_middle_finger prefix="left" reflect="1" middle_finger_root_link="leftPalm"/>
-    <xacro:make_pinky_finger prefix="left" reflect="1" pinky_finger_root_link="leftPalm"/>
+    <xacro:make_pinky_finger prefix="left" reflect="1" pinky_finger_root_link="leftPalm"/> -->
     
     <xacro:thumb_transmissions_sim prefix="left"/>
-    <xacro:index_finger_transmissions_sim prefix="left"/>
+    <!-- <xacro:index_finger_transmissions_sim prefix="left"/>
     <xacro:middle_finger_transmissions_sim prefix="left"/>
-    <xacro:pinky_transmissions_sim prefix="left"/>
-
-    <xacro:add_sim_harness harnessed_link="leftPalm" />    
+    <xacro:pinky_transmissions_sim prefix="left"/> -->
 
 </robot>

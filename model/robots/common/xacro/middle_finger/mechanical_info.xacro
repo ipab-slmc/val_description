@@ -5,6 +5,6 @@
   <!-- Pulley-2 diameter = 0.0127m -->
   <!-- Pulley-3 diameter = 0.01016 -->
   <xacro:property name="Pulley2Ratio" value="1.344" />
-  <xacro:property name="Pulley3Ratio" value="1.25" />
+  <xacro:property name="Pulley3Ratio" value="1.68" />
   
 </robot>

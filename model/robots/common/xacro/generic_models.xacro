@@ -240,7 +240,7 @@
     </transmission>
   </xacro:macro>
 
-  <xacro:macro name="simple_transmission_with_child_joints" params="jointName actuatorName nodeName actuatorApi child1JointName child1Ratio child2JointName child2Ratio">
+  <xacro:macro name="simple_transmission_with_two_child_joints" params="jointName actuatorName nodeName actuatorApi child1JointName child1Ratio child2JointName child2Ratio">
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
