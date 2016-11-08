@@ -2,8 +2,8 @@
 <robot name="valkyrie_firmware_locations" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- Public Base URL -->
-    <xacro:property name="PublicProcFirmwareBaseURL" value="http://nasa-jsc-robotics/bintray.com/val-firmware/"/>
-    <xacro:property name="PublicFPGAFirmwareBaseURL" value="http://nasa-jsc-robotics/bintray.com/val-firmware/"/>
+    <xacro:property name="PublicProcFirmwareBaseURL" value="http://nasa-jsc-robotics.bintray.com/val-firmware/"/>
+    <xacro:property name="PublicFPGAFirmwareBaseURL" value="http://nasa-jsc-robotics.bintray.com/val-firmware/"/>
 
     <!-- Private Base URL -->
     <xacro:property name="PrivateProcFirmwareBaseURL" value="http://flexo.jsc.nasa.gov/bamboo/browse/EMB-SEAP/latest/artifact/shared/"/>
