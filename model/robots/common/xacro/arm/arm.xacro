@@ -3,7 +3,6 @@
 
   <xacro:include filename="$(find val_description)/common/xacro/joint_names/valkyrie_joint_names.xacro"/>
   <xacro:include filename="$(find val_description)/common/xacro/actuator_names/valkyrie_actuator_names.xacro"/>
-  <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_nodes.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/joint_axes.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/link_names.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/joint_limits.xacro"/>
@@ -288,8 +287,8 @@
     <xacro:simple_transmission jointName="${ShoulderYawJointName}" actuatorName="${ShoulderYawActuatorName}" nodeName="${ShoulderYawNode}" actuatorApi="${SimApi}"/>
     <xacro:simple_transmission jointName="${ElbowPitchJointName}" actuatorName="${ElbowPitchActuatorName}" nodeName="${ElbowPitchNode}" actuatorApi="${SimApi}"/> 
     <xacro:simple_position_transmission jointName="${ForearmYawActuatorName}" actuatorName="${ForearmYawActuatorName}" nodeName="${ForearmYawNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_position_transmission jointName="${WristRollJointName}" actuatorName="${WristRollActuatorSimName}" nodeName="${WristRollActuatorSimNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_position_transmission jointName="${WristPitchJointName}" actuatorName="${WristPitchActuatorSimName}" nodeName="${WristPitchActuatorSimNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_position_transmission jointName="${WristRollJointName}" actuatorName="${WristRollActuatorSimName}" nodeName="${WristRollActuatorNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_position_transmission jointName="${WristPitchJointName}" actuatorName="${WristPitchActuatorSimName}" nodeName="${WristPitchActuatorNode}" actuatorApi="${SimApi}"/> 
   </xacro:macro>
 
   <xacro:macro name="arm_transmissions_sim_no_hands" params="prefix">
