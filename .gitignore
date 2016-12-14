@@ -16,3 +16,7 @@ instance/instances/instance_files/*
 *.save
 *.old
 *.swo
+*.BACKUP.*.xacro
+*.BASE.*.xacro
+*.LOCAL.*.xacro
+*.REMOTE.*.xacro
