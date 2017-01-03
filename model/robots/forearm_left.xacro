@@ -5,6 +5,9 @@
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/api/forearm_api.xacro"/>
+
+    <!-- Arm include -->
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
     
     <xacro:property name="prefix" value="left"/>
     <xacro:property name="reflect" value="1"/>
