@@ -8,8 +8,8 @@
                         ixx="${PelvisLinkInertia_IXX}" ixy="${PelvisLinkInertia_IXY}" ixz="${PelvisLinkInertia_IXZ}"
                         iyy="${PelvisLinkInertia_IYY}" iyz="${PelvisLinkInertia_IYZ}" izz="${PelvisLinkInertia_IZZ}"
                         origin_rpy="0 0 0"
-                        visual_mesh="${mesh_root}/pelvis/pelvis.dae"
-                        collision_mesh="${mesh_root}/pelvis/pelvis.dae"/>
+                        visual_mesh="${pelvis_mesh_dir}/pelvis.dae"
+                        collision_mesh="${pelvis_mesh_dir}/pelvis.dae"/>
     </xacro:macro>
 
     <xacro:macro name="v1_pelvis_sensors">
