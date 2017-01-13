@@ -9,14 +9,21 @@
                     visual_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"
                     collision_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"/>
 
-    <xacro:standard_link name="${HipRollLinkName}"
+    <!-- <xacro:standard_link name="${HipRollLinkName}"
                     mass="${HipRollLinkMass}"
                     origin_xyz="${HipRollLinkComPosition}"
                     ixx="${HipRollLinkInertia_IXX}" ixy="${HipRollLinkInertia_IXY}" ixz="${HipRollLinkInertia_IXZ}"
                     iyy="${HipRollLinkInertia_IYY}" iyz="${HipRollLinkInertia_IYZ}" izz="${HipRollLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${leg_mesh_dir}/lj2_${prefix}.dae"
-                    collision_mesh="${leg_mesh_dir}/lj2_${prefix}.dae"/>
+                    collision_mesh="${leg_mesh_dir}/lj2_${prefix}.dae"/> -->
+
+    <xacro:link_no_mesh_no_collision name="${HipRollLinkName}"
+                    mass="${HipRollLinkMass}"
+                    origin_xyz="${HipRollLinkComPosition}"
+                    ixx="${HipRollLinkInertia_IXX}" ixy="${HipRollLinkInertia_IXY}" ixz="${HipRollLinkInertia_IXZ}"
+                    iyy="${HipRollLinkInertia_IYY}" iyz="${HipRollLinkInertia_IYZ}" izz="${HipRollLinkInertia_IZZ}"
+                    origin_rpy="0 0 0"/>
 
     <xacro:standard_link name="${HipPitchLinkName}"
                     mass="${HipPitchLinkMass}"

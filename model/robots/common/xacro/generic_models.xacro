@@ -25,6 +25,18 @@
     </link>
   </xacro:macro>
 
+  <xacro:macro name="link_no_mesh_no_collision" params="name mass origin_rpy origin_xyz ixx ixy ixz iyy iyz izz">
+    <link name="${name}">
+      <inertial>
+        <mass value="${mass}"/>
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
+        <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" 
+                 iyy="${iyy}" iyz="${iyz}"
+                 izz="${izz}" />
+        </inertial>
+    </link>
+  </xacro:macro>
+
   <xacro:macro name="link_no_mesh" params="name width height depth mass origin_xyz origin_rpy ixx ixy ixz iyy iyz izz">
     <link name="${name}">
       <inertial>
