@@ -7,12 +7,12 @@
 	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/limbs/waist/waist.xacro" />
 	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/sensors/imu.xacro" />
 	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/sensors/ati_force_torque.xacro" />
+	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/firmware.xacro" />
 	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/common/joint_calibration_angles.xacro" />
 
 	<RobotInstance id="${instance}" />
 
 	<xacro:all_channels/>
-	<xacro:firmware_base_url/>
 
 	<Mechanisms>
 		<xacro:leg prefix="left" reflect="1" j1_serial_number="${leftLegJ1SerialNumber}" j2_serial_number="${leftLegJ2SerialNumber}" j3_serial_number="${leftLegJ3SerialNumber}" j4_serial_number="${leftLegJ4SerialNumber}" ankle_left_actuator_serial="${leftAnkleLeftActuatorSerialNumber}" ankle_right_actuator_serial="${leftAnkleRightActuatorSerialNumber}"/>
@@ -32,5 +32,8 @@
 		<xacro:ati_force_torque name="left_foot_force_torque" serial_number="${left_foot_ATI_serial}" node="${left_foot_ATI_node}"/>
 		<xacro:ati_force_torque name="right_foot_force_torque" serial_number="${right_foot_ATI_serial}" node="${right_foot_ATI_node}"/>
 	</Devices>
+
+	<xacro:firmware_base_url/>
+    <xacro:firmware />
     
 </robot>
