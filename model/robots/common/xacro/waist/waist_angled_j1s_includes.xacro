@@ -1,28 +1,17 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="waist_angled_j1s_frame_parameters">
 
-  <xacro:property name="TorsoYawFrameOrigin_X" value="0.0"/>
-  <xacro:property name="TorsoYawFrameOrigin_Y" value="0.0"/>
-  <xacro:property name="TorsoYawFrameOrigin_Z" value="0.0"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/joint_axes.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/joint_axes.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/link_names.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/joint_limits.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/frame_parameters.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/mass_parameters.xacro"/>
 
-  <xacro:property name="TorsoYawFrameOrientation_Roll" value="0.0"/>
-  <xacro:property name="TorsoYawFrameOrientation_Pitch" value="0.0"/>
-  <xacro:property name="TorsoYawFrameOrientation_Yaw" value="0.0"/>
+  <xacro:include filename="$(find val_description)/common/xacro/joint_names/valkyrie_joint_names.xacro"/>
+  <xacro:include filename="$(find val_description)/common/xacro/actuator_names/valkyrie_actuator_names.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/sensors/microstrain.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/sensors/flea.xacro"/>
 
-  <xacro:property name="TorsoPitchFrameOrigin_X" value="0.04191"/>
-  <xacro:property name="TorsoPitchFrameOrigin_Y" value="0.0"/>
-  <xacro:property name="TorsoPitchFrameOrigin_Z" value="0.04502658"/>
-
-  <xacro:property name="TorsoPitchFrameOrientation_Roll" value="0.0"/>
-  <xacro:property name="TorsoPitchFrameOrientation_Pitch" value="0.0"/>
-  <xacro:property name="TorsoPitchFrameOrientation_Yaw" value="0.0"/>
-
-  <xacro:property name="TorsoRollFrameOrigin_X" value="0.0"/>
-  <xacro:property name="TorsoRollFrameOrigin_Y" value="0.0"/>
-  <xacro:property name="TorsoRollFrameOrigin_Z" value="0.0203"/>
-
-  <xacro:property name="TorsoRollFrameOrientation_Roll" value="0.0"/>
-  <xacro:property name="TorsoRollFrameOrientation_Pitch" value="0.0"/>
-  <xacro:property name="TorsoRollFrameOrientation_Yaw" value="0.0"/>
-
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/waist.xacro"/> 
 </robot>
