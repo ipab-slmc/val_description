@@ -10,7 +10,7 @@
 
     <xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs_angled_j1s"/>
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
-    <xacro:property name="waist_mesh_dir" value="package://val_description/model/meshes/torso"/>
+    <xacro:property name="waist_mesh_dir" value="package://val_description/model/meshes/torso_angled_j1s"/>
     <xacro:property name="head_mesh_dir" value="package://val_description/model/meshes/head"/>
     <xacro:property name="pelvis_mesh_dir" value="package://val_description/model/meshes/pelvis_angled_j1s"/>
     <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
@@ -39,7 +39,7 @@
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
 
     <!-- Waist include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/waist_includes.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/angled_j1s_includes.xacro"/>
 
     <!-- Base xacro file that calls macros from included files above -->
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_base_sim.xacro"/>
