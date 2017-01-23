@@ -17,8 +17,8 @@
                     ixx="${ThumbRollLinkInertia_IXX}" ixy="${ThumbRollLinkInertia_IXY}" ixz="${ThumbRollLinkInertia_IXZ}"
                     iyy="${ThumbRollLinkInertia_IYY}" iyz="${ThumbRollLinkInertia_IYZ}" izz="${ThumbRollLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/fingers/thumbj1_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/thumbj1_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/thumbj1_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/thumbj1_${prefix}.dae"/>
 
     <xacro:standard_link name="${ThumbPitch1LinkName}"
                     mass="${ThumbPitch1LinkMass}"
@@ -26,8 +26,8 @@
                     ixx="${ThumbPitch1LinkInertia_IXX}" ixy="${ThumbPitch1LinkInertia_IXY}" ixz="${ThumbPitch1LinkInertia_IXZ}"
                     iyy="${ThumbPitch1LinkInertia_IYY}" iyz="${ThumbPitch1LinkInertia_IYZ}" izz="${ThumbPitch1LinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/fingers/thumbj2_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/thumbj2_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/thumbj2_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/thumbj2_${prefix}.dae"/>
 
     <xacro:standard_link name="${ThumbPitch2LinkName}"
                     mass="${ThumbPitch2LinkMass}"
@@ -35,8 +35,8 @@
                     ixx="${ThumbPitch2LinkInertia_IXX}" ixy="${ThumbPitch2LinkInertia_IXY}" ixz="${ThumbPitch2LinkInertia_IXZ}"
                     iyy="${ThumbPitch2LinkInertia_IYY}" iyz="${ThumbPitch2LinkInertia_IYZ}" izz="${ThumbPitch2LinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/fingers/thumbj3_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/thumbj3_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/thumbj3_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/thumbj3_${prefix}.dae"/>
 
     <xacro:standard_link name="${ThumbPitch3LinkName}"
                     mass="${ThumbPitch3LinkMass}"
@@ -44,8 +44,8 @@
                     ixx="${ThumbPitch3LinkInertia_IXX}" ixy="${ThumbPitch3LinkInertia_IXY}" ixz="${ThumbPitch3LinkInertia_IXZ}"
                     iyy="${ThumbPitch3LinkInertia_IYY}" iyz="${ThumbPitch3LinkInertia_IYZ}" izz="${ThumbPitch3LinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/fingers/thumbj4_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/thumbj4_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/thumbj4_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/thumbj4_${prefix}.dae"/>
 
     <xacro:revolute_joint_ex jointName="${ThumbRollJointName}"
                           parent="${ThumbRollParentLinkName}" child="${ThumbRollLinkName}"

@@ -8,10 +8,10 @@
     <gazebo reference="pelvis">
       <self_collide>false</self_collide>
     </gazebo>
-    <gazebo reference="leftHipRollLink">
+    <gazebo reference="leftHipYawLink">
       <self_collide>false</self_collide>
     </gazebo>
-    <gazebo reference="rightHipRollLink">
+    <gazebo reference="rightHipYawLink">
       <self_collide>false</self_collide>
     </gazebo>
     </xacro:macro>

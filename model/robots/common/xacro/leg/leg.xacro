@@ -1,31 +1,20 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="leg">
-  <xacro:include filename="$(find val_description)/common/xacro/joint_names/valkyrie_joint_names.xacro"/>
-  <xacro:include filename="$(find val_description)/common/xacro/actuator_names/valkyrie_actuator_names.xacro"/>
-  <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/joint_axes.xacro"/>
-  <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/link_names.xacro"/>
-  <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/joint_limits.xacro"/>
-  <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/frame_parameters.xacro"/>
-  <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/mass_parameters.xacro"/>
-  <xacro:include filename="$(find val_description)/model/robots/common/xacro/sensors/ati_force_torque.xacro"/>
-
   <xacro:macro name="make_leg_links" params="prefix reflect leg_root_link">
     <xacro:standard_link name="${HipYawLinkName}"
                     mass="${HipYawLinkMass}"
                     origin_xyz="${HipYawLinkComPosition}" origin_rpy="0 0 0" 
                     ixx="${HipYawLinkInertia_IXX}" ixy="${HipYawLinkInertia_IXY}" ixz="${HipYawLinkInertia_IXZ}"
                     iyy="${HipYawLinkInertia_IYY}" iyz="${HipYawLinkInertia_IYZ}" izz="${HipYawLinkInertia_IZZ}"
-                    visual_mesh="${mesh_root}/legs/lj1_${prefix}.dae"
-                    collision_mesh="${mesh_root}/legs/lj1_${prefix}.dae"/>
+                    visual_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"
+                    collision_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"/>
 
-    <xacro:standard_link name="${HipRollLinkName}"
+    <xacro:link_no_mesh_no_collision name="${HipRollLinkName}"
                     mass="${HipRollLinkMass}"
                     origin_xyz="${HipRollLinkComPosition}"
                     ixx="${HipRollLinkInertia_IXX}" ixy="${HipRollLinkInertia_IXY}" ixz="${HipRollLinkInertia_IXZ}"
                     iyy="${HipRollLinkInertia_IYY}" iyz="${HipRollLinkInertia_IYZ}" izz="${HipRollLinkInertia_IZZ}"
-                    origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/legs/lj2_${prefix}.dae"
-                    collision_mesh="${mesh_root}/legs/lj2_${prefix}.dae"/>
+                    origin_rpy="0 0 0"/>
 
     <xacro:standard_link name="${HipPitchLinkName}"
                     mass="${HipPitchLinkMass}"
@@ -33,8 +22,8 @@
                     ixx="${HipPitchLinkInertia_IXX}" ixy="${HipPitchLinkInertia_IXY}" ixz="${HipPitchLinkInertia_IXZ}"
                     iyy="${HipPitchLinkInertia_IYY}" iyz="${HipPitchLinkInertia_IYZ}" izz="${HipPitchLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/legs/lj3_${prefix}.dae"
-                    collision_mesh="${mesh_root}/legs/lj3_${prefix}.dae"/>
+                    visual_mesh="${leg_mesh_dir}/lj3_${prefix}.dae"
+                    collision_mesh="${leg_mesh_dir}/lj3_${prefix}.dae"/>
 
     <xacro:standard_link name="${KneePitchLinkName}"
                     mass="${KneePitchLinkMass}"
@@ -42,8 +31,8 @@
                     ixx="${KneePitchLinkInertia_IXX}" ixy="${KneePitchLinkInertia_IXY}" ixz="${KneePitchLinkInertia_IXZ}"
                     iyy="${KneePitchLinkInertia_IYY}" iyz="${KneePitchLinkInertia_IYZ}" izz="${KneePitchLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/legs/lj4_${prefix}.dae"
-                    collision_mesh="${mesh_root}/legs/lj4_${prefix}.dae"/>
+                    visual_mesh="${leg_mesh_dir}/lj4_${prefix}.dae"
+                    collision_mesh="${leg_mesh_dir}/lj4_${prefix}.dae"/>
 
     <xacro:standard_link name="${AnklePitchLinkName}"
                     mass="${AnklePitchLinkMass}"
@@ -51,8 +40,8 @@
                     ixx="${AnklePitchLinkInertia_IXX}" ixy="${AnklePitchLinkInertia_IXY}" ixz="${AnklePitchLinkInertia_IXZ}"
                     iyy="${AnklePitchLinkInertia_IYY}" iyz="${AnklePitchLinkInertia_IYZ}" izz="${AnklePitchLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/legs/lj5.dae"
-                    collision_mesh="${mesh_root}/legs/lj5.dae"/>
+                    visual_mesh="${leg_mesh_dir}/lj5.dae"
+                    collision_mesh="${leg_mesh_dir}/lj5.dae"/>
 
     <xacro:link_box_collision_mesh_visual name="${AnkleRollLinkName}"
                     mass="${FootMass}"
@@ -60,11 +49,11 @@
                     ixx="${FootInertia_IXX}" ixy="${FootInertia_IXY}" ixz="${FootInertia_IXZ}"
                     iyy="${FootInertia_IYY}" iyz="${FootInertia_IYZ}" izz="${FootInertia_IZZ}"
                     inertial_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/legs/foot.dae"
+                    visual_mesh="${leg_mesh_dir}/foot.dae"
                     width="0.27"
                     height="0.16"
                     depth="0.064"
-                    box_xyz="0.066 0.0 -0.056"
+                    box_xyz="0.045 0.0 -0.056"
                     box_rpy="0.0 0.0 0.0" />
 
     <!-- foot contact parameters copied from atlas_description in drcsim -->

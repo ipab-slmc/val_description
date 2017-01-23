@@ -46,7 +46,6 @@
   <xacro:property name="AnklePitchLinkInertia_IYZ" value="0.0" />
   <xacro:property name="AnklePitchLinkInertia_IZZ" value="0.000007015" />
 
-
   <xacro:property name="FootMass" value="2.270000" />
   <xacro:property name="FootComPosition" value="0.037702  0.005161  -0.047634" />
   <xacro:property name="FootInertia_IXX" value="0.006239360" />
@@ -55,8 +54,5 @@
   <xacro:property name="FootInertia_IYY" value="0.017786991" />
   <xacro:property name="FootInertia_IYZ" value="-0.000187749" />
   <xacro:property name="FootInertia_IZZ" value="0.020774433" />
-
-
-
 
 </robot>
