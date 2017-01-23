@@ -14,6 +14,7 @@
 
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/sensors/sensor_transforms.xacro"/>
 
     <xacro:include filename="$(find val_description)/common/xacro/api/valkyrie_sim_api.xacro"/>
     <xacro:include filename="$(find val_description)/model/urdf/multisense_sl.urdf" />

@@ -65,32 +65,11 @@
     <xacro:make_waist_common waist_root_link="${waist_root_link}"/>
   </xacro:macro>
 
-  <xacro:macro name="v1_trunk_sensors">
-    <xacro:microstrain_sensor sensorName="leftTorsoImu"
-                              parentLink="${TorsoRollLinkName}"
-                              origin_xyz="-0.0627634 0.134239 0.3630676"
-                              origin_rpy="-1.5707 0.0 0.0" />
-
-    <xacro:flea3_camera sensorName="rightHazardCamera"
-                        parentLink="${TorsoRollLinkName}"
-                        origin_xyz="0.0345 -0.0406 0.1135"
-                        origin_rpy="1.57 0.0 1.57"
-                        imageFormat="R8G8B8"
-                        frameRate="60"/>
-
-    <xacro:flea3_camera sensorName="leftHazardCamera"
-                        parentLink="${TorsoRollLinkName}"
-                        origin_xyz="0.0345 0.0406 0.1135"
-                        origin_rpy="1.57 0.0 1.57"
-                        imageFormat="R8G8B8"
-                        frameRate="60"/>
-   </xacro:macro>
-
   <xacro:macro name="v1_trunk_sensors_usb" params="sensor_node_tag sensor_api_tag sensor_port_tag">
     <xacro:usb_microstrain_sensor sensorName="leftTorsoImu"
                               parentLink="${TorsoRollLinkName}"
-                              origin_xyz="-0.0627634 0.134239 0.3630676"
-                              origin_rpy="-1.5707 0.0 0.0"
+                              origin_xyz="${TorsoImuFrameOrigin_XYZ}"
+                              origin_rpy="${TorsoImuFrameOrientation_RPY}"
                               sensor_node="${sensor_node_tag}"
                               sensor_api="${sensor_api_tag}"
                               sensor_port="${sensor_port_tag}" />

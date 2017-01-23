@@ -9,6 +9,7 @@
 	
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_nodes.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/sensors/sensor_transforms.xacro"/>
 
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/config/valkyrie_D_transmissions.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/serial_numbers/valkyrie_D_serials.xacro"/>
