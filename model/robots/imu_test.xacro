@@ -1,6 +1,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie">
 
     <xacro:property name="mesh_root" value="package://val_description/model/meshes"/>
+    <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_nodes.xacro"/>
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_imu_base.xacro"/>

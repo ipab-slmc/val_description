@@ -2,6 +2,8 @@
 
 	<xacro:property name="instance" value="forearm_testbench_right" />
 	<xacro:property name="prefix" value="right" />
+        <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/firmware.xacro" />
+        <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/forearm_firmware.xacro" />
 	<xacro:include filename="$(find val_description)/common/xacro/nodes/forearm_testbench_nodes_right.xacro" />
 	<xacro:include filename="$(find val_description)/common/xacro/serial_numbers/forearm_testbench_serials.xacro" />
     <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/mechanisms/mechanisms.xacro"/>
@@ -11,10 +13,12 @@
     <Channels>
 
     </Channels>
-	<xacro:firmware_base_url/>
+        <xacro:firmware_base_url/>
+    <xacro:firmware />
+
 
     <Mechanisms>
-    <xacro:simple_mechanism name="testbench_actuator" serial_number="${forearm_yaw_serial_number}" node="${testbench_node}" processor_firmware="" fpga_firmware=""/>
+    <xacro:simple_mechanism name="testbench_actuator" serial_number="${forearm_yaw_serial_number}" node="${testbench_node}" />
     <xacro:forearm mechanism_name="${prefix}Forearm" serial_number="${forearm_serial_number}" athena1_node="${Athena1Node}" athena2_node="${Athena2Node}" />
 	</Mechanisms>
 

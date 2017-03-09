@@ -25,6 +25,18 @@
     </link>
   </xacro:macro>
 
+  <xacro:macro name="link_no_mesh_no_collision" params="name mass origin_rpy origin_xyz ixx ixy ixz iyy iyz izz">
+    <link name="${name}">
+      <inertial>
+        <mass value="${mass}"/>
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
+        <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" 
+                 iyy="${iyy}" iyz="${iyz}"
+                 izz="${izz}" />
+        </inertial>
+    </link>
+  </xacro:macro>
+
   <xacro:macro name="link_no_mesh" params="name width height depth mass origin_xyz origin_rpy ixx ixy ixz iyy iyz izz">
     <link name="${name}">
       <inertial>
@@ -240,6 +252,36 @@
     </transmission>
   </xacro:macro>
 
+  <xacro:macro name="simple_transmission_with_two_child_joints" params="jointName actuatorName nodeName actuatorApi child1JointName child1Ratio child2JointName child2Ratio">
+    <transmission name="${jointName}Transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${jointName}">
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <child name="${child1JointName}" ratio="${child1Ratio}"/>
+        <child name="${child2JointName}" ratio="${child2Ratio}"/>
+      </joint>
+      <actuator name="${actuatorName}">
+        <node name="${nodeName}"/>
+        <mechanicalReduction>1</mechanicalReduction>
+        <api name="${actuatorApi}" />
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+  <xacro:macro name="simple_passive_transmission" params="jointName nodeName apiName">
+    <transmission name="${jointName}PassiveTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${jointName}">
+        <hardwareInterface>JointStateInterface</hardwareInterface>
+      </joint>
+      <actuator name="${jointName}PassiveActuator">
+        <node name="${nodeName}"/>
+        <mechanicalReduction>1</mechanicalReduction>
+        <api name="${apiName}" />
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
   <xacro:macro name="simple_forearm_position_transmission" params="jointName actuatorName nodeName actuatorApi reflect">
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
@@ -256,7 +298,7 @@
 
   <xacro:macro name="pushrod_transmission" params="transmissionName transmissionType joint1Name joint2Name joint1Role joint2Role actuator1Name actuator2Name actuator1Node actuator2Node actuator1Api actuator2Api actuator1Role actuator2Role">
     <transmission name="${transmissionName}">
-      <type>robot_transmission_interface/${transmissionType}</type>
+      <type>${transmissionType}</type>
       <joint name="${joint1Name}">
         <role>${joint1Role}</role>
         <hardwareInterface>EffortJointInterface</hardwareInterface>
