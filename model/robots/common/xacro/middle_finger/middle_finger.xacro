@@ -8,6 +8,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/middle_finger/frame_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/middle_finger/mechanical_info.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/middle_finger/mass_parameters.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_hand_contact.xacro"/>
 
   <xacro:macro name="make_middle_finger" params="prefix reflect middle_finger_root_link">
 
@@ -19,6 +20,7 @@
                     origin_rpy="0 0 0" 
                     visual_mesh="${fingers_mesh_dir}/middlej1_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/middlej1_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${MiddleFingerPitch1LinkName}" />
 
     <xacro:standard_link name="${MiddleFingerPitch2LinkName}" 
                     mass="${MiddleFingerPitch2LinkMass}" 
@@ -28,6 +30,7 @@
                     origin_rpy="0 0 0" 
                     visual_mesh="${fingers_mesh_dir}/middlej2_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/middlej2_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${MiddleFingerPitch2LinkName}" />
 
     <xacro:standard_link name="${MiddleFingerPitch3LinkName}" 
                     mass="${MiddleFingerPitch3LinkMass}" 
@@ -37,6 +40,7 @@
                     origin_rpy="0 0 0" 
                     visual_mesh="${fingers_mesh_dir}/middlej3_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/middlej3_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${MiddleFingerPitch3LinkName}" />
 
     <xacro:revolute_joint_ex jointName="${MiddleFingerPitch1JointName}" 
                           parent="${MiddleFingerPitch1ParentLinkName}" child="${MiddleFingerPitch1LinkName}"

@@ -8,6 +8,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/index_finger/frame_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/index_finger/mechanical_info.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/index_finger/mass_parameters.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_hand_contact.xacro"/>
 
   <xacro:macro name="make_index_finger" params="prefix reflect index_finger_root_link">
     
@@ -19,6 +20,7 @@
                     origin_rpy="0 0 0" 
                     visual_mesh="${fingers_mesh_dir}/indexj1_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/indexj1_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${IndexFingerPitch1LinkName}" />
 
     <xacro:standard_link name="${IndexFingerPitch2LinkName}" 
                     mass="${IndexFingerPitch2LinkMass}" 
@@ -28,6 +30,7 @@
                     origin_rpy="0 0 0" 
                     visual_mesh="${fingers_mesh_dir}/indexj2_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/indexj2_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${IndexFingerPitch2LinkName}" />
 
     <xacro:standard_link name="${IndexFingerPitch3LinkName}" 
                     mass="${IndexFingerPitch3LinkMass}" 
@@ -37,6 +40,7 @@
                     origin_rpy="0 0 0" 
                     visual_mesh="${fingers_mesh_dir}/indexj3_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/indexj3_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${IndexFingerPitch3LinkName}" />
 
     <xacro:revolute_joint_ex jointName="${IndexFingerPitch1JointName}" 
                           parent="${IndexFingerPitch1ParentLinkName}" child="${IndexFingerPitch1LinkName}"

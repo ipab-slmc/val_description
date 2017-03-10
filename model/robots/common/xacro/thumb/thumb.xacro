@@ -9,6 +9,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/thumb/mass_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/thumb/mechanical_info.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/gains.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_hand_contact.xacro"/>
 
   <xacro:macro name="make_thumb" params="prefix reflect thumb_root_link">
     <xacro:standard_link name="${ThumbRollLinkName}"
@@ -19,6 +20,7 @@
                     origin_rpy="0 0 0"
                     visual_mesh="${fingers_mesh_dir}/thumbj1_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/thumbj1_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${ThumbRollLinkName}" />
 
     <xacro:standard_link name="${ThumbPitch1LinkName}"
                     mass="${ThumbPitch1LinkMass}"
@@ -28,6 +30,7 @@
                     origin_rpy="0 0 0"
                     visual_mesh="${fingers_mesh_dir}/thumbj2_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/thumbj2_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${ThumbPitch1LinkName}" />
 
     <xacro:standard_link name="${ThumbPitch2LinkName}"
                     mass="${ThumbPitch2LinkMass}"
@@ -37,6 +40,7 @@
                     origin_rpy="0 0 0"
                     visual_mesh="${fingers_mesh_dir}/thumbj3_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/thumbj3_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${ThumbPitch2LinkName}" />
 
     <xacro:standard_link name="${ThumbPitch3LinkName}"
                     mass="${ThumbPitch3LinkMass}"
@@ -46,6 +50,7 @@
                     origin_rpy="0 0 0"
                     visual_mesh="${fingers_mesh_dir}/thumbj4_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/thumbj4_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${ThumbPitch3LinkName}" />
 
     <xacro:revolute_joint_ex jointName="${ThumbRollJointName}"
                           parent="${ThumbRollParentLinkName}" child="${ThumbRollLinkName}"

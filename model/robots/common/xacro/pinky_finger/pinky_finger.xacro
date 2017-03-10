@@ -8,6 +8,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/pinky_finger/frame_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/pinky_finger/mechanical_info.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/pinky_finger/mass_parameters.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_hand_contact.xacro"/>
 
   <xacro:macro name="make_pinky_finger" params="prefix reflect pinky_finger_root_link">
 
@@ -19,6 +20,7 @@
                     origin_rpy="0 0 0"
                     visual_mesh="${fingers_mesh_dir}/pinkyj1_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/pinkyj1_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${PinkyPitch1LinkName}" />
 
     <xacro:standard_link name="${PinkyPitch2LinkName}"
                     mass="${PinkyPitch2LinkMass}"
@@ -28,6 +30,7 @@
                     origin_rpy="0 0 0"
                     visual_mesh="${fingers_mesh_dir}/pinkyj2_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/pinkyj2_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${PinkyPitch2LinkName}" />
 
     <xacro:standard_link name="${PinkyPitch3LinkName}"
                     mass="${PinkyPitch3LinkMass}"
@@ -37,6 +40,7 @@
                     origin_rpy="0 0 0"
                     visual_mesh="${fingers_mesh_dir}/pinkyj3_${prefix}.dae"
                     collision_mesh="${fingers_mesh_dir}/pinkyj3_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${PinkyPitch3LinkName}" />
 
     <xacro:revolute_joint_ex jointName="${PinkyPitch1JointName}"
                           parent="${PinkyPitch1ParentLinkName}" child="${PinkyPitch1LinkName}"
