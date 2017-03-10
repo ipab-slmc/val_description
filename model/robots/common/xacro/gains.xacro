@@ -12,7 +12,7 @@
 
     <xacro:property name="LowerNeckPitchKp" value="50" />
     <xacro:property name="LowerNeckPitchKd" value="3" />
-    <xacro:property name="LowerNeckPitchKi" value="0.0" />
+    <xacro:property name="LowerNeckPitchKi" value="3" />
     <xacro:property name="NeckYawKp" value="50" />
     <xacro:property name="NeckYawKd" value="3" />
     <xacro:property name="NeckYawKi" value="0.0" />
