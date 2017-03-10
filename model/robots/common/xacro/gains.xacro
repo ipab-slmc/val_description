@@ -34,33 +34,33 @@
     <xacro:property name="ThumbPitch3Ki" value="0.0" />
 
     <xacro:property name="IndexFingerPitch1Kp" value="5.0" />
-    <xacro:property name="IndexFingerPitch1Kd" value="0.3" />
+    <xacro:property name="IndexFingerPitch1Kd" value="0.0" />
     <xacro:property name="IndexFingerPitch1Ki" value="0.0" />
     <xacro:property name="IndexFingerPitch2Kp" value="5.0" />
-    <xacro:property name="IndexFingerPitch2Kd" value="0.3" />
+    <xacro:property name="IndexFingerPitch2Kd" value="0.0" />
     <xacro:property name="IndexFingerPitch2Ki" value="0.0" />
     <xacro:property name="IndexFingerPitch3Kp" value="5.0" />
-    <xacro:property name="IndexFingerPitch3Kd" value="0.3" />
+    <xacro:property name="IndexFingerPitch3Kd" value="0.0" />
     <xacro:property name="IndexFingerPitch3Ki" value="0.0" />
 
     <xacro:property name="MiddleFingerPitch1Kp" value="5.0" />
-    <xacro:property name="MiddleFingerPitch1Kd" value="0.3" />
+    <xacro:property name="MiddleFingerPitch1Kd" value="0.0" />
     <xacro:property name="MiddleFingerPitch1Ki" value="0.0" />
     <xacro:property name="MiddleFingerPitch2Kp" value="5.0" />
-    <xacro:property name="MiddleFingerPitch2Kd" value="0.3" />
+    <xacro:property name="MiddleFingerPitch2Kd" value="0.0" />
     <xacro:property name="MiddleFingerPitch2Ki" value="0.0" />
     <xacro:property name="MiddleFingerPitch3Kp" value="5.0" />
-    <xacro:property name="MiddleFingerPitch3Kd" value="0.3" />
+    <xacro:property name="MiddleFingerPitch3Kd" value="0.0" />
     <xacro:property name="MiddleFingerPitch3Ki" value="0.0" />
 
     <xacro:property name="PinkyPitch1Kp" value="5.0" />
-    <xacro:property name="PinkyPitch1Kd" value="0.3" />
+    <xacro:property name="PinkyPitch1Kd" value="0.0" />
     <xacro:property name="PinkyPitch1Ki" value="0.0" />
     <xacro:property name="PinkyPitch2Kp" value="5.0" />
-    <xacro:property name="PinkyPitch2Kd" value="0.3" />
+    <xacro:property name="PinkyPitch2Kd" value="0.0" />
     <xacro:property name="PinkyPitch2Ki" value="0.0" />
     <xacro:property name="PinkyPitch3Kp" value="5.0" />
-    <xacro:property name="PinkyPitch3Kd" value="0.3" />
+    <xacro:property name="PinkyPitch3Kd" value="0.0" />
     <xacro:property name="PinkyPitch3Ki" value="0.0" />
 
 </robot>

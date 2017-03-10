@@ -117,6 +117,7 @@
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/palm_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/palm_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${WristPitchLinkName}" />
 
     <xacro:revolute_joint_ex jointName="${ForearmYawJointName}"
                           parent="${lower_arm_root_link}" child="${ForearmLinkName}"
