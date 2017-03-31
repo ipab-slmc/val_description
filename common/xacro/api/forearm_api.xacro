@@ -2,7 +2,7 @@
 
     <xacro:property name="ForearmYawApi" value="robot_hardware_interface/TurbodriverAPI" />
     <xacro:property name="ThumbFingerApi" value="midas_finger_interface/MidasFingerAPI" />
-    <xacro:property name="IndexFingerApi" value="midas_finger_interface/MidasFingerAPI"/>
+    <xacro:property name="IndexFingerApi" value="robot_hardware_interface/TurbodriverAPI"/>
     <xacro:property name="MiddleFingerApi" value="midas_finger_interface/MidasFingerAPI"/>
     <xacro:property name="PinkyApi" value="midas_finger_interface/MidasFingerAPI"/>
 
