@@ -45,4 +45,20 @@
     </Mechanism>
 </xacro:macro>
 
+<xacro:macro name="hand_mechanism" params="mechanism_name serial_number index_node middle_node pinky_node thumb_prox_node thumb_dist_node thumb_roll_node wrist_left_node wrist_right_node" >
+    <Mechanism id="${mechanism_name}" type="hand">
+            <SerialNumber id="${serial_number}"/>
+            <Nodes>
+                <Index id="${index_node}"/>
+                <Middle id="${middle_node}"/>
+                <Pinky id="${pinky_node}"/>
+                <ThumbProx id="${thumb_prox_node}"/>
+                <ThumbDist id="${thumb_dist_node}"/>
+                <ThumbRoll id="${thumb_roll_node}"/>
+                <WristLeft id="${wrist_left_node}"/>
+                <WristRight id="${wrist_right_node}"/>
+            </Nodes>
+    </Mechanism>
+</xacro:macro>
+
 </robot>
