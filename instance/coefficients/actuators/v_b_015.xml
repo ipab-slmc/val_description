@@ -6,7 +6,7 @@
     <SafetyFile id="safety.xml" />
     <Coeffs>
         <Coeff id="EncMountingDir" value="-1.0" />
-        <Coeff id="EncoderIndexOffset" value="2.89871048927" />
+        <Coeff id="EncoderIndexOffset" value="2.69871048927" />
         <Coeff id="JointKinematicDir" value="-1.0" />
         <Coeff id="JointSensors_MotorPosition" value="1.0" />
         <Coeff id="JointSensors_OutputForce" value="2.0" />
