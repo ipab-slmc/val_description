@@ -7,7 +7,7 @@
     <ControllerFile id="h_sv.xml" />
     <LocationFile id="finger.xml"/>
     <SensorsFile id="sensors_leonidas.xml" />
-    <SafetyFile id="safety.xml" />
+    <SafetyFile id="safety_fingers.xml" />
     <Coeffs>
         <Coeff id="EncMountingDir" value="1.0" />
         <Coeff id="EncoderIndexOffset" value="3.27"/>
