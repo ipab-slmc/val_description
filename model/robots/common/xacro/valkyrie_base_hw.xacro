@@ -28,12 +28,13 @@
     <xacro:arm_transmissions_hw prefix="left" reflect="1"/>
     <xacro:arm_transmissions_hw prefix="right" reflect="-1"/>
     <xacro:neck_transmissions_hw />
-    <xacro:index_finger_transmissions_hw prefix="left" reflect="1" />
+<!--    <xacro:index_finger_transmissions_hw prefix="left" reflect="1" /> 
     <xacro:middle_finger_transmissions_hw prefix="left" reflect="1"/>
     <xacro:pinky_finger_transmissions_hw prefix="left" reflect="1"/>
     <xacro:thumb_transmissions_hw prefix="left" reflect="1"/>
     <xacro:index_finger_transmissions_hw prefix="right" reflect="-1"/>
     <xacro:middle_finger_transmissions_hw prefix="right" reflect="-1"/>
     <xacro:pinky_finger_transmissions_hw prefix="right" reflect="-1"/>
-    <xacro:thumb_transmissions_hw prefix="right" reflect="-1"/>
+    <xacro:thumb_transmissions_hw prefix="right" reflect="-1"/> -->
+
 </robot>
