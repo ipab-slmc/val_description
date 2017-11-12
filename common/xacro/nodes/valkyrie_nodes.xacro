@@ -45,26 +45,27 @@
 	<xacro:property name="right_foot_ATI_node" value="/right_leg/ankle/left_actuator" />
 
 	<xacro:property name="IndexFingerNode" value="/${prefix}_arm/hand/index"/>
-	<xacro:property name="IndexFingerPitch1Node" value="/${prefix}_arm/forearm_sensors/index/pitch_1"/>
-	<xacro:property name="IndexFingerPitch2Node" value="/${prefix}_arm/forearm_sensors/index/pitch_2"/>
-	<xacro:property name="IndexFingerPitch3Node" value="/${prefix}_arm/forearm_sensors/index/pitch_3"/>
+	<xacro:property name="IndexFingerPitch1Node" value="/${prefix}_arm/forearm_sensors/index"/>
+	<xacro:property name="IndexFingerPitch2Node" value="/${prefix}_arm/forearm_sensors/index"/>
+	<xacro:property name="IndexFingerPitch3Node" value="/${prefix}_arm/forearm_sensors/index"/>
 
 	<xacro:property name="MiddleFingerNode" value="/${prefix}_arm/hand/middle"/>
-	<xacro:property name="MiddleFingerPitch1Node" value="/${prefix}_arm/forearm_sensors/middle/pitch_1"/>
-	<xacro:property name="MiddleFingerPitch2Node" value="/${prefix}_arm/forearm_sensors/middle/pitch_2"/>
-	<xacro:property name="MiddleFingerPitch3Node" value="/${prefix}_arm/forearm_sensors/middle/pitch_3"/>
+	<xacro:property name="MiddleFingerPitch1Node" value="/${prefix}_arm/forearm_sensors/middle"/>
+	<xacro:property name="MiddleFingerPitch2Node" value="/${prefix}_arm/forearm_sensors/middle"/>
+	<xacro:property name="MiddleFingerPitch3Node" value="/${prefix}_arm/forearm_sensors/middle"/>
 
 	<xacro:property name="PinkyFingerNode" value="/${prefix}_arm/hand/pinky"/>
-	<xacro:property name="PinkyPitch1Node" value="/${prefix}_arm/forearm_sensors/pinky/pitch_1"/>
-	<xacro:property name="PinkyPitch2Node" value="/${prefix}_arm/forearm_sensors/pinky/pitch_2"/>
-	<xacro:property name="PinkyPitch3Node" value="/${prefix}_arm/forearm_sensors/pinky/pitch_3"/>
+	<xacro:property name="PinkyPitch1Node" value="/${prefix}_arm/forearm_sensors/pinky"/>
+	<xacro:property name="PinkyPitch2Node" value="/${prefix}_arm/forearm_sensors/pinky"/>
+	<xacro:property name="PinkyPitch3Node" value="/${prefix}_arm/forearm_sensors/pinky"/>
 
 	<xacro:property name="ThumbRollNode" value="/${prefix}_arm/hand/thumb_roll"/>
 	<xacro:property name="ThumbProximalNode" value="/${prefix}_arm/hand/thumb_proximal"/>
 	<xacro:property name="ThumbDistalNode" value="/${prefix}_arm/hand/thumb_distal"/>
-	<xacro:property name="ThumbPitch1Node" value="/${prefix}_arm/forearm_sensors/thumb/pitch_1"/>
-	<xacro:property name="ThumbPitch2Node" value="/${prefix}_arm/forearm_sensors/thumb/pitch_2"/>
-	<xacro:property name="ThumbPitch3Node" value="/${prefix}_arm/forearm_sensors/thumb/pitch_3"/>
+	<xacro:property name="ThumbRollSensNode" value="/${prefix}_arm/forearm_sensors/thumb"/>
+	<xacro:property name="ThumbPitch1Node" value="/${prefix}_arm/forearm_sensors/thumb"/>
+	<xacro:property name="ThumbPitch2Node" value="/${prefix}_arm/forearm_sensors/thumb"/>
+	<xacro:property name="ThumbPitch3Node" value="/${prefix}_arm/forearm_sensors/thumb"/>
 
 	<xacro:macro name="all_channels" >
 		<Channels>
