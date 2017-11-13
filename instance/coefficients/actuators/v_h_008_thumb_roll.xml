@@ -22,5 +22,6 @@
         <Coeff id="SpringAPS_MountingGain" value="-1.0"/>
         <Coeff id="JointOutputAPS_MountingGain" value="1.0"/>
         <Coeff id="SixStep_CurrentToMotCom" value="5"/>
+        <Coeff id="TemperatureSensor_SensorLoc1" value="0.0"/>
     </Coeffs>
 </CoeffData>
