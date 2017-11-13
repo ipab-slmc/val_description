@@ -19,17 +19,17 @@
 	<xacro:property name="ForearmYawJointName" value="${prefix}ForearmYaw"/>
 	<xacro:property name="WristRollJointName" value="${prefix}WristRoll"/>
 	<xacro:property name="WristPitchJointName" value="${prefix}WristPitch"/>
-	<xacro:property name="IndexFingerPitch1JointName" value="${prefix}IndexFingerPitch1Sensor"/>
-	<xacro:property name="IndexFingerPitch2JointName" value="${prefix}IndexFingerPitch2Sensor"/>
-	<xacro:property name="IndexFingerPitch3JointName" value="${prefix}IndexFingerPitch3Sensor"/>
-	<xacro:property name="MiddleFingerPitch1JointName" value="${prefix}MiddleFingerPitch1Sensor"/>
-	<xacro:property name="MiddleFingerPitch2JointName" value="${prefix}MiddleFingerPitch2Sensor"/>
-	<xacro:property name="MiddleFingerPitch3JointName" value="${prefix}MiddleFingerPitch3Sensor"/>
-	<xacro:property name="PinkyPitch1JointName" value="${prefix}PinkyPitch1Sensor"/>
-	<xacro:property name="PinkyPitch2JointName" value="${prefix}PinkyPitch2Sensor"/>
-	<xacro:property name="PinkyPitch3JointName" value="${prefix}PinkyPitch3Sensor"/>
-	<xacro:property name="ThumbRollJointName" value="${prefix}ThumbRollSensor"/>
-	<xacro:property name="ThumbPitch1JointName" value="${prefix}ThumbPitch1Sensor"/>
-	<xacro:property name="ThumbPitch2JointName" value="${prefix}ThumbPitch2Sensor"/>
-	<xacro:property name="ThumbPitch3JointName" value="${prefix}ThumbPitch3Sensor"/>
+	<xacro:property name="IndexFingerPitch1JointName" value="${prefix}IndexFingerPitch1"/>
+	<xacro:property name="IndexFingerPitch2JointName" value="${prefix}IndexFingerPitch2"/>
+	<xacro:property name="IndexFingerPitch3JointName" value="${prefix}IndexFingerPitch3"/>
+	<xacro:property name="MiddleFingerPitch1JointName" value="${prefix}MiddleFingerPitch1"/>
+	<xacro:property name="MiddleFingerPitch2JointName" value="${prefix}MiddleFingerPitch2"/>
+	<xacro:property name="MiddleFingerPitch3JointName" value="${prefix}MiddleFingerPitch3"/>
+	<xacro:property name="PinkyPitch1JointName" value="${prefix}PinkyPitch1"/>
+	<xacro:property name="PinkyPitch2JointName" value="${prefix}PinkyPitch2"/>
+	<xacro:property name="PinkyPitch3JointName" value="${prefix}PinkyPitch3"/>
+	<xacro:property name="ThumbRollJointName" value="${prefix}ThumbRoll"/>
+	<xacro:property name="ThumbPitch1JointName" value="${prefix}ThumbPitch1"/>
+	<xacro:property name="ThumbPitch2JointName" value="${prefix}ThumbPitch2"/>
+	<xacro:property name="ThumbPitch3JointName" value="${prefix}ThumbPitch3"/>
 </robot>
