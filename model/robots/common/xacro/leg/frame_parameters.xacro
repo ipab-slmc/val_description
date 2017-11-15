@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_leg_frame_parameters">
 
   <xacro:property name="HipYawFrameOrigin_X" value="0.0"/>
-  <xacro:property name="HipYawFrameOrigin_Y" value="${reflect * 0.1016}"/>
+  <xacro:property name="HipYawFrameOrigin_Y" value="0.1016"/>
   <xacro:property name="HipYawFrameOrigin_Z" value="-0.1853"/>
 
   <xacro:property name="HipYawFrameOrientation_Roll" value="0.0"/>
@@ -26,7 +26,7 @@
   <xacro:property name="HipPitchFrameOrientation_Yaw" value="0.0"/>
 
   <xacro:property name="KneePitchFrameOrigin_X" value="0.000112225"/>
-  <xacro:property name="KneePitchFrameOrigin_Y" value="${reflect * 0.0361046}"/>
+  <xacro:property name="KneePitchFrameOrigin_Y" value="0.0361046"/>
   <xacro:property name="KneePitchFrameOrigin_Z" value="-0.430959"/>
 
   <xacro:property name="KneePitchFrameOrientation_Roll" value="0.0"/>

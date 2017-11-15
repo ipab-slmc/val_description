@@ -1,4 +1,4 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie_nodes">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_nodes">
 
     <xacro:property name="ForearmYawKp" value="1000" />
     <xacro:property name="ForearmYawKd" value="0.0" />

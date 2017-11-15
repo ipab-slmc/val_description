@@ -1,4 +1,4 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie_sim_nodes">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_sim_nodes">
 
 	<xacro:property name="HipYawNode" value="/pelvis/${prefix}_leg_j1" />
 	<xacro:property name="TrunkYawNode" value="/pelvis/waist" /> <!--Yaw-->
@@ -12,7 +12,7 @@
 	<xacro:property name="AnklePitchActuatorNode" value="/${prefix}_leg/ankle/pitch_actuator" />
 	<xacro:property name="AnkleRollActuatorNode" value="/${prefix}_leg/ankle/roll_actuator" />
 
-	<xacro:property name="ShoulderPitchNode" value="/trunk/${prefix}_arm_j1" />
+	<!--<xacro:property name="ShoulderPitchNode" value="/trunk/${prefix}_arm_j1" /> -->
 	<xacro:property name="ShoulderRollNode" value="/${prefix}_arm/j2" />
 	<xacro:property name="ShoulderYawNode" value="/${prefix}_arm/j3" />
 	<xacro:property name="ElbowPitchNode" value="/${prefix}_arm/j4" />

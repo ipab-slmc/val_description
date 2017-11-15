@@ -10,7 +10,7 @@
   <xacro:property name="ShoulderPitchFrameOrientation_Yaw" value="0.0"/>
 
   <xacro:property name="ShoulderRollFrameOrigin_X" value="0.0"/>
-  <xacro:property name="ShoulderRollFrameOrigin_Y" value="${reflect * 0.2499}"/>
+  <xacro:property name="ShoulderRollFrameOrigin_Y" value="0.2499"/>
   <xacro:property name="ShoulderRollFrameOrigin_Z" value="0.0"/>
 
   <xacro:property name="ShoulderRollFrameOrientation_Roll" value="0.0"/>
@@ -26,7 +26,7 @@
   <xacro:property name="ShoulderYawFrameOrientation_Yaw" value="0.0"/>
 
   <xacro:property name="ElbowPitchFrameOrigin_X" value="0.0254"/>
-  <xacro:property name="ElbowPitchFrameOrigin_Y" value="${reflect * 0.33}"/>
+  <xacro:property name="ElbowPitchFrameOrigin_Y" value="0.33"/>
   <xacro:property name="ElbowPitchFrameOrigin_Z" value="0.0"/>
 
   <xacro:property name="ElbowPitchFrameOrientation_Roll" value="0.0"/>
@@ -42,7 +42,7 @@
   <xacro:property name="ForearmYawFrameOrientation_Yaw" value="0.0"/>
 
   <xacro:property name="WristRollFrameOrigin_X" value="0.0"/>
-  <xacro:property name="WristRollFrameOrigin_Y" value="${reflect * 0.2871}"/>
+  <xacro:property name="WristRollFrameOrigin_Y" value="0.2871"/>
   <xacro:property name="WristRollFrameOrigin_Z" value="0.0"/>
 
   <xacro:property name="WristRollFrameOrientation_Roll" value="0.0"/>

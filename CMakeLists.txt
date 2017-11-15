@@ -49,25 +49,26 @@ foreach(it ${urdf_xacro_files})
 endforeach(it)
 
 
-foreach(it ${instance_xacro_files})
-  get_filename_component(basepath ${it} PATH)
-  get_filename_component(basename ${it} NAME_WE)
-
-  message("processing xml file :" ${basepath}/${basename})
-
-  set(expanded_file "${INSTANCE_OUTPUT_PATH}/${basename}.xml")
-  message("produce expanded file :" ${expanded_file})
-
-  xacro_add_xacro_file(${it} ${expanded_file})
-  
-  set(instance_files ${instance_files} ${expanded_file})
-endforeach(it)
+#foreach(it ${instance_xacro_files})
+#  get_filename_component(basepath ${it} PATH)
+#  get_filename_component(basename ${it} NAME_WE)
+#
+#  message("processing xml file :" ${basepath}/${basename})
+#
+#  set(expanded_file "${INSTANCE_OUTPUT_PATH}/${basename}.xml")
+#  message("produce expanded file :" ${expanded_file})
+#
+#  xacro_add_xacro_file(${it} ${expanded_file})
+#  
+#  set(instance_files ${instance_files} ${expanded_file})
+#endforeach(it)
 
 catkin_python_setup()
 
 catkin_add_nosetests(test)
 
-add_custom_target(val_description_media_files ALL DEPENDS ${urdf_files} ${instance_files})
+#add_custom_target(val_description_media_files ALL DEPENDS ${urdf_files} ${instance_files})
+add_custom_target(val_description_media_files ALL DEPENDS ${urdf_files})
 
 # install urdf and xacro files
 install(DIRECTORY model

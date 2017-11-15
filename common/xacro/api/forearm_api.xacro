@@ -1,4 +1,4 @@
- <robot xmlns:xacro="http://ros.org/wiki/xacro" name="forearm_api">
+ <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="forearm_api">
 
     <xacro:property name="ForearmYawApi" value="robot_hardware_interface/TurbodriverAPI" />
     <xacro:property name="IndexFingerApi" value="robot_hardware_interface/TurbodriverAPI"/>
