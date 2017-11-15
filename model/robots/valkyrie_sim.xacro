@@ -46,6 +46,6 @@
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_base_sim.xacro"/>
 
     <xacro:add_self_collide />
-    <xacro:add_sim_harness harnessed_link="${TorsoRollLinkName}" />    
+    <xacro:add_sim_harness harnessed_link="torso" />    
 
 </robot>

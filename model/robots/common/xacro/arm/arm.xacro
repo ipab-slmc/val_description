@@ -263,12 +263,12 @@
     <xacro:simple_transmission jointName="${prefix}${ElbowPitchJointName}" actuatorName="${prefix}${ElbowPitchActuatorName}" nodeName="/${prefix}${ElbowPitchNode}" actuatorApi="${ElbowPitchApi}"/> 
     <xacro:simple_transmission jointName="${prefix}${ForearmYawActuatorName}" actuatorName="${prefix}${ForearmYawActuatorName}" nodeName="/${prefix}${ForearmYawNode}" actuatorApi="${ForearmYawApi}"/> 
     <xacro:pushrod_transmission transmissionName="${prefix}WristTransmission" transmissionType="${WristTransmissionType}" joint1Name="${prefix}${WristPitchJointName}" joint2Name="${prefix}${WristRollJointName}" joint1Role="pitch" joint2Role="roll" actuator1Name="${prefix}${WristRightActuatorName}" actuator2Name="${prefix}${WristLeftActuatorName}" actuator1Node="/${prefix}${WristRightActuatorNode}" actuator2Node="/${prefix}${WristLeftActuatorNode}" actuator1Api="${WristRightActuatorApi}" actuator2Api="${WristLeftActuatorApi}" actuator1Role="bottom" actuator2Role="top"/>
-    <xacro:simple_transmission jointName="${prefix}${IndexFingerPitch1ActuatorName}" actuatorName="${prefix}${IndexFingerPitch1ActuatorName}" nodeName="${IndexFingerNode}" actuatorApi="${IndexFingerApi}"/> 
-    <xacro:simple_transmission jointName="${prefix}${MiddleFingerPitch1ActuatorName}" actuatorName="${prefix}${MiddleFingerPitch1ActuatorName}" nodeName="${MiddleFingerNode}" actuatorApi="${MiddleFingerApi}"/> 
-    <xacro:simple_transmission jointName="${prefix}${PinkyPitch1ActuatorName}" actuatorName="${prefix}${PinkyPitch1ActuatorName}" nodeName="${PinkyFingerNode}" actuatorApi="${PinkyFingerApi}"/> 
-    <xacro:simple_transmission jointName="${prefix}${ThumbRollActuatorName}" actuatorName="${prefix}${ThumbRollActuatorName}" nodeName="${ThumbRollNode}" actuatorApi="${ThumbRollFingerApi}"/> 
-    <xacro:simple_transmission jointName="${prefix}${ThumbPitch1ActuatorName}" actuatorName="${prefix}${ThumbPitch1ActuatorName}" nodeName="${ThumbProximalNode}" actuatorApi="${ThumbProximalFingerApi}"/> 
-    <xacro:simple_transmission jointName="${prefix}${ThumbPitch2ActuatorName}" actuatorName="${prefix}${ThumbPitch2ActuatorName}" nodeName="${ThumbDistalNode}" actuatorApi="${ThumbDistalFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${IndexFingerPitch1ActuatorName}" actuatorName="${prefix}${IndexFingerPitch1ActuatorName}" nodeName="/${prefix}${IndexFingerNode}" actuatorApi="${IndexFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${MiddleFingerPitch1ActuatorName}" actuatorName="${prefix}${MiddleFingerPitch1ActuatorName}" nodeName="/${prefix}${MiddleFingerNode}" actuatorApi="${MiddleFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${PinkyPitch1ActuatorName}" actuatorName="${prefix}${PinkyPitch1ActuatorName}" nodeName="/${prefix}${PinkyFingerNode}" actuatorApi="${PinkyFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbRollActuatorName}" actuatorName="${prefix}${ThumbRollActuatorName}" nodeName="/${prefix}${ThumbRollNode}" actuatorApi="${ThumbRollFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbPitch1ActuatorName}" actuatorName="${prefix}${ThumbPitch1ActuatorName}" nodeName="/${prefix}${ThumbProximalNode}" actuatorApi="${ThumbProximalFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbPitch2ActuatorName}" actuatorName="${prefix}${ThumbPitch2ActuatorName}" nodeName="/${prefix}${ThumbDistalNode}" actuatorApi="${ThumbDistalFingerApi}"/> 
   </xacro:macro>
 
   <xacro:macro name="arm_transmissions_no_hands" params="prefix">

@@ -85,16 +85,16 @@
   </xacro:macro>
 
   <xacro:macro name="middle_finger_transmissions_hw" params="prefix reflect">
-    <xacro:simple_forearm_position_transmission jointName="${prefix}${MiddleFingerPitch1JointName}" actuatorName="${prefix}MiddlePitch1Actuator" nodeName="${MiddleFingerPitch1Node}" actuatorApi="${MiddleFingerApi}" reflect="${reflect}"/>
-    <xacro:simple_forearm_position_transmission jointName="${prefix}${MiddleFingerPitch2JointName}" actuatorName="${prefix}MiddlePitch2Actuator" nodeName="${MiddleFingerPitch2Node}" actuatorApi="${MiddleFingerApi}" reflect="${reflect}"/>
-    <xacro:simple_forearm_position_transmission jointName="${prefix}${MiddleFingerPitch3JointName}" actuatorName="${prefix}MiddlePitch3Actuator" nodeName="${MiddleFingerPitch3Node}" actuatorApi="${MiddleFingerApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${prefix}${MiddleFingerPitch1JointName}" actuatorName="${prefix}MiddlePitch1Actuator" nodeName="/${prefix}${MiddleFingerPitch1Node}" actuatorApi="${MiddleFingerProximalApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${prefix}${MiddleFingerPitch2JointName}" actuatorName="${prefix}MiddlePitch2Actuator" nodeName="/${prefix}${MiddleFingerPitch2Node}" actuatorApi="${MiddleFingerMedialApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${prefix}${MiddleFingerPitch3JointName}" actuatorName="${prefix}MiddlePitch3Actuator" nodeName="/${prefix}${MiddleFingerPitch3Node}" actuatorApi="${MiddleFingerDistalApi}" reflect="${reflect}"/>
   </xacro:macro>
 
   <xacro:macro name="middle_finger_transmissions_sim" params="prefix">
-    <xacro:simple_transmission_with_two_child_joints jointName="${prefix}${MiddleFingerPitch1JointName}" actuatorName="${prefix}MiddleFingerPitch1Actuator" nodeName="${MiddleFingerPitch1Node}" actuatorApi="${SimApi}" child1JointName="${prefix}${MiddleFingerPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${prefix}${MiddleFingerPitch3JointName}" child2Ratio="${Pulley3Ratio}"/>
+    <xacro:simple_transmission_with_two_child_joints jointName="${prefix}${MiddleFingerPitch1JointName}" actuatorName="${prefix}MiddleFingerPitch1Actuator" nodeName="/${prefix}${MiddleFingerPitch1Node}" actuatorApi="${SimApi}" child1JointName="${prefix}${MiddleFingerPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${prefix}${MiddleFingerPitch3JointName}" child2Ratio="${Pulley3Ratio}"/>
     
-    <xacro:simple_passive_transmission jointName="${prefix}${MiddleFingerPitch2JointName}" nodeName="${MiddleFingerPitch2Node}" apiName="${SimApi}"/>
-    <xacro:simple_passive_transmission jointName="${prefix}${MiddleFingerPitch3JointName}" nodeName="${MiddleFingerPitch3Node}" apiName="${SimApi}"/>
+    <xacro:simple_passive_transmission jointName="${prefix}${MiddleFingerPitch2JointName}" nodeName="/${prefix}${MiddleFingerPitch2Node}" apiName="${SimApi}"/>
+    <xacro:simple_passive_transmission jointName="${prefix}${MiddleFingerPitch3JointName}" nodeName="/${prefix}${MiddleFingerPitch3Node}" apiName="${SimApi}"/>
   </xacro:macro>
 
 </robot>

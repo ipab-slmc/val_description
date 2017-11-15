@@ -10,8 +10,8 @@
 	<Channels>
 	</Channels>
 
-	<xacro:all_channels/>
-        <xacro:firmware_base_url/>
+	<!--<xacro:all_channels/>-->
+    <xacro:firmware_base_url/>
 
 	<Mechanisms>
 		<xacro:simple_mechanism name="testbench_actuator" serial_number="${testbench_serial_number}" node="${testbench_node}" />

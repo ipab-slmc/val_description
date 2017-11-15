@@ -27,10 +27,10 @@
 	<xacro:property name="WristLeftActuatorName" value="WristLeftActuator"/>
 	<xacro:property name="WristPitchActuatorSimName" value="WristPitchActuator"/>
 	<xacro:property name="WristRollActuatorSimName" value="WristRollActuator"/>
-	<xacro:property name="IndexFingerPitch1ActuatorName" value="IndexFingerPitch1"/>
-	<xacro:property name="MiddleFingerPitch1ActuatorName" value="MiddleFingerPitch1"/>
-	<xacro:property name="PinkyPitch1ActuatorName" value="PinkyPitch1"/>
-	<xacro:property name="ThumbRollActuatorName" value="ThumbRoll"/>
-	<xacro:property name="ThumbPitch1ActuatorName" value="ThumbPitch1"/>
-	<xacro:property name="ThumbPitch2ActuatorName" value="ThumbPitch2"/>
+	<xacro:property name="IndexFingerPitch1ActuatorName" value="IndexFingerMotorPitch1"/>
+	<xacro:property name="MiddleFingerPitch1ActuatorName" value="MiddleFingerMotorPitch1"/>
+	<xacro:property name="PinkyPitch1ActuatorName" value="PinkyMotorPitch1"/>
+	<xacro:property name="ThumbRollActuatorName" value="ThumbMotorRoll"/>
+	<xacro:property name="ThumbPitch1ActuatorName" value="ThumbMotorPitch1"/>
+	<xacro:property name="ThumbPitch2ActuatorName" value="ThumbMotorPitch2"/>
 </robot>
