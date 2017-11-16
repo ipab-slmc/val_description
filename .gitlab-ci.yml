@@ -1,5 +1,3 @@
-image: js-er-code.jsc.nasa.gov:5005/vs/val_image_trusty_indigo_fast_build:latest
-
 variables:
   GIT_STRATEGY: none
   CI_SCRIPTS_REPO: "git@js-er-code.jsc.nasa.gov:ci_build/ci_scripts.git"
