@@ -45,7 +45,7 @@ build1404:
     - mkdir $CI_PROJECT_DIR/$CI_JOB_STAGE
     - cp $WORK_AREA/debian_ws/*.deb $CI_PROJECT_DIR/$CI_JOB_STAGE/
     # This is a metapackage, and cannot be unit tested.
-    # - $CI_PROJECT_DIR/$CI_SCRIPTS_PATH/catkin/catkin_run_tests.py --work-area $CI_PROJECT_DIR/$WORK_AREA --catkin-package-name $PACKAGE_NAME --ros-distro $ROS_DISTRO --prefix $DEB_PREFIX_ABS $TEST_EXTRAS
+    - $CI_PROJECT_DIR/$CI_SCRIPTS_PATH/catkin/catkin_run_tests.py --work-area $CI_PROJECT_DIR/$WORK_AREA --catkin-package-name $PACKAGE_NAME --ros-distro $ROS_DISTRO --prefix $DEB_PREFIX_ABS $TEST_EXTRAS
     - artifactory_upload debian --package $CI_PROJECT_DIR/$CI_JOB_STAGE --repository $DEB_REPO --component $DEB_COMP --architecture $DEB_ARCH --branch $CI_COMMIT_REF_NAME
   artifacts:
     paths:
@@ -72,7 +72,7 @@ build1604:
     - mkdir $CI_PROJECT_DIR/$CI_JOB_STAGE
     - cp $WORK_AREA/debian_ws/*.deb $CI_PROJECT_DIR/$CI_JOB_STAGE/
     # This is a metapackage, and cannot be unit tested.
-    # - $CI_PROJECT_DIR/$CI_SCRIPTS_PATH/catkin/catkin_run_tests.py --work-area $CI_PROJECT_DIR/$WORK_AREA --catkin-package-name $PACKAGE_NAME --ros-distro $ROS_DISTRO --prefix $DEB_PREFIX_ABS $TEST_EXTRAS
+    - $CI_PROJECT_DIR/$CI_SCRIPTS_PATH/catkin/catkin_run_tests.py --work-area $CI_PROJECT_DIR/$WORK_AREA --catkin-package-name $PACKAGE_NAME --ros-distro $ROS_DISTRO --prefix $DEB_PREFIX_ABS $TEST_EXTRAS
     - artifactory_upload debian --package $CI_PROJECT_DIR/$CI_JOB_STAGE --repository $DEB_REPO --component $DEB_COMP --architecture $DEB_ARCH --branch $CI_COMMIT_REF_NAME
   artifacts:
     paths:
