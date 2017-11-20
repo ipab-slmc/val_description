@@ -44,6 +44,8 @@
 	<xacro:property name="left_foot_ATI_node" value="/left_leg/ankle/left_actuator" />
 	<xacro:property name="right_foot_ATI_node" value="/right_leg/ankle/left_actuator" />
 
+	<xacro:property name="HandSensorNode" value="_arm/forearm_sensors"/>
+	
 	<xacro:property name="IndexFingerNode" value="/${prefix}_arm/hand/index"/>
 	<xacro:property name="IndexFingerPitch1Node" value="/${prefix}_arm/forearm_sensors/index"/>
 	<xacro:property name="IndexFingerPitch2Node" value="/${prefix}_arm/forearm_sensors/index"/>
