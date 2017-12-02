@@ -1,0 +1,31 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie_arm">
+
+    <link name="/world">
+    </link>
+
+    <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
+    <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
+
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
+    <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
+    <xacro:include filename="$(find val_description)/common/xacro/api/valkyrie_sim_api.xacro"/>
+
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
+
+
+    <xacro:make_arm prefix="right" reflect="-1" arm_root_link="/world" />
+    <xacro:make_thumb prefix="right" reflect="-1" thumb_root_link="rightPalm"/>
+    <xacro:make_index_finger prefix="right" reflect="-1" index_finger_root_link="rightPalm"/>
+    <xacro:make_middle_finger prefix="right" reflect="-1" middle_finger_root_link="rightPalm"/>
+    <xacro:make_pinky_finger prefix="right" reflect="-1" pinky_finger_root_link="rightPalm"/>
+    
+    <xacro:include_multisense_sim />
+
+    <xacro:arm_transmissions_sim prefix="right"/>
+    <xacro:thumb_transmissions_sim prefix="right"/>
+    <xacro:index_finger_transmissions_sim prefix="right"/>
+    <xacro:middle_finger_transmissions_sim prefix="right"/>
+    <xacro:pinky_transmissions_sim prefix="right"/>
+
+</robot>
