@@ -1,7 +1,26 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie_arm">
 
-    <link name="/world">
+    <link name="/world"/>
+    
+    <material name="brick">
+        <color rgba="0.5 0.125 0.13 1"/>
+    </material>
+    
+    <link name="wall">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 -0.08 0.5"/>
+            <geometry>
+                <box size="1 0.16 1"/>
+            </geometry>
+            <material name="brick"/>
+        </visual>
     </link>
+    
+    <joint name="wall_joint" type="fixed">
+        <parent link="/world"/>
+        <child link="wall"/>
+        <origin rpy="0.0 0.0 1.57" xyz="0.0 0.0 0.0"/>
+    </joint>
 
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
     <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
@@ -14,7 +33,7 @@
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
 
 
-    <xacro:make_arm prefix="right" reflect="-1" arm_root_link="/world" />
+    <xacro:make_arm prefix="right" reflect="-1" arm_root_link="wall" />
     <xacro:make_thumb prefix="right" reflect="-1" thumb_root_link="rightPalm"/>
     <xacro:make_index_finger prefix="right" reflect="-1" index_finger_root_link="rightPalm"/>
     <xacro:make_middle_finger prefix="right" reflect="-1" middle_finger_root_link="rightPalm"/>
