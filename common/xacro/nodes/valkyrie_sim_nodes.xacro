@@ -17,7 +17,7 @@
 	<xacro:property name="ShoulderYawNode" value="_arm/j3" />
 	<xacro:property name="ElbowPitchNode" value="_arm/j4" />
 	<xacro:property name="ForearmYawNode" value="_arm/j5" />
-	<xacro:property name="WristRollActuatorNode" value="_arm/wrist/roll_actautor" />
+	<xacro:property name="WristRollActuatorNode" value="_arm/wrist/roll_actuator" />
 	<xacro:property name="WristPitchActuatorNode" value="_arm/wrist/pitch_actuator" />
 
 	<xacro:property name="WaistPitchActuatorNode" value="/trunk/pitch_actuator" /> <!--pitch-->
