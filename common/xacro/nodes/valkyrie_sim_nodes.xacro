@@ -12,7 +12,7 @@
 	<xacro:property name="AnklePitchActuatorNode" value="_leg/ankle/pitch_actuator" />
 	<xacro:property name="AnkleRollActuatorNode" value="_leg/ankle/roll_actuator" />
 
-	<!--<xacro:property name="ShoulderPitchNode" value="/trunk/${prefix}_arm_j1" /> -->
+	<xacro:property name="ShoulderPitchNode" value="/trunk/${prefix}_arm_j1" />
 	<xacro:property name="ShoulderRollNode" value="_arm/j2" />
 	<xacro:property name="ShoulderYawNode" value="_arm/j3" />
 	<xacro:property name="ElbowPitchNode" value="_arm/j4" />
