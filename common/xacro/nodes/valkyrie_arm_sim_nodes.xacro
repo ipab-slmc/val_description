@@ -1,0 +1,44 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_sim_nodes">
+
+	<!--<xacro:property name="ShoulderPitchNode" value="/trunk/${prefix}_arm_j1" /> -->
+	<xacro:property name="ShoulderRollNode" value="_arm/j2" />
+	<xacro:property name="ShoulderYawNode" value="_arm/j3" />
+	<xacro:property name="ElbowPitchNode" value="_arm/j4" />
+	<xacro:property name="ForearmYawNode" value="_arm/j5" />
+	<xacro:property name="WristRollActuatorNode" value="_arm/wrist/roll_actuator" />
+	<xacro:property name="WristPitchActuatorNode" value="_arm/wrist/pitch_actuator" />
+
+	<xacro:property name="WaistPitchActuatorNode" value="/trunk/pitch_actuator" /> <!--pitch-->
+	<xacro:property name="WaistRollActuatorNode" value="/trunk/roll_actuator" /> <!--roll-->
+
+	<xacro:property name="Athena1Node" value="/${prefix}_arm/athena1"/>
+	<xacro:property name="Athena2Node" value="/${prefix}_arm/athena2"/>
+
+	<!--xacro:property name="torso_left_imu_node" value="/sensors/leftTorsoIMU" /-->
+
+	<xacro:property name="ThumbRollNode" value="_hand/thumb_roll"/>
+	<xacro:property name="ThumbPitch1Node" value="_hand/thumb_pitch_1"/>
+	<xacro:property name="ThumbPitch2Node" value="_hand/thumb_pitch_2"/>
+	<xacro:property name="ThumbPitch3Node" value="_hand/thumb_pitch_3"/>
+
+	<xacro:property name="IndexFingerPitch1Node" value="_hand/index_finger_pitch_1"/>
+	<xacro:property name="IndexFingerPitch2Node" value="_hand/index_finger_pitch_2"/>
+	<xacro:property name="IndexFingerPitch3Node" value="_hand/index_finger_pitch_3"/>
+
+	<xacro:property name="MiddleFingerPitch1Node" value="_hand/middle_finger_pitch_1"/>
+	<xacro:property name="MiddleFingerPitch2Node" value="_hand/middle_finger_pitch_2"/>
+	<xacro:property name="MiddleFingerPitch3Node" value="_hand/middle_finger_pitch_3"/>
+
+	<xacro:property name="PinkyPitch1Node" value="_hand/pinky_pitch_1"/>
+	<xacro:property name="PinkyPitch2Node" value="_hand/pinky_pitch_2"/>
+	<xacro:property name="PinkyPitch3Node" value="_hand/pinky_pitch_3"/>
+
+	<xacro:macro name="all_channels" >
+		<Channels>
+			<Channel id="/right_arm" />
+			<!--Channel id="/trunk" /-->
+			<Channel id="/right_hand" />
+		</Channels>
+	</xacro:macro>
+    
+</robot>

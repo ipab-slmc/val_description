@@ -14,7 +14,24 @@
             </geometry>
             <material name="brick"/>
         </visual>
+        <inertial>
+            <mass value="1000000"/>
+            <origin rpy="0 0 0" xyz="0 -0.08 0.5"/>
+            <inertia ixx="85466" ixy="0" ixz="0" iyy="85466" iyz="0" izz="166666"/>
+        </inertial>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 -0.08 0.5"/>
+            <geometry>
+                <box size="1 0.16 1"/>
+            </geometry>            
+        </collision>
     </link>
+    
+    <gazebo reference="wall">
+        <material>
+            Gazebo/Bricks
+        </material>
+    </gazebo>
     
     <joint name="wall_joint" type="fixed">
         <parent link="/world"/>
@@ -22,11 +39,13 @@
         <origin rpy="0.0 0.0 1.57" xyz="0.0 0.0 0.0"/>
     </joint>
 
+    <schedule_topic_creator_file package="val_gazebo" relative_file_path="/configuration/valkyrie_sim_shm_topics.yaml"/>
+
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
     <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
 
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
-    <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
+    <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_arm_sim_nodes.xacro"/>
     <xacro:include filename="$(find val_description)/common/xacro/api/valkyrie_sim_api.xacro"/>
 
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />
@@ -38,8 +57,6 @@
     <xacro:make_index_finger prefix="right" reflect="-1" index_finger_root_link="rightPalm"/>
     <xacro:make_middle_finger prefix="right" reflect="-1" middle_finger_root_link="rightPalm"/>
     <xacro:make_pinky_finger prefix="right" reflect="-1" pinky_finger_root_link="rightPalm"/>
-    
-    <xacro:include_multisense_sim />
 
     <xacro:arm_transmissions_sim prefix="right"/>
     <xacro:thumb_transmissions_sim prefix="right"/>
