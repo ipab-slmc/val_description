@@ -39,6 +39,12 @@
         <origin rpy="0.0 0.0 1.57" xyz="0.0 0.0 0.0"/>
     </joint>
 
+    <gazebo>
+      <plugin filename="libval_gazebo.so" name="SharedMemorySimInterfacePlugin">
+        <robotNamespace>/val</robotNamespace>
+      </plugin>
+    </gazebo>
+
     <schedule_topic_creator_file package="val_gazebo" relative_file_path="/configuration/valkyrie_sim_shm_topics.yaml"/>
 
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
