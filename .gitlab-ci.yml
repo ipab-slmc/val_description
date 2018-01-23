@@ -12,12 +12,7 @@ variables:
   DEB_ARCH: "amd64"
 
 stages:
-  - build1404
-  - package1404
-  - deploy1404
   - build1604
-  - package1604
-  - deploy1604
 
 before_script:
   - git clone $CI_SCRIPTS_REPO $CI_SCRIPTS_PATH
