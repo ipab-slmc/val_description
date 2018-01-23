@@ -14,7 +14,7 @@
     <xacro:property name="waist_mesh_dir" value="package://val_description/model/meshes/torso"/>
     <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
 
-    <xacro:include filename="$(find val_description)/model/robots/support.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/support.xacro"/>
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_arm_sim_nodes.xacro"/>
     <xacro:include filename="$(find val_description)/common/xacro/api/valkyrie_sim_api.xacro"/>
