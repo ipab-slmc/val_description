@@ -8,6 +8,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/middle_finger/frame_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/middle_finger/mechanical_info.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/middle_finger/mass_parameters.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_hand_contact.xacro"/>
 
   <xacro:macro name="make_middle_finger" params="prefix reflect middle_finger_root_link">
 
@@ -17,8 +18,9 @@
                     ixx="${MiddleFingerPitch1LinkInertia_IXX}" ixy="${MiddleFingerPitch1LinkInertia_IXY}" ixz="${MiddleFingerPitch1LinkInertia_IXZ}"
                     iyy="${MiddleFingerPitch1LinkInertia_IYY}" iyz="${MiddleFingerPitch1LinkInertia_IYZ}" izz="${MiddleFingerPitch1LinkInertia_IZZ}"
                     origin_rpy="0 0 0" 
-                    visual_mesh="${mesh_root}/fingers/middlej1_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/middlej1_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/middlej1_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/middlej1_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${MiddleFingerPitch1LinkName}" />
 
     <xacro:standard_link name="${MiddleFingerPitch2LinkName}" 
                     mass="${MiddleFingerPitch2LinkMass}" 
@@ -26,8 +28,9 @@
                     ixx="${MiddleFingerPitch2LinkInertia_IXX}" ixy="${MiddleFingerPitch2LinkInertia_IXY}" ixz="${MiddleFingerPitch2LinkInertia_IXZ}"
                     iyy="${MiddleFingerPitch2LinkInertia_IYY}" iyz="${MiddleFingerPitch2LinkInertia_IYZ}" izz="${MiddleFingerPitch2LinkInertia_IZZ}"
                     origin_rpy="0 0 0" 
-                    visual_mesh="${mesh_root}/fingers/middlej2_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/middlej2_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/middlej2_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/middlej2_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${MiddleFingerPitch2LinkName}" />
 
     <xacro:standard_link name="${MiddleFingerPitch3LinkName}" 
                     mass="${MiddleFingerPitch3LinkMass}" 
@@ -35,8 +38,9 @@
                     ixx="${MiddleFingerPitch3LinkInertia_IXX}" ixy="${MiddleFingerPitch3LinkInertia_IXY}" ixz="${MiddleFingerPitch3LinkInertia_IXZ}"
                     iyy="${MiddleFingerPitch3LinkInertia_IYY}" iyz="${MiddleFingerPitch3LinkInertia_IYZ}" izz="${MiddleFingerPitch3LinkInertia_IZZ}"
                     origin_rpy="0 0 0" 
-                    visual_mesh="${mesh_root}/fingers/middlej3_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/middlej3_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/middlej3_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/middlej3_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${MiddleFingerPitch3LinkName}" />
 
     <xacro:revolute_joint_ex jointName="${MiddleFingerPitch1JointName}" 
                           parent="${MiddleFingerPitch1ParentLinkName}" child="${MiddleFingerPitch1LinkName}"
@@ -82,9 +86,9 @@
   </xacro:macro>
 
   <xacro:macro name="middle_finger_transmissions_hw" params="prefix reflect">
-    <xacro:simple_forearm_position_transmission jointName="${MiddleFingerPitch1JointName}" actuatorName="${prefix}MiddlePitch1Actuator" nodeName="${MiddleFingerPitch1Node}" actuatorApi="${MiddleFingerApi}" reflect="${reflect}"/>
-    <xacro:simple_forearm_position_transmission jointName="${MiddleFingerPitch2JointName}" actuatorName="${prefix}MiddlePitch2Actuator" nodeName="${MiddleFingerPitch2Node}" actuatorApi="${MiddleFingerApi}" reflect="${reflect}"/>
-    <xacro:simple_forearm_position_transmission jointName="${MiddleFingerPitch3JointName}" actuatorName="${prefix}MiddlePitch3Actuator" nodeName="${MiddleFingerPitch3Node}" actuatorApi="${MiddleFingerApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${MiddleFingerPitch1JointName}" actuatorName="${prefix}MiddlePitch1Actuator" nodeName="${MiddleFingerPitch1Node}" actuatorApi="${MiddleFingerProximalApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${MiddleFingerPitch2JointName}" actuatorName="${prefix}MiddlePitch2Actuator" nodeName="${MiddleFingerPitch2Node}" actuatorApi="${MiddleFingerMedialApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${MiddleFingerPitch3JointName}" actuatorName="${prefix}MiddlePitch3Actuator" nodeName="${MiddleFingerPitch3Node}" actuatorApi="${MiddleFingerDistalApi}" reflect="${reflect}"/>
   </xacro:macro>
 
   <xacro:macro name="middle_finger_transmissions_sim" params="prefix">

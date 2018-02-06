@@ -1,10 +1,5 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie">
 
-    <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_nodes.xacro"/>
-    <xacro:property name="mesh_root" value="package://val_description/model/meshes"/>
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />
-
     <xacro:make_pelvis />
     <xacro:make_waist waist_root_link="${Pelvis_Link_Name}" />
     <xacro:make_head head_root_link="${TorsoRollLinkName}" />
@@ -33,4 +28,13 @@
     <xacro:arm_transmissions_hw prefix="left" reflect="1"/>
     <xacro:arm_transmissions_hw prefix="right" reflect="-1"/>
     <xacro:neck_transmissions_hw />
+    <xacro:index_finger_transmissions_hw prefix="left" reflect="1" /> 
+    <xacro:middle_finger_transmissions_hw prefix="left" reflect="1"/>
+    <xacro:pinky_finger_transmissions_hw prefix="left" reflect="1"/>
+    <xacro:thumb_transmissions_hw prefix="left" reflect="1"/>
+    <xacro:index_finger_transmissions_hw prefix="right" reflect="-1"/>
+    <xacro:middle_finger_transmissions_hw prefix="right" reflect="-1"/>
+    <xacro:pinky_finger_transmissions_hw prefix="right" reflect="-1"/>
+    <xacro:thumb_transmissions_hw prefix="right" reflect="-1"/>
+
 </robot>

@@ -8,6 +8,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/index_finger/frame_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/index_finger/mechanical_info.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/index_finger/mass_parameters.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_hand_contact.xacro"/>
 
   <xacro:macro name="make_index_finger" params="prefix reflect index_finger_root_link">
     
@@ -17,8 +18,9 @@
                     ixx="${IndexFingerPitch1LinkInertia_IXX}" ixy="${IndexFingerPitch1LinkInertia_IXY}" ixz="${IndexFingerPitch1LinkInertia_IXZ}"
                     iyy="${IndexFingerPitch1LinkInertia_IYY}" iyz="${IndexFingerPitch1LinkInertia_IYZ}" izz="${IndexFingerPitch1LinkInertia_IZZ}"
                     origin_rpy="0 0 0" 
-                    visual_mesh="${mesh_root}/fingers/indexj1_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/indexj1_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/indexj1_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/indexj1_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${IndexFingerPitch1LinkName}" />
 
     <xacro:standard_link name="${IndexFingerPitch2LinkName}" 
                     mass="${IndexFingerPitch2LinkMass}" 
@@ -26,8 +28,9 @@
                     ixx="${IndexFingerPitch2LinkInertia_IXX}" ixy="${IndexFingerPitch2LinkInertia_IXY}" ixz="${IndexFingerPitch2LinkInertia_IXZ}"
                     iyy="${IndexFingerPitch2LinkInertia_IYY}" iyz="${IndexFingerPitch2LinkInertia_IYZ}" izz="${IndexFingerPitch2LinkInertia_IZZ}"
                     origin_rpy="0 0 0" 
-                    visual_mesh="${mesh_root}/fingers/indexj2_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/indexj2_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/indexj2_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/indexj2_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${IndexFingerPitch2LinkName}" />
 
     <xacro:standard_link name="${IndexFingerPitch3LinkName}" 
                     mass="${IndexFingerPitch3LinkMass}" 
@@ -35,8 +38,9 @@
                     ixx="${IndexFingerPitch3LinkInertia_IXX}" ixy="${IndexFingerPitch3LinkInertia_IXY}" ixz="${IndexFingerPitch3LinkInertia_IXZ}"
                     iyy="${IndexFingerPitch3LinkInertia_IYY}" iyz="${IndexFingerPitch3LinkInertia_IYZ}" izz="${IndexFingerPitch3LinkInertia_IZZ}"
                     origin_rpy="0 0 0" 
-                    visual_mesh="${mesh_root}/fingers/indexj3_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/indexj3_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/indexj3_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/indexj3_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${IndexFingerPitch3LinkName}" />
 
     <xacro:revolute_joint_ex jointName="${IndexFingerPitch1JointName}" 
                           parent="${IndexFingerPitch1ParentLinkName}" child="${IndexFingerPitch1LinkName}"
@@ -82,9 +86,9 @@
   </xacro:macro>
 
   <xacro:macro name="index_finger_transmissions_hw" params="prefix reflect">
-    <xacro:simple_forearm_position_transmission jointName="${IndexFingerPitch1JointName}" actuatorName="${prefix}IndexPitch1Actuator" nodeName="${IndexFingerPitch1Node}" actuatorApi="${IndexFingerApi}" reflect="${reflect}"/>
-    <xacro:simple_forearm_position_transmission jointName="${IndexFingerPitch2JointName}" actuatorName="${prefix}IndexPitch2Actuator" nodeName="${IndexFingerPitch2Node}" actuatorApi="${IndexFingerApi}" reflect="${reflect}"/>
-    <xacro:simple_forearm_position_transmission jointName="${IndexFingerPitch3JointName}" actuatorName="${prefix}IndexPitch3Actuator" nodeName="${IndexFingerPitch3Node}" actuatorApi="${IndexFingerApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${IndexFingerPitch1JointName}" actuatorName="${prefix}IndexPitch1Actuator" nodeName="${IndexFingerPitch1Node}" actuatorApi="${IndexFingerProximalApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${IndexFingerPitch2JointName}" actuatorName="${prefix}IndexPitch2Actuator" nodeName="${IndexFingerPitch2Node}" actuatorApi="${IndexFingerMedialApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${IndexFingerPitch3JointName}" actuatorName="${prefix}IndexPitch3Actuator" nodeName="${IndexFingerPitch3Node}" actuatorApi="${IndexFingerDistalApi}" reflect="${reflect}"/>
   </xacro:macro>
 
   <xacro:macro name="index_finger_transmissions_sim" params="prefix">

@@ -1,13 +1,14 @@
  <robot xmlns:xacro="http://ros.org/wiki/xacro" name="forearm_api">
 
     <xacro:property name="ForearmYawApi" value="robot_hardware_interface/TurbodriverAPI" />
-    <xacro:property name="ThumbFingerApi" value="midas_finger_interface/MidasFingerAPI" />
-    <xacro:property name="IndexFingerApi" value="midas_finger_interface/MidasFingerAPI"/>
-    <xacro:property name="MiddleFingerApi" value="midas_finger_interface/MidasFingerAPI"/>
-    <xacro:property name="PinkyApi" value="midas_finger_interface/MidasFingerAPI"/>
+    <xacro:property name="IndexFingerApi" value="robot_hardware_interface/TurbodriverAPI"/>
+    <xacro:property name="MiddleFingerApi" value="robot_hardware_interface/TurbodriverAPI"/>
+    <xacro:property name="PinkyFingerApi" value="robot_hardware_interface/TurbodriverAPI"/>
+    <xacro:property name="ThumbRollFingerApi" value="robot_hardware_interface/TurbodriverAPI"/>
+    <xacro:property name="ThumbProximalFingerApi" value="robot_hardware_interface/TurbodriverAPI"/>
+    <xacro:property name="ThumbDistalFingerApi" value="robot_hardware_interface/TurbodriverAPI"/>
 
-    <xacro:property name="Athena1Api" value="athena_forearm_interface/AthenaForearmAPI" />
-    <xacro:property name="Athena2Api" value="athena_finger_interface/AthenaFingerAPI" />
+    <xacro:property name="WristRightActuatorApi" value="robot_hardware_interface/TurbodriverAPI_linear_futek"/>
+    <xacro:property name="WristLeftActuatorApi" value="robot_hardware_interface/TurbodriverAPI_linear_futek"/>
 
-    
 </robot>

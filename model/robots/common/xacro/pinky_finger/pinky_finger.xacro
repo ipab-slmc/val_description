@@ -8,6 +8,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/pinky_finger/frame_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/pinky_finger/mechanical_info.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/pinky_finger/mass_parameters.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_hand_contact.xacro"/>
 
   <xacro:macro name="make_pinky_finger" params="prefix reflect pinky_finger_root_link">
 
@@ -17,8 +18,9 @@
                     ixx="${PinkyPitch1LinkInertia_IXX}" ixy="${PinkyPitch1LinkInertia_IXY}" ixz="${PinkyPitch1LinkInertia_IXZ}"
                     iyy="${PinkyPitch1LinkInertia_IYY}" iyz="${PinkyPitch1LinkInertia_IYZ}" izz="${PinkyPitch1LinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/fingers/pinkyj1_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/pinkyj1_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/pinkyj1_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/pinkyj1_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${PinkyPitch1LinkName}" />
 
     <xacro:standard_link name="${PinkyPitch2LinkName}"
                     mass="${PinkyPitch2LinkMass}"
@@ -26,8 +28,9 @@
                     ixx="${PinkyPitch2LinkInertia_IXX}" ixy="${PinkyPitch2LinkInertia_IXY}" ixz="${PinkyPitch2LinkInertia_IXZ}"
                     iyy="${PinkyPitch2LinkInertia_IYY}" iyz="${PinkyPitch2LinkInertia_IYZ}" izz="${PinkyPitch2LinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/fingers/pinkyj2_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/pinkyj2_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/pinkyj2_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/pinkyj2_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${PinkyPitch2LinkName}" />
 
     <xacro:standard_link name="${PinkyPitch3LinkName}"
                     mass="${PinkyPitch3LinkMass}"
@@ -35,8 +38,9 @@
                     ixx="${PinkyPitch3LinkInertia_IXX}" ixy="${PinkyPitch3LinkInertia_IXY}" ixz="${PinkyPitch3LinkInertia_IXZ}"
                     iyy="${PinkyPitch3LinkInertia_IYY}" iyz="${PinkyPitch3LinkInertia_IYZ}" izz="${PinkyPitch3LinkInertia_IZZ}"
                     origin_rpy="0 0 0"
-                    visual_mesh="${mesh_root}/fingers/pinkyj3_${prefix}.dae"
-                    collision_mesh="${mesh_root}/fingers/pinkyj3_${prefix}.dae"/>
+                    visual_mesh="${fingers_mesh_dir}/pinkyj3_${prefix}.dae"
+                    collision_mesh="${fingers_mesh_dir}/pinkyj3_${prefix}.dae"/>
+    <xacro:gazebo_hand_contact link_name="${PinkyPitch3LinkName}" />
 
     <xacro:revolute_joint_ex jointName="${PinkyPitch1JointName}"
                           parent="${PinkyPitch1ParentLinkName}" child="${PinkyPitch1LinkName}"
@@ -83,9 +87,9 @@
   </xacro:macro>
 
   <xacro:macro name="pinky_finger_transmissions_hw" params="prefix reflect">
-    <xacro:simple_forearm_position_transmission jointName="${PinkyPitch1JointName}" actuatorName="${prefix}PinkyPitch1Actuator" nodeName="${PinkyPitch1Node}" actuatorApi="${PinkyApi}" reflect="${reflect}"/>
-    <xacro:simple_forearm_position_transmission jointName="${PinkyPitch2JointName}" actuatorName="${prefix}PinkyPitch2Actuator" nodeName="${PinkyPitch2Node}" actuatorApi="${PinkyApi}" reflect="${reflect}"/>
-    <xacro:simple_forearm_position_transmission jointName="${PinkyPitch3JointName}" actuatorName="${prefix}PinkyPitch3Actuator" nodeName="${PinkyPitch3Node}" actuatorApi="${PinkyApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${PinkyPitch1JointName}" actuatorName="${prefix}PinkyPitch1Actuator" nodeName="${PinkyPitch1Node}" actuatorApi="${PinkyFingerProximalApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${PinkyPitch2JointName}" actuatorName="${prefix}PinkyPitch2Actuator" nodeName="${PinkyPitch2Node}" actuatorApi="${PinkyFingerMedialApi}" reflect="${reflect}"/>
+    <xacro:simple_forearm_position_transmission jointName="${PinkyPitch3JointName}" actuatorName="${prefix}PinkyPitch3Actuator" nodeName="${PinkyPitch3Node}" actuatorApi="${PinkyFingerDistalApi}" reflect="${reflect}"/>
   </xacro:macro>
 
   <xacro:macro name="pinky_transmissions_sim" params="prefix">

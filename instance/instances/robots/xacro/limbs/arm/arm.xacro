@@ -14,7 +14,10 @@
 
     	<xacro:simple_mechanism name="${ForearmYawJointName}" serial_number="${j5_serial_number}" node="${ForearmYawNode}" calibration_angle="${ForearmYawCalibrationAngle}"/>
 
-        <xacro:forearm mechanism_name="${prefix}Forearm" serial_number="${forearm_serial_number}" athena1_node="${Athena1Node}" athena2_node="${Athena2Node}" />
+    	<xacro:hand_mechanism mechanism_name="${prefix}Hand" serial_number="${forearm_serial_number}" index_node="${IndexNode}" middle_node="${MiddleNode}" pinky_node="${PinkyNode}" thumb_prox_node="${ThumbProxNode}" thumb_dist_node="${ThumbDistNode}" thumb_roll_node="${ThumbRollNode}" wrist_left_node="${WristLeftNode}" wrist_right_node="${WristRightNode}" />
+
+        <xacro:hand_sensor_mechanism name="${prefix}HandSensors" serial_number="${forearm_serial_number}_midas" node="/${prefix}${HandSensorNode}" />
+
     </xacro:macro>
 
 </robot>

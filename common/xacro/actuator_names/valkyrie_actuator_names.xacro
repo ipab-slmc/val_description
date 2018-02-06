@@ -23,12 +23,14 @@
 	<xacro:property name="ForearmYawActuatorName" value="${prefix}ForearmYaw"/>
 	<xacro:property name="WristBottomActuatorName" value="${prefix}WristBottomActuator"/>
 	<xacro:property name="WristTopActuatorName" value="${prefix}WristTopActuator"/>
+	<xacro:property name="WristRightActuatorName" value="${prefix}WristRightActuator"/>
+	<xacro:property name="WristLeftActuatorName" value="${prefix}WristLeftActuator"/>
 	<xacro:property name="WristPitchActuatorSimName" value="${prefix}WristPitchActuator"/>
 	<xacro:property name="WristRollActuatorSimName" value="${prefix}WristRollActuator"/>
-	<xacro:property name="IndexFingerPitch1ActuatorName" value="${prefix}IndexFingerPitch1"/>
-	<xacro:property name="MiddleFingerPitch1ActuatorName" value="${prefix}MiddleFingerPitch1"/>
-	<xacro:property name="PinkyPitch1ActuatorName" value="${prefix}PinkyPitch1"/>
-	<xacro:property name="ThumbRollActuatorName" value="${prefix}ThumbRoll"/>
-	<xacro:property name="ThumbPitch1ActuatorName" value="${prefix}ThumbPitch1"/>
-	<xacro:property name="ThumbPitch2ActuatorName" value="${prefix}ThumbPitch2"/>
+	<xacro:property name="IndexFingerPitch1ActuatorName" value="${prefix}IndexFingerMotorPitch1"/>
+	<xacro:property name="MiddleFingerPitch1ActuatorName" value="${prefix}MiddleFingerMotorPitch1"/>
+	<xacro:property name="PinkyPitch1ActuatorName" value="${prefix}PinkyMotorPitch1"/>
+	<xacro:property name="ThumbRollActuatorName" value="${prefix}ThumbMotorRoll"/>
+	<xacro:property name="ThumbPitch1ActuatorName" value="${prefix}ThumbMotorPitch1"/>
+	<xacro:property name="ThumbPitch2ActuatorName" value="${prefix}ThumbMotorPitch2"/>
 </robot>
