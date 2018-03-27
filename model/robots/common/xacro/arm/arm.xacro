@@ -273,7 +273,7 @@
 
   <xacro:macro name="arm_transmissions_no_hands" params="prefix">
     <xacro:simple_transmission jointName="${prefix}${ShoulderPitchJointName}" actuatorName="${prefix}${ShoulderPitchActuatorName}" nodeName="/trunk/${prefix}_arm_j1" actuatorApi="${ShoulderPitchApi}"/>
-    <xacro:simple_transmission jointName="${prefix}${ShoulderRollJointName}" actuatorName="${prefix}${ShoulderRollActuatorName}" nodeName="${prefix}${ShoulderRollNode}" actuatorApi="${ShoulderRollApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderRollJointName}" actuatorName="${prefix}${ShoulderRollActuatorName}" nodeName="/${prefix}${ShoulderRollNode}" actuatorApi="${ShoulderRollApi}"/>
     <xacro:simple_transmission jointName="${prefix}${ShoulderYawJointName}" actuatorName="${prefix}${ShoulderYawActuatorName}" nodeName="/${prefix}${ShoulderYawNode}" actuatorApi="${ShoulderYawApi}"/>
     <xacro:simple_transmission jointName="${prefix}${ElbowPitchJointName}" actuatorName="${prefix}${ElbowPitchActuatorName}" nodeName="/${prefix}${ElbowPitchNode}" actuatorApi="${ElbowPitchApi}"/> 
   </xacro:macro>
