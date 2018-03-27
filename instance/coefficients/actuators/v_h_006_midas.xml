@@ -1,4 +1,13 @@
 <CoeffData>
+    <Properties>
+      <CalibrationDate/>
+      <FileGenDate date="2014-12-19" time="11:13:39.501828"/>
+    </Properties>
+    <ClassFile id="h.xml" />
+    <ControllerFile id="h_sv.xml" />
+    <LocationFile id="finger.xml"/>
+    <SensorsFile id="sensors_leonidas.xml" />
+    <SafetyFile id="safety_fingers.xml" />
   <Coeffs>
     <Coeff value="-0.131841289682" id="IndexBarometer5_A" description="Index Barometer5 Coefficient A"/>
     <Coeff value="152.62145489" id="IndexBarometer5_B" description="Index Barometer5 Coefficient B"/>

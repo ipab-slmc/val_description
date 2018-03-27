@@ -61,4 +61,11 @@
     </Mechanism>
 </xacro:macro>
 
+<xacro:macro name="hand_sensor_mechanism" params="name serial_number node " >
+    <Mechanism id="${name}" type="hand_sensor">
+        <SerialNumber id="${serial_number}" />
+        <Node id="${node}" />
+    </Mechanism>
+</xacro:macro>
+
 </robot>
