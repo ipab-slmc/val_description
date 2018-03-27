@@ -47,6 +47,8 @@
 	<xacro:property name="IndexFingerPitch1Node" value="_arm/forearm_sensors/index"/>
 	<xacro:property name="IndexFingerPitch2Node" value="_arm/forearm_sensors/index"/>
 	<xacro:property name="IndexFingerPitch3Node" value="_arm/forearm_sensors/index"/>
+	<xacro:property name="HandSensorNode" value="_arm/forearm_sensors"/>
+	
 
 	<xacro:property name="MiddleFingerNode" value="_arm/hand/middle"/>
 	<xacro:property name="MiddleFingerPitch1Node" value="_arm/forearm_sensors/middle"/>
