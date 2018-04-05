@@ -7,7 +7,7 @@
 	<xacro:property name="AnkleLeftActuatorNode" value="_leg/ankle/left_actuator" />
 	<xacro:property name="AnkleRightActuatorNode" value="_leg/ankle/right_actuator" />
 
-	<!--<xacro:property name="ShoulderPitchNode" value="/trunk/${prefix}_arm_j1" /> -->
+	<xacro:property name="ShoulderPitchNode" value="/trunk/${prefix}_arm_j1" />
 	<xacro:property name="ShoulderRollNode" value="_arm/j2" />
 	<xacro:property name="ShoulderYawNode" value="_arm/j3" />
 	<xacro:property name="ElbowPitchNode" value="_arm/j4" />
@@ -48,7 +48,6 @@
 	<xacro:property name="IndexFingerPitch2Node" value="_arm/forearm_sensors/index"/>
 	<xacro:property name="IndexFingerPitch3Node" value="_arm/forearm_sensors/index"/>
 	<xacro:property name="HandSensorNode" value="_arm/forearm_sensors"/>
-	
 
 	<xacro:property name="MiddleFingerNode" value="_arm/hand/middle"/>
 	<xacro:property name="MiddleFingerPitch1Node" value="_arm/forearm_sensors/middle"/>

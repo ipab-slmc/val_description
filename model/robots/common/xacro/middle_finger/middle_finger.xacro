@@ -55,7 +55,7 @@
         <controller_gains Kp="${MiddleFingerPitch1Kp}" Kd="${MiddleFingerPitch1Kd}" Ki="${MiddleFingerPitch1Ki}"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${prefix}${MiddleFingerPitch2JointName}" 
+    <xacro:revolute_joint_ex_mimic jointName="${prefix}${MiddleFingerPitch2JointName}"
                           parent="${prefix}MiddleFingerPitch1Link" child="${prefix}MiddleFingerPitch2Link"
                           origin_xyz="${MiddleFingerPitch2FrameOrigin_X} ${reflect * 0.0381} ${MiddleFingerPitch2FrameOrigin_Z}" 
                           origin_rpy="${MiddleFingerPitch2FrameOrientation_Roll} ${MiddleFingerPitch2FrameOrientation_Pitch} ${MiddleFingerPitch2FrameOrientation_Yaw}"
@@ -67,9 +67,10 @@
           <limit effort="${MiddleFingerPitch2TorqueLimit}" lower="${MiddleFingerPitch2PositionLimit_Lower}" upper="${MiddleFingerPitch2PositionLimit_Upper}" velocity="${MiddleFingerPitch2VelocityLimit}"/>
         </xacro:if>
         <controller_gains Kp="${MiddleFingerPitch1Kp}" Kd="${MiddleFingerPitch1Kd}" Ki="${MiddleFingerPitch1Ki}"/>
-    </xacro:revolute_joint_ex>
+        <mimic joint="${prefix}${MiddleFingerPitch1JointName}" multiplier="${Pulley2Ratio}" offset="0"/>
+    </xacro:revolute_joint_ex_mimic>
 
-    <xacro:revolute_joint_ex jointName="${prefix}${MiddleFingerPitch3JointName}" 
+    <xacro:revolute_joint_ex_mimic jointName="${prefix}${MiddleFingerPitch3JointName}"
                           parent="${prefix}MiddleFingerPitch2Link" child="${prefix}MiddleFingerPitch3Link"
                           origin_xyz="${MiddleFingerPitch3FrameOrigin_X} ${reflect * 0.0229} ${MiddleFingerPitch3FrameOrigin_Z}" 
                           origin_rpy="${MiddleFingerPitch3FrameOrientation_Roll} ${MiddleFingerPitch3FrameOrientation_Pitch} ${MiddleFingerPitch3FrameOrientation_Yaw}"
@@ -81,7 +82,8 @@
           <limit effort="${MiddleFingerPitch3TorqueLimit}" lower="${MiddleFingerPitch3PositionLimit_Lower}" upper="${MiddleFingerPitch3PositionLimit_Upper}" velocity="${MiddleFingerPitch3VelocityLimit}"/>
         </xacro:if>
         <controller_gains Kp="${MiddleFingerPitch1Kp}" Kd="${MiddleFingerPitch1Kd}" Ki="${MiddleFingerPitch1Ki}"/>
-    </xacro:revolute_joint_ex>
+        <mimic joint="${prefix}${MiddleFingerPitch1JointName}" multiplier="${Pulley3Ratio}" offset="0"/>
+    </xacro:revolute_joint_ex_mimic>
   </xacro:macro>
 
   <xacro:macro name="middle_finger_transmissions_hw" params="prefix reflect">

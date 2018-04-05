@@ -55,7 +55,7 @@
         <controller_gains Kp="${PinkyPitch1Kp}" Kd="${PinkyPitch1Kd}" Ki="${PinkyPitch1Ki}"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${prefix}${PinkyPitch2JointName}"
+    <xacro:revolute_joint_ex_mimic jointName="${prefix}${PinkyPitch2JointName}"
                           parent="${prefix}PinkyPitch1Link" child="${prefix}PinkyPitch2Link"
                           origin_xyz="${PinkyPitch2FrameOrigin_X} ${reflect * 0.0381} ${PinkyPitch2FrameOrigin_Z}"
                           origin_rpy="${PinkyPitch2FrameOrientation_Roll} ${PinkyPitch2FrameOrientation_Pitch} ${PinkyPitch2FrameOrientation_Yaw}"
@@ -67,9 +67,10 @@
           <limit effort="${PinkyFingerPitch2TorqueLimit}" lower="${PinkyFingerPitch2PositionLimit_Lower}" upper="${PinkyFingerPitch2PositionLimit_Upper}" velocity="${PinkyFingerPitch2VelocityLimit}"/>
         </xacro:if>
         <controller_gains Kp="${PinkyPitch1Kp}" Kd="${PinkyPitch1Kd}" Ki="${PinkyPitch1Ki}"/>
-    </xacro:revolute_joint_ex>
+        <mimic joint="${prefix}${PinkyPitch1JointName}" multiplier="${Pulley2Ratio}" offset="0"/>
+    </xacro:revolute_joint_ex_mimic>
 
-    <xacro:revolute_joint_ex jointName="${prefix}${PinkyPitch3JointName}"
+    <xacro:revolute_joint_ex_mimic jointName="${prefix}${PinkyPitch3JointName}"
                           parent="${prefix}PinkyPitch2Link" child="${prefix}PinkyPitch3Link"
                           origin_xyz="${PinkyPitch3FrameOrigin_X} ${reflect * 0.0229} ${PinkyPitch3FrameOrigin_Z}"
                           origin_rpy="${PinkyPitch3FrameOrientation_Roll} ${PinkyPitch3FrameOrientation_Pitch} ${PinkyPitch3FrameOrientation_Yaw}"
@@ -81,7 +82,8 @@
           <limit effort="${PinkyFingerPitch3TorqueLimit}" lower="${PinkyFingerPitch3PositionLimit_Lower}" upper="${PinkyFingerPitch3PositionLimit_Upper}" velocity="${PinkyFingerPitch3VelocityLimit}"/>
         </xacro:if>
         <controller_gains Kp="${PinkyPitch1Kp}" Kd="${PinkyPitch1Kd}" Ki="${PinkyPitch1Ki}"/>
-    </xacro:revolute_joint_ex>
+        <mimic joint="${prefix}${PinkyPitch1JointName}" multiplier="${Pulley3Ratio}" offset="0"/>
+    </xacro:revolute_joint_ex_mimic>
 
   </xacro:macro>
 
