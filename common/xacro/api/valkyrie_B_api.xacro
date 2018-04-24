@@ -12,8 +12,8 @@
     <xacro:property name="ShoulderYawApi" value="robot_hardware_interface/TurbodriverAPI" />
     <xacro:property name="ElbowPitchApi" value="robot_hardware_interface/TurbodriverAPI" />
     <xacro:property name="ForearmYawApi" value="robot_hardware_interface/TurbodriverAPI" />
-    <xacro:property name="WristTopActuatorApi" value="robot_hardware_interface/TurbodriverAPI_linear_futek" />
-    <xacro:property name="WristBottomActuatorApi" value="robot_hardware_interface/TurbodriverAPI_linear_futek" />
+    <xacro:property name="WristTopActuatorApi" value="robot_hardware_interface::TurbodriverLinearFutekJointVelocity" />
+    <xacro:property name="WristBottomActuatorApi" value="robot_hardware_interface::TurbodriverLinearFutekJointVelocity" />
 
     <xacro:property name="LowerNeckPitchApi" value="robot_hardware_interface/TurbodriverAPI" />
     <xacro:property name="NeckYawApi" value="robot_hardware_interface/TurbodriverAPI" />
@@ -58,7 +58,7 @@
     <xacro:property name="ThumbFingerDistalApi" value="robot_hardware_interface/TurbodriverFingerDis"/>
     <xacro:property name="ThumbFingerRollApi" value="robot_hardware_interface/TurbodriverFingerRoll"/>
 
-    <xacro:property name="WristRightActuatorApi" value="robot_hardware_interface/TurbodriverAPI_linear_futek"/>
-    <xacro:property name="WristLeftActuatorApi" value="robot_hardware_interface/TurbodriverAPI_linear_futek"/>
+    <xacro:property name="WristRightActuatorApi" value="robot_hardware_interface::TurbodriverLinearFutekJointVelocity"/>
+    <xacro:property name="WristLeftActuatorApi" value="robot_hardware_interface::TurbodriverLinearFutekJointVelocity"/>
 
 </robot>
