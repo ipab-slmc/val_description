@@ -113,8 +113,8 @@
     <Coeff value="0.914846964126" id="PinkyProximal_B" description="Pinky Proximal Hall Sensor Coefficient B"/>
     <Coeff value="-0.00432221062897" id="PinkyMedial_A" description="Pinky Medial Hall Sensor Coefficient A"/>
     <Coeff value="0.149984472851" id="PinkyMedial_B" description="Pinky Medial Hall Sensor Coefficient B"/>
-    <Coeff value="-0.0181245730015" id="PinkyDistal_A" description="Pinky Distal Hall Sensor Coefficient A"/>
-    <Coeff value="4.39218819069" id="PinkyDistal_B" description="Pinky Distal Hall Sensor Coefficient B"/>
+    <Coeff value="-0.00678" id="PinkyDistal_A" description="Pinky Distal Hall Sensor Coefficient A"/>
+    <Coeff value="0.233" id="PinkyDistal_B" description="Pinky Distal Hall Sensor Coefficient B"/>
   </Coeffs>
 </CoeffData>
 
