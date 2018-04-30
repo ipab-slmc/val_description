@@ -1,7 +1,0 @@
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="bandit">
-
-	<xacro:property name="instance" value="bandit" />
-	<xacro:include filename="$(find val_description)/common/xacro/serial_numbers/bandit_serials.xacro" />
-    <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/common/bandit_full_template.xacro"/>
-
-</robot>
