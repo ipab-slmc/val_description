@@ -1,4 +1,4 @@
-<firmware xmlns:xacro="http://ros.org/wiki/xacro" name="firmware">
+<firmware xmlns:xacro="http://www.ros.org/wiki/xacro" name="firmware">
 
     <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/arm_firmware.xacro" />
     <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/forearm_firmware.xacro" />

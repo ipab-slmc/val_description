@@ -1,4 +1,4 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="actuator_testbench">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="actuator_testbench">
 
 	<xacro:property name="instance" value="actuator_testbench" />
 	<xacro:include filename="$(find val_description)/common/xacro/serial_numbers/test_bench_serials.xacro" />

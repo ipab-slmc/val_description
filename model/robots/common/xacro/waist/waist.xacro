@@ -3,7 +3,7 @@
   <xacro:macro name="make_waist_common" params="waist_root_link">
 
     <xacro:revolute_joint_ex jointName="${TorsoYawJointName}"
-                          parent="${TorsoYawParentLinkName}" child="${TorsoYawLinkName}"
+                          parent="${waist_root_link}" child="torsoYawLink"
                           origin_xyz="${TorsoYawFrameOrigin_X} ${TorsoYawFrameOrigin_Y} ${TorsoYawFrameOrigin_Z}"
                           origin_rpy="${TorsoYawFrameOrientation_Roll} ${TorsoYawFrameOrientation_Pitch} ${TorsoYawFrameOrientation_Yaw}" 
                           axis="${TorsoYawRotationAxis}"
@@ -13,7 +13,7 @@
     </xacro:revolute_joint_ex>
 
     <xacro:revolute_joint_ex jointName="${TorsoPitchJointName}"
-                          parent="${TorsoYawLinkName}" child="${TorsoPitchLinkName}"
+                          parent="torsoYawLink" child="torsoPitchLink"
                           origin_xyz="${TorsoPitchFrameOrigin_X} ${TorsoPitchFrameOrigin_Y} ${TorsoPitchFrameOrigin_Z}"
                           origin_rpy="${TorsoPitchFrameOrientation_Roll} ${TorsoPitchFrameOrientation_Pitch} ${TorsoPitchFrameOrientation_Yaw}"
                           axis="${TorsoPitchRotationAxis}"
@@ -24,7 +24,7 @@
 
 
     <xacro:revolute_joint_ex jointName="${TorsoRollJointName}"
-                          parent="${TorsoPitchLinkName}" child="${TorsoRollLinkName}"
+                          parent="torsoPitchLink" child="torso"
                           origin_xyz="${TorsoRollFrameOrigin_X} ${TorsoRollFrameOrigin_Y} ${TorsoRollFrameOrigin_Z}"
                           origin_rpy="${TorsoRollFrameOrientation_Roll} ${TorsoRollFrameOrientation_Pitch} ${TorsoRollFrameOrientation_Yaw}" 
                           axis="${TorsoRollRotationAxis}"
@@ -35,7 +35,7 @@
   </xacro:macro>
 
   <xacro:macro name="make_waist" params="waist_root_link">
-    <xacro:standard_link name="${TorsoYawLinkName}"
+    <xacro:standard_link name="torsoYawLink"
                     mass="${TorsoYawLinkMass}"
                     origin_rpy="0 0 0"
                     origin_xyz="${TorsoYawLinkComPosition}"
@@ -44,7 +44,7 @@
                     visual_mesh="${waist_mesh_dir}/torsoyaw.dae"
                     collision_mesh="${waist_mesh_dir}/torsoyaw.dae" />
 
-    <xacro:standard_link name="${TorsoPitchLinkName}"
+    <xacro:standard_link name="torsoPitchLink"
                     mass="${TorsoPitchLinkMass}"
                     origin_rpy="0 0 0"
                     origin_xyz="${TorsoPitchLinkComPosition}"
@@ -53,7 +53,7 @@
                     visual_mesh="${waist_mesh_dir}/torsopitch.dae"
                     collision_mesh="${waist_mesh_dir}/torsopitch.dae" />
 
-    <xacro:standard_link name="${TorsoRollLinkName}"
+    <xacro:standard_link name="torso"
                     mass="${TorsoRollLinkMass}"
                     ixx="${TorsoRollLinkInertia_IXX}" ixy="${TorsoRollLinkInertia_IXY}" ixz="${TorsoRollLinkInertia_IXZ}"
                     iyy="${TorsoRollLinkInertia_IYY}" iyz="${TorsoRollLinkInertia_IYZ}" izz="${TorsoRollLinkInertia_IZZ}"
@@ -67,7 +67,7 @@
 
   <xacro:macro name="v1_trunk_sensors_usb" params="sensor_node_tag sensor_api_tag sensor_port_tag">
     <xacro:usb_microstrain_sensor sensorName="leftTorsoImu"
-                              parentLink="${TorsoRollLinkName}"
+                              parentLink="torso"
                               origin_xyz="${TorsoImuFrameOrigin_XYZ}"
                               origin_rpy="${TorsoImuFrameOrientation_RPY}"
                               sensor_node="${sensor_node_tag}"
@@ -75,14 +75,14 @@
                               sensor_port="${sensor_port_tag}" />
 
     <xacro:flea3_camera sensorName="rightHazardCamera"
-                        parentLink="${TorsoRollLinkName}"
+                        parentLink="torso"
                         origin_xyz="0.0345 -0.0406 0.1135"
                         origin_rpy="1.57 0.0 1.57"
                         imageFormat="R8G8B8"
                         frameRate="60"/>
 
     <xacro:flea3_camera sensorName="leftHazardCamera"
-                        parentLink="${TorsoRollLinkName}"
+                        parentLink="torso"
                         origin_xyz="0.0345 0.0406 0.1135"
                         origin_rpy="1.57 0.0 1.57"
                         imageFormat="R8G8B8"
