@@ -1,31 +1,31 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="leg">
   <xacro:macro name="make_leg_links" params="prefix reflect leg_root_link">
-    <xacro:standard_link name="${HipYawLinkName}"
+    <xacro:standard_link name="${prefix}HipYawLink"
                     mass="${HipYawLinkMass}"
-                    origin_xyz="${HipYawLinkComPosition}" origin_rpy="0 0 0" 
+                    origin_xyz="0.02176 ${reflect*-0.00131} 0.03867" origin_rpy="0 0 0" 
                     ixx="${HipYawLinkInertia_IXX}" ixy="${HipYawLinkInertia_IXY}" ixz="${HipYawLinkInertia_IXZ}"
                     iyy="${HipYawLinkInertia_IYY}" iyz="${HipYawLinkInertia_IYZ}" izz="${HipYawLinkInertia_IZZ}"
                     visual_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"
                     collision_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"/>
 
-    <xacro:link_no_mesh_no_collision name="${HipRollLinkName}"
+    <xacro:link_no_mesh_no_collision name="${prefix}HipRollLink"
                     mass="${HipRollLinkMass}"
-                    origin_xyz="${HipRollLinkComPosition}"
-                    ixx="${HipRollLinkInertia_IXX}" ixy="${HipRollLinkInertia_IXY}" ixz="${HipRollLinkInertia_IXZ}"
-                    iyy="${HipRollLinkInertia_IYY}" iyz="${HipRollLinkInertia_IYZ}" izz="${HipRollLinkInertia_IZZ}"
+                    origin_xyz="0.012959 ${reflect*0.007550} -0.015950"
+                    ixx="${HipRollLinkInertia_IXX}" ixy="${reflect*-0.000234823}" ixz="${HipRollLinkInertia_IXZ}"
+                    iyy="${HipRollLinkInertia_IYY}" iyz="${reflect*0.000778956}" izz="${HipRollLinkInertia_IZZ}"
                     origin_rpy="0 0 0"/>
 
-    <xacro:standard_link name="${HipPitchLinkName}"
+    <xacro:standard_link name="${prefix}HipPitchLink"
                     mass="${HipPitchLinkMass}"
-                    origin_xyz="${HipPitchLinkComPosition}"
-                    ixx="${HipPitchLinkInertia_IXX}" ixy="${HipPitchLinkInertia_IXY}" ixz="${HipPitchLinkInertia_IXZ}"
-                    iyy="${HipPitchLinkInertia_IYY}" iyz="${HipPitchLinkInertia_IYZ}" izz="${HipPitchLinkInertia_IZZ}"
+                    origin_xyz="0.016691 ${reflect*0.091397} -0.207875"
+                    ixx="${HipPitchLinkInertia_IXX}" ixy="${reflect*0.000035915}" ixz="${HipPitchLinkInertia_IXZ}"
+                    iyy="${HipPitchLinkInertia_IYY}" iyz="${reflect*-0.001333005}" izz="${HipPitchLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${leg_mesh_dir}/lj3_${prefix}.dae"
                     collision_mesh="${leg_mesh_dir}/lj3_${prefix}.dae"/>
 
-    <xacro:standard_link name="${KneePitchLinkName}"
+    <xacro:standard_link name="${prefix}KneePitchLink"
                     mass="${KneePitchLinkMass}"
                     origin_xyz="${KneePitchLinkComPosition}"
                     ixx="${KneePitchLinkInertia_IXX}" ixy="${KneePitchLinkInertia_IXY}" ixz="${KneePitchLinkInertia_IXZ}"
@@ -34,7 +34,7 @@
                     visual_mesh="${leg_mesh_dir}/lj4_${prefix}.dae"
                     collision_mesh="${leg_mesh_dir}/lj4_${prefix}.dae"/>
 
-    <xacro:standard_link name="${AnklePitchLinkName}"
+    <xacro:standard_link name="${prefix}AnklePitchLink"
                     mass="${AnklePitchLinkMass}"
                     origin_xyz="${AnklePitchLinkComPosition}"
                     ixx="${AnklePitchLinkInertia_IXX}" ixy="${AnklePitchLinkInertia_IXY}" ixz="${AnklePitchLinkInertia_IXZ}"
@@ -43,7 +43,7 @@
                     visual_mesh="${leg_mesh_dir}/lj5.dae"
                     collision_mesh="${leg_mesh_dir}/lj5.dae"/>
 
-    <xacro:link_box_collision_mesh_visual name="${AnkleRollLinkName}"
+    <xacro:link_box_collision_mesh_visual name="${prefix}Foot"
                     mass="${FootMass}"
                     inertial_xyz="${FootComPosition}"
                     ixx="${FootInertia_IXX}" ixy="${FootInertia_IXY}" ixz="${FootInertia_IXZ}"
@@ -57,7 +57,7 @@
                     box_rpy="0.0 0.0 0.0" />
 
     <!-- foot contact parameters copied from atlas_description in drcsim -->
-    <gazebo reference="${AnkleRollLinkName}">
+    <gazebo reference="${prefix}Foot">
       <!-- kp and kd for rubber -->
       <kp>1000000.0</kp>
       <kd>100.0</kd>
@@ -71,9 +71,9 @@
   </xacro:macro>
 
   <xacro:macro name="make_leg_joints" params="prefix reflect leg_root_link">
-    <xacro:revolute_joint_ex jointName="${HipYawJointName}"
-                          parent="${HipYawParentLinkName}" child="${HipYawLinkName}"
-                          origin_xyz="${HipYawFrameOrigin_X} ${HipYawFrameOrigin_Y} ${HipYawFrameOrigin_Z}"
+    <xacro:revolute_joint_ex jointName="${prefix}${HipYawJointName}"
+                          parent="${leg_root_link}" child="${prefix}HipYawLink"
+                          origin_xyz="${HipYawFrameOrigin_X} ${reflect * 0.1016} ${HipYawFrameOrigin_Z}"
                           origin_rpy="${HipYawFrameOrientation_Roll} ${HipYawFrameOrientation_Pitch} ${HipYawFrameOrientation_Yaw}" 
                           axis="${HipYawRotationAxis}"
                           damping="0.1" friction="0.0">
@@ -86,8 +86,8 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${HipRollJointName}"
-                          parent="${HipYawLinkName}" child="${HipRollLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${HipRollJointName}"
+                          parent="${prefix}HipYawLink" child="${prefix}HipRollLink"
                           origin_xyz="${HipRollFrameOrigin_X} ${HipRollFrameOrigin_Y} ${HipRollFrameOrigin_Z}"
                           origin_rpy="${HipRollFrameOrientation_Roll} ${HipRollFrameOrientation_Pitch} ${HipRollFrameOrientation_Yaw}" 
                           axis="${HipRollRotationAxis}"
@@ -101,8 +101,8 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${HipPitchJointName}"
-                          parent="${HipRollLinkName}" child="${HipPitchLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${HipPitchJointName}"
+                          parent="${prefix}HipRollLink" child="${prefix}HipPitchLink"
                           origin_xyz="${HipPitchFrameOrigin_X} ${HipPitchFrameOrigin_Y} ${HipPitchFrameOrigin_Z}"
                           origin_rpy="${HipPitchFrameOrientation_Roll} ${HipPitchFrameOrientation_Pitch} ${HipPitchFrameOrientation_Yaw}" 
                           axis="${HipPitchRotationAxis}"
@@ -111,9 +111,9 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${KneePitchJointName}"
-                          parent="${HipPitchLinkName}" child="${KneePitchLinkName}"
-                          origin_xyz="${KneePitchFrameOrigin_X} ${KneePitchFrameOrigin_Y} ${KneePitchFrameOrigin_Z}"
+    <xacro:revolute_joint_ex jointName="${prefix}${KneePitchJointName}"
+                          parent="${prefix}HipPitchLink" child="${prefix}KneePitchLink"
+                          origin_xyz="${KneePitchFrameOrigin_X} ${reflect * 0.0361046} ${KneePitchFrameOrigin_Z}"
                           origin_rpy="${KneePitchFrameOrientation_Roll} ${KneePitchFrameOrientation_Pitch} ${KneePitchFrameOrientation_Yaw}" 
                           axis="${KneePitchRotationAxis}"
                           damping="0.1" friction="0.0">
@@ -124,8 +124,8 @@
 
   <xacro:macro name="make_ankle_joints" params="prefix reflect leg_root_link">
 
-    <xacro:revolute_joint_ex jointName="${AnklePitchJointName}"
-                          parent="${KneePitchLinkName}" child="${AnklePitchLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${AnklePitchJointName}"
+                          parent="${prefix}KneePitchLink" child="${prefix}AnklePitchLink"
                           origin_xyz="${AnklePitchFrameOrigin_X} ${AnklePitchFrameOrigin_Y} ${AnklePitchFrameOrigin_Z}"
                           origin_rpy="${AnklePitchFrameOrientation_Roll} ${AnklePitchFrameOrientation_Pitch} ${AnklePitchFrameOrientation_Yaw}" 
                           axis="${AnklePitchRotationAxis}"
@@ -134,8 +134,8 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${AnkleRollJointName}"
-                          parent="${AnklePitchLinkName}" child="${AnkleRollLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${AnkleRollJointName}"
+                          parent="${prefix}AnklePitchLink" child="${prefix}Foot"
                           origin_xyz="${AnkleRollFrameOrigin_X} ${AnkleRollFrameOrigin_Y} ${AnkleRollFrameOrigin_Z}"
                           origin_rpy="${AnkleRollFrameOrientation_Roll} ${AnkleRollFrameOrientation_Pitch} ${AnkleRollFrameOrientation_Yaw}" 
                           axis="${HipRollRotationAxis}"
@@ -154,13 +154,13 @@
   <xacro:macro name="v1_leg_sensors" params="prefix reflect ATI_serial_number ATI_node">
 
     <xacro:virtual_fixed_frame_offset name="${prefix}COP"
-                       parentLink="${AnkleRollLinkName}"
+                       parentLink="${prefix}Foot"
                        origin_xyz="0.0189 0.0 -0.0783"
                        origin_rpy="0.0 0.0 0.0"/>
 
     <xacro:ati_force_torque_sensor sensorName="${prefix}FootSixAxis"
-                        parentLink="${AnkleRollLinkName}"
-                        joint_to_attach_sensor_to="${AnkleRollJointName}"
+                        parentLink="${prefix}Foot"
+                        joint_to_attach_sensor_to="${prefix}${AnkleRollJointName}"
                         origin_xyz="0.0215646 0.0 -0.051054"
                         origin_rpy="3.14 0.0 0.0"
                         sensor_number="${ATI_serial_number}" 
@@ -169,19 +169,19 @@
   </xacro:macro>
 
   <xacro:macro name="leg_transmissions_hw" params="prefix">
-    <xacro:simple_transmission jointName="${HipYawJointName}" actuatorName="${HipYawActuatorName}" nodeName="${HipYawNode}" actuatorApi="${HipYawApi}"/>
-    <xacro:simple_transmission jointName="${HipRollJointName}" actuatorName="${HipRollActuatorName}" nodeName="${HipRollNode}" actuatorApi="${HipRollApi}"/>
-    <xacro:simple_transmission jointName="${HipPitchJointName}" actuatorName="${HipPitchActuatorName}" nodeName="${HipPitchNode}" actuatorApi="${HipPitchApi}"/>
-    <xacro:simple_transmission jointName="${KneePitchJointName}" actuatorName="${KneePitchActuatorName}" nodeName="${KneePitchNode}" actuatorApi="${KneePitchApi}"/> 
-    <xacro:pushrod_transmission transmissionName="${prefix}AnkleTransmission" transmissionType="${AnkleTransmissionType}" joint1Name="${AnklePitchJointName}" joint2Name="${AnkleRollJointName}" joint1Role="pitch" joint2Role="roll" actuator1Name="${AnkleRightActuatorName}" actuator2Name="${AnkleLeftActuatorName}" actuator1Node="${AnkleRightActuatorNode}" actuator2Node="${AnkleLeftActuatorNode}" actuator1Api="${AnkleRightActuatorApi}" actuator2Api="${AnkleLeftActuatorApi}" actuator1Role="right" actuator2Role="left"/>
+    <xacro:simple_transmission jointName="${prefix}${HipYawJointName}" actuatorName="${prefix}${HipYawActuatorName}" nodeName="/pelvis/${prefix}_leg_j1" actuatorApi="${HipYawApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${HipRollJointName}" actuatorName="${prefix}${HipRollActuatorName}" nodeName="/${prefix}${HipRollNode}" actuatorApi="${HipRollApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${HipPitchJointName}" actuatorName="${prefix}${HipPitchActuatorName}" nodeName="/${prefix}${HipPitchNode}" actuatorApi="${HipPitchApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${KneePitchJointName}" actuatorName="${prefix}${KneePitchActuatorName}" nodeName="/${prefix}${KneePitchNode}" actuatorApi="${KneePitchApi}"/> 
+    <xacro:pushrod_transmission transmissionName="${prefix}AnkleTransmission" transmissionType="${AnkleTransmissionType}" joint1Name="${prefix}${AnklePitchJointName}" joint2Name="${prefix}${AnkleRollJointName}" joint1Role="pitch" joint2Role="roll" actuator1Name="${prefix}${AnkleRightActuatorName}" actuator2Name="${prefix}${AnkleLeftActuatorName}" actuator1Node="/${prefix}${AnkleRightActuatorNode}" actuator2Node="/${prefix}${AnkleLeftActuatorNode}" actuator1Api="${AnkleRightActuatorApi}" actuator2Api="${AnkleLeftActuatorApi}" actuator1Role="right" actuator2Role="left"/>
   </xacro:macro>
 
   <xacro:macro name="leg_transmissions_sim" params="prefix">
-    <xacro:simple_transmission jointName="${HipYawJointName}" actuatorName="${HipYawActuatorName}" nodeName="${HipYawNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${HipRollJointName}" actuatorName="${HipRollActuatorName}" nodeName="${HipRollNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${HipPitchJointName}" actuatorName="${HipPitchActuatorName}" nodeName="${HipPitchNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${KneePitchJointName}" actuatorName="${KneePitchActuatorName}" nodeName="${KneePitchNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_transmission jointName="${AnklePitchJointName}" actuatorName="${AnklePitchActuatorSimName}" nodeName="${AnklePitchActuatorNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_transmission jointName="${AnkleRollJointName}" actuatorName="${AnkleRollActuatorSimName}" nodeName="${AnkleRollActuatorNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${HipYawJointName}" actuatorName="${prefix}${HipYawActuatorName}" nodeName="/pelvis/${prefix}_leg_j1" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${HipRollJointName}" actuatorName="${prefix}${HipRollActuatorName}" nodeName="/${prefix}${HipRollNode}" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${HipPitchJointName}" actuatorName="${prefix}${HipPitchActuatorName}" nodeName="/${prefix}${HipPitchNode}" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${KneePitchJointName}" actuatorName="${prefix}${KneePitchActuatorName}" nodeName="/${prefix}${KneePitchNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${AnklePitchJointName}" actuatorName="${prefix}${AnklePitchActuatorSimName}" nodeName="/${prefix}${AnklePitchActuatorNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${AnkleRollJointName}" actuatorName="${prefix}${AnkleRollActuatorSimName}" nodeName="/${prefix}${AnkleRollActuatorNode}" actuatorApi="${SimApi}"/> 
   </xacro:macro>
 </robot>

@@ -1,4 +1,4 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ValkyrieSim">
 
     <gazebo>
       <plugin filename="libval_gazebo.so" name="SharedMemorySimInterfacePlugin">
@@ -46,6 +46,6 @@
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_base_sim.xacro"/>
 
     <xacro:add_self_collide />
-    <xacro:add_sim_harness harnessed_link="${TorsoRollLinkName}" />    
+    <xacro:add_sim_harness harnessed_link="torso" />    
 
 </robot>

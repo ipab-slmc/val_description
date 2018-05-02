@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie">
 
-    <gazebo>
+    <!--<gazebo>
       <plugin filename="libval_gazebo.so" name="SharedMemorySimInterfacePlugin">
           <robotNamespace>/val</robotNamespace>
       </plugin>
@@ -25,37 +25,37 @@
     <xacro:include filename="$(find val_description)/common/xacro/dev_ports/valkyrie_gazebo_ports.xacro"/>
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_harness.xacro"/>
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_self_collide.xacro"/>
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />-->
 
     <!-- Pelvis include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/pelvis/pelvis_angled_j1s_includes.xacro"/>
+    <!-- <xacro:include filename="$(find val_description)/model/robots/common/xacro/pelvis/pelvis_angled_j1s_includes.xacro"/> -->
 
     <!-- Leg include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/angled_j1s_includes.xacro"/>
+    <!-- <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/angled_j1s_includes.xacro"/> -->
 
     <!-- Head include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/head/head_includes.xacro"/>
-
+    <!-- <xacro:include filename="$(find val_description)/model/robots/common/xacro/head/head_includes.xacro"/> -->
+ 
     <!-- Arm include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
+    <!-- <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/> -->
 
     <!-- Waist include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/angled_j1s_includes.xacro"/>
+    <!-- <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/angled_j1s_includes.xacro"/> -->
 
     <!-- Base xacro file that calls macros from included files above -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_base_sim.xacro"/>
+    <!-- <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_base_sim.xacro"/> -->
 
-    <xacro:add_self_collide />
+    <!-- <xacro:add_self_collide /> -->
 
     <!-- Until the pumpkin shells are replaced, this needs to be here or there will be lots of 
     unecessary contacts between the hip pitch link and the hip yaw link. -->
-    <gazebo reference="leftHipPitchLink">
+    <!-- <gazebo reference="leftHipPitchLink">
       <self_collide>false</self_collide>
     </gazebo>
     <gazebo reference="rightHipPitchLink">
       <self_collide>false</self_collide>
     </gazebo>
 
-    <xacro:add_sim_harness harnessed_link="${TorsoRollLinkName}" />    
+    <xacro:add_sim_harness harnessed_link="torso" /> -->   
 
 </robot>

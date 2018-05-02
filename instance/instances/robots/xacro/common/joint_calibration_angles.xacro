@@ -13,7 +13,7 @@
 	<xacro:property name="NeckYawCalibrationAngle" value="1.0472"/>
 	<xacro:property name="UpperNeckPitchCalibrationAngle" value="0.0"/>
 	<xacro:property name="ShoulderPitchCalibrationAngle" value="0.0"/>
-	<xacro:property name="ShoulderRollCalibrationAngle" value="${reflect * -1.309}"/>
+	<xacro:property name="ShoulderRollCalibrationAngle" value="-1.309"/>
 	<xacro:property name="ShoulderYawCalibrationAngle" value="0.0"/>
 	<xacro:property name="ElbowPitchCalibrationAngle" value="0.0"/>
 	<xacro:property name="ForearmYawCalibrationAngle" value="0.0"/>
