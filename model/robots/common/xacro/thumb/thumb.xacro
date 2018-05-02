@@ -106,7 +106,7 @@
   </xacro:macro>
 
   <xacro:macro name="thumb_transmissions_hw" params="prefix reflect">
-    <xacro:simple_position_transmission jointName="${prefix}${ThumbRollJointName}" actuatorName="${prefix}ThumbRollActuator" nodeName="/${prefix}${ThumbRollSensNode}" actuatorApi="${ThumbFingerRollApi}"/>
+    <xacro:simple_position_transmission jointName="${prefix}${ThumbRollJointName}" actuatorName="${prefix}ThumbRollActuator" nodeName="/${prefix}${ThumbRollSenseNode}" actuatorApi="${ThumbFingerRollApi}"/>
     <xacro:simple_forearm_position_transmission jointName="${prefix}${ThumbPitch1JointName}" actuatorName="${prefix}ThumbPitch1Actuator" nodeName="/${prefix}${ThumbPitch1Node}" actuatorApi="${ThumbFingerProximalApi}" reflect="${reflect}"/>
     <xacro:simple_forearm_position_transmission jointName="${prefix}${ThumbPitch2JointName}" actuatorName="${prefix}ThumbPitch2Actuator" nodeName="/${prefix}${ThumbPitch2Node}" actuatorApi="${ThumbFingerMedialApi}" reflect="${reflect}"/>
     <xacro:simple_forearm_position_transmission jointName="${prefix}${ThumbPitch3JointName}" actuatorName="${prefix}ThumbPitch3Actuator" nodeName="/${prefix}${ThumbPitch3Node}" actuatorApi="${ThumbFingerDistalApi}" reflect="${reflect}"/>

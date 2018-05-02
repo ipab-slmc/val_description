@@ -62,7 +62,7 @@
 	<xacro:property name="ThumbRollNode" value="_arm/hand/thumb_roll"/>
 	<xacro:property name="ThumbProximalNode" value="_arm/hand/thumb_proximal"/>
 	<xacro:property name="ThumbDistalNode" value="_arm/hand/thumb_distal"/>
-	<xacro:property name="ThumbRollSensNode" value="_arm/forearm_sensors/thumb"/>
+	<xacro:property name="ThumbRollSenseNode" value="_arm/forearm_sensors/thumb"/>
 	<xacro:property name="ThumbPitch1Node" value="_arm/forearm_sensors/thumb"/>
 	<xacro:property name="ThumbPitch2Node" value="_arm/forearm_sensors/thumb"/>
 	<xacro:property name="ThumbPitch3Node" value="_arm/forearm_sensors/thumb"/>
