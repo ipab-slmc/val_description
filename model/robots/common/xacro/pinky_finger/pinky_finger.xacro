@@ -94,10 +94,11 @@
   </xacro:macro>
 
   <xacro:macro name="pinky_transmissions_sim" params="prefix">
-    <xacro:simple_transmission_with_two_child_joints jointName="${prefix}${PinkyPitch1JointName}" actuatorName="${prefix}PinkyPitch1Actuator" nodeName="/${prefix}${PinkyPitch1Node}" actuatorApi="${SimApi}" child1JointName="${prefix}${PinkyPitch2JointName}" child1Ratio="${Pulley2Ratio}" child2JointName="${prefix}${PinkyPitch3JointName}" child2Ratio="${Pulley3Ratio}"/>
+    <xacro:simple_effort_transmission_with_three_child_joints jointName="${prefix}${PinkyPitch1ActuatorName}" actuatorName="${prefix}${PinkyPitch1ActuatorName}" nodeName="/${prefix}${PinkyFingerNode}" actuatorApi="${SimApi}" child1JointName="${prefix}${PinkyPitch1JointName}" child1Ratio="${Pulley1Ratio}" child2JointName="${prefix}${PinkyPitch2JointName}" child2Ratio="${Pulley2Ratio}" child3JointName="${prefix}${PinkyPitch3JointName}" child3Ratio="${Pulley3Ratio}"/>
     
-    <xacro:simple_passive_transmission jointName="${prefix}${PinkyPitch2JointName}" nodeName="/${prefix}${PinkyPitch2Node}" apiName="${SimApi}"/>
-    <xacro:simple_passive_transmission jointName="${prefix}${PinkyPitch3JointName}" nodeName="/${prefix}${PinkyPitch3Node}" apiName="${SimApi}"/>
+    <xacro:simple_passive_transmission jointName="${prefix}${PinkyPitch1JointName}" nodeName="/${prefix}${PinkyPitch1Node}" apiName="${SimApi}" reflect="1"/>
+    <xacro:simple_passive_transmission jointName="${prefix}${PinkyPitch2JointName}" nodeName="/${prefix}${PinkyPitch2Node}" apiName="${SimApi}" reflect="1"/>
+    <xacro:simple_passive_transmission jointName="${prefix}${PinkyPitch3JointName}" nodeName="/${prefix}${PinkyPitch3Node}" apiName="${SimApi}" reflect="1"/>
   </xacro:macro>
   
 </robot>
