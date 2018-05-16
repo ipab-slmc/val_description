@@ -333,11 +333,12 @@
     </transmission>
   </xacro:macro>
 
-  <xacro:macro name="simple_effort_transmission_two_actuator" params="jointName actuatorName nodeName actuatorApi childActuator">
+  <xacro:macro name="simple_effort_transmission_two_actuator" params="jointName actuatorName nodeName actuatorApi childActuator child1JointName child1Ratio">
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <child name="${child1JointName}" ratio="${child1Ratio}"/>
       </joint>
       <actuator name="${actuatorName}">
         <node name="${nodeName}"/>
@@ -348,13 +349,14 @@
     </transmission>
   </xacro:macro>
 
-  <xacro:macro name="simple_effort_transmission_two_actuator_three_joint" params="jointName actuatorName nodeName actuatorApi child1JointName child1Ratio child2JointName child2Ratio">
+  <xacro:macro name="simple_effort_transmission_two_actuator_three_joint" params="jointName actuatorName nodeName actuatorApi childActuator child1JointName child1Ratio child2JointName child2Ratio child3JointName child3Ratio">
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <child name="${child1JointName}" ratio="${child1Ratio}"/>
         <child name="${child2JointName}" ratio="${child2Ratio}"/>
+        <child name="${child3JointName}" ratio="${child3Ratio}"/>
       </joint>
       <actuator name="${actuatorName}">
         <node name="${nodeName}"/>
