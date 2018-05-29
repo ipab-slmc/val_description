@@ -41,8 +41,8 @@
     <Coeff value="149.76297358" id="ThumbBarometer3_B" description="Thumb Barometer3 Coefficient B"/>
     <Coeff value="-0.147326363147" id="ThumbBarometer2_A" description="Thumb Barometer2 Coefficient A"/>
     <Coeff value="164.850911936" id="ThumbBarometer2_B" description="Thumb Barometer2 Coefficient B"/>
-    <Coeff value="-0.00553145432321" id="ThumbRoll_A" description="Thumb Roll Hall Sensor Coefficient A"/>
-    <Coeff value="2.24525527169" id="ThumbRoll_B" description="Thumb Roll Hall Sensor Coefficient B"/>
+    <Coeff value="-0.0184" id="ThumbRoll_A" description="Thumb Roll Hall Sensor Coefficient A"/>
+    <Coeff value="2.5760" id="ThumbRoll_B" description="Thumb Roll Hall Sensor Coefficient B"/>
     <Coeff value="-0.00355685453755" id="ThumbProximal_A" description="Thumb Proximal Hall Sensor Coefficient A"/>
     <Coeff value="-0.0758468586336" id="ThumbProximal_B" description="Thumb Proximal Hall Sensor Coefficient B"/>
     <Coeff value="-0.00515933478208" id="ThumbMedial_A" description="Thumb Medial Hall Sensor Coefficient A"/>
