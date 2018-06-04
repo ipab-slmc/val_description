@@ -68,6 +68,7 @@ catkin_python_setup()
 catkin_add_nosetests(test)
 
 add_custom_target(val_description_media_files ALL DEPENDS ${urdf_files} ${instance_files})
+#add_custom_target(val_description_media_files ALL DEPENDS ${urdf_files})
 
 # install urdf and xacro files
 install(DIRECTORY model

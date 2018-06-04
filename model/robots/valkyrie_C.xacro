@@ -1,4 +1,4 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="valkyrie">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ValkyrieC">
 
 	<xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs"/>
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>

@@ -3,43 +3,43 @@
 
   <xacro:macro name="make_upper_arm" params="prefix reflect upper_arm_root_link">
 
-    <xacro:standard_link name="${ShoulderPitchLinkName}"
+    <xacro:standard_link name="${prefix}ShoulderPitchLink"
                     mass="${ShoulderPitchLinkMass}"
-                    origin_xyz="${ShoulderPitchLinkComPosition}" origin_rpy="0 0 0"
+                    origin_xyz="${reflect*-0.012000} ${reflect*0.251000} 0.000000" origin_rpy="0 0 0"
                     ixx="${ShoulderPitchLinkInertia_IXX}" ixy="${ShoulderPitchLinkInertia_IXY}" ixz="${ShoulderPitchLinkInertia_IXZ}"
                     iyy="${ShoulderPitchLinkInertia_IYY}" iyz="${ShoulderPitchLinkInertia_IYZ}" izz="${ShoulderPitchLinkInertia_IZZ}"
                     visual_mesh="${arm_mesh_dir}/aj1_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj1_${prefix}.dae" />
 
-    <xacro:standard_link name="${ShoulderRollLinkName}"
+    <xacro:standard_link name="${prefix}ShoulderRollLink"
                     mass="${ShoulderRollLinkMass}"
-                    origin_xyz="${ShoulderRollLinkComPosition}" 
-                    ixx="${ShoulderRollLinkInertia_IXX}" ixy="${ShoulderRollLinkInertia_IXY}" ixz="${ShoulderRollLinkInertia_IXZ}"
-                    iyy="${ShoulderRollLinkInertia_IYY}" iyz="${ShoulderRollLinkInertia_IYZ}" izz="${ShoulderRollLinkInertia_IZZ}"
+                    origin_xyz="${reflect*-0.008513} ${reflect*0.020680} -0.001088" 
+                    ixx="${ShoulderRollLinkInertia_IXX}" ixy="${ShoulderRollLinkInertia_IXY}" ixz="${reflect*-0.00003629}"
+                    iyy="${ShoulderRollLinkInertia_IYY}" iyz="${reflect*-0.00008283}" izz="${ShoulderRollLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/aj2_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj2_${prefix}.dae" />
 
-    <xacro:standard_link name="${ShoulderYawLinkName}"
+    <xacro:standard_link name="${prefix}ShoulderYawLink"
                     mass="${ShoulderYawLinkMass}"
-                    origin_xyz="${ShoulderYawLinkComPosition}" 
-                    ixx="${ShoulderYawLinkInertia_IXX}" ixy="${ShoulderYawLinkInertia_IXY}" ixz="${ShoulderYawLinkInertia_IXZ}"
-                    iyy="${ShoulderYawLinkInertia_IYY}" iyz="${ShoulderYawLinkInertia_IYZ}" izz="${ShoulderYawLinkInertia_IZZ}"
+                    origin_xyz="-0.004304	${reflect*0.209832}	${reflect*0.007295}" 
+                    ixx="${ShoulderYawLinkInertia_IXX}" ixy="${reflect*-0.007827077}" ixz="${reflect*-0.000753947}"
+                    iyy="${ShoulderYawLinkInertia_IYY}" iyz="${reflect*0.002723873}" izz="${ShoulderYawLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/aj3_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj3_${prefix}.dae" />
 
-    <xacro:standard_link name="${ElbowPitchLinkName}"
+    <xacro:standard_link name="${prefix}ElbowPitchLink"
                     mass="${ElbowPitchLinkMass}"
-                    origin_xyz="${ElbowPitchLinkComPosition}"
-                    ixx="${ElbowPitchLinkInertia_IXX}" ixy="${ElbowPitchLinkInertia_IXY}" ixz="${ElbowPitchLinkInertia_IXZ}"
+                    origin_xyz="-0.020344	${reflect*0.014722} ${reflect*0.022300}"
+                    ixx="${ElbowPitchLinkInertia_IXX}" ixy="${reflect*0.000535099}" ixz="${reflect*0.000728077}"
                     iyy="${ElbowPitchLinkInertia_IYY}" iyz="${ElbowPitchLinkInertia_IYZ}" izz="${ElbowPitchLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/aj4_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj4_${prefix}.dae" />
 
-    <xacro:revolute_joint_ex jointName="${ShoulderPitchJointName}"
-                          parent="${upper_arm_root_link}" child="${ShoulderPitchLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ShoulderPitchJointName}"
+                          parent="${upper_arm_root_link}" child="${prefix}ShoulderPitchLink"
                           origin_xyz="${ShoulderPitchFrameOrigin_X} ${ShoulderPitchFrameOrigin_Y} ${ShoulderPitchFrameOrigin_Z}"
                           origin_rpy="${ShoulderPitchFrameOrientation_Roll} ${ShoulderPitchFrameOrientation_Pitch} ${ShoulderPitchFrameOrientation_Yaw}" 
                           axis="${ShoulderPitchRotationAxis}"
@@ -48,9 +48,9 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${ShoulderRollJointName}"
-                          parent="${ShoulderPitchLinkName}" child="${ShoulderRollLinkName}"
-                          origin_xyz="${ShoulderRollFrameOrigin_X} ${ShoulderRollFrameOrigin_Y} ${ShoulderRollFrameOrigin_Z}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ShoulderRollJointName}"
+                          parent="${prefix}ShoulderPitchLink" child="${prefix}ShoulderRollLink"
+                          origin_xyz="${ShoulderRollFrameOrigin_X} ${reflect * 0.2499} ${ShoulderRollFrameOrigin_Z}"
                           origin_rpy="${ShoulderRollFrameOrientation_Roll} ${ShoulderRollFrameOrientation_Pitch} ${ShoulderRollFrameOrientation_Yaw}" 
                           axis="${ShoulderRollRotationAxis}"
                           damping="0.1" friction="0.0">
@@ -63,8 +63,8 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${ShoulderYawJointName}"
-                          parent="${ShoulderRollLinkName}" child="${ShoulderYawLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ShoulderYawJointName}"
+                          parent="${prefix}ShoulderRollLink" child="${prefix}ShoulderYawLink"
                           origin_xyz="${ShoulderYawFrameOrigin_X} ${ShoulderYawFrameOrigin_Y} ${ShoulderYawFrameOrigin_Z}"
                           origin_rpy="${ShoulderYawFrameOrientation_Roll} ${ShoulderYawFrameOrientation_Pitch} ${ShoulderYawFrameOrientation_Yaw}" 
                           axis="${ShoulderYawRotationAxis}"
@@ -73,9 +73,9 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${ElbowPitchJointName}"
-                          parent="${ShoulderYawLinkName}" child="${ElbowPitchLinkName}"
-                          origin_xyz="${ElbowPitchFrameOrigin_X} ${ElbowPitchFrameOrigin_Y} ${ElbowPitchFrameOrigin_Z}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ElbowPitchJointName}"
+                          parent="${prefix}ShoulderYawLink" child="${prefix}ElbowPitchLink"
+                          origin_xyz="${ElbowPitchFrameOrigin_X} ${reflect * 0.33} ${ElbowPitchFrameOrigin_Z}"
                           origin_rpy="${ElbowPitchFrameOrientation_Roll} ${ElbowPitchFrameOrientation_Pitch} ${ElbowPitchFrameOrientation_Yaw}" 
                           axis="${ElbowPitchRotationAxis}"
                           damping="0.1" friction="0.0">
@@ -91,36 +91,36 @@
 
 
   <xacro:macro name="make_lower_arm" params="prefix reflect lower_arm_root_link">
-    <xacro:standard_link name="${ForearmLinkName}"
+    <xacro:standard_link name="${prefix}ForearmLink"
                     mass="${ForearmYawLinkMass}"
-                    origin_xyz="${ForearmYawLinkComPosition}"
-                    ixx="${ForearmYawLinkInertia_IXX}" ixy="${ForearmYawLinkInertia_IXY}" ixz="${ForearmYawLinkInertia_IXZ}"
-                    iyy="${ForearmYawLinkInertia_IYY}" iyz="${ForearmYawLinkInertia_IYZ}" izz="${ForearmYawLinkInertia_IZZ}"
+                    origin_xyz="0.015000 ${reflect*0.13} 0.019564"
+                    ixx="${ForearmYawLinkInertia_IXX}" ixy="${reflect*0.001300853}" ixz="${ForearmYawLinkInertia_IXZ}"
+                    iyy="${ForearmYawLinkInertia_IYY}" iyz="${reflect*0.001695416}" izz="${ForearmYawLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/aj5_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj5_${prefix}.dae" />
 
-    <xacro:standard_link name="${WristRollLinkName}"
+    <xacro:standard_link name="${prefix}WristRollLink"
                     mass="${WristRollLinkMass}"
-                    origin_xyz="${WristRollLinkComPosition}"
-                    ixx="${WristRollLinkInertia_IXX}" ixy="${WristRollLinkInertia_IXY}" ixz="${WristRollLinkInertia_IXZ}"
+                    origin_xyz="0 ${reflect*0} 0"
+                    ixx="${WristRollLinkInertia_IXX}" ixy="${reflect*0.000000125}" ixz="${reflect*0.000000036}"
                     iyy="${WristRollLinkInertia_IYY}" iyz="${WristRollLinkInertia_IYZ}" izz="${WristRollLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/aj6_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj6_${prefix}.dae" />
 
-    <xacro:standard_link name="${WristPitchLinkName}"
+    <xacro:standard_link name="${prefix}Palm"
                     mass="${PalmMass}"
-                    origin_xyz="${PalmComPosition}"
-                    ixx="${PalmInertia_IXX}" ixy="${PalmInertia_IXY}" ixz="${PalmInertia_IXZ}"
-                    iyy="${PalmInertia_IYY}" iyz="${PalmInertia_IYZ}" izz="${PalmInertia_IZZ}"
+                    origin_xyz="0.002954 ${reflect*0.052034} -0.000236"
+                    ixx="${PalmInertia_IXX}" ixy="${PalmInertia_IXY}" ixz="${reflect*0.000038828}"
+                    iyy="${PalmInertia_IYY}" iyz="${reflect*-0.000023429}" izz="${PalmInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/palm_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/palm_${prefix}.dae"/>
-    <xacro:gazebo_hand_contact link_name="${WristPitchLinkName}" />
+    <xacro:gazebo_hand_contact link_name="${prefix}Palm" />
 
-    <xacro:revolute_joint_ex jointName="${ForearmYawJointName}"
-                          parent="${lower_arm_root_link}" child="${ForearmLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ForearmYawJointName}"
+                          parent="${lower_arm_root_link}" child="${prefix}ForearmLink"
                           origin_xyz="${ForearmYawFrameOrigin_X} ${ForearmYawFrameOrigin_Y} ${ForearmYawFrameOrigin_Z}"
                           origin_rpy="${ForearmYawFrameOrientation_Roll} ${ForearmYawFrameOrientation_Pitch} ${ForearmYawFrameOrientation_Yaw}" 
                           axis="${ForearmYawRotationAxis}"
@@ -129,9 +129,9 @@
         <controller_gains Kp="${ForearmYawKp}" Kd="${ForearmYawKd}" Ki="${ForearmYawKi}"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${WristRollJointName}"
-                          parent="${ForearmLinkName}" child="${WristRollLinkName}"
-                          origin_xyz="${WristRollFrameOrigin_X} ${WristRollFrameOrigin_Y} ${WristRollFrameOrigin_Z}"
+    <xacro:revolute_joint_ex jointName="${prefix}${WristRollJointName}"
+                          parent="${prefix}ForearmLink" child="${prefix}WristRollLink"
+                          origin_xyz="${WristRollFrameOrigin_X} ${reflect * 0.2871} ${WristRollFrameOrigin_Z}"
                           origin_rpy="${WristRollFrameOrientation_Roll} ${WristRollFrameOrientation_Pitch} ${WristRollFrameOrientation_Yaw}" 
                           axis="${WristRollRotationAxis}"
                           damping="0.1" friction="0.0">
@@ -144,8 +144,8 @@
         <controller_gains Kp="${WristRollKp}" Kd="${WristRollKd}" Ki="${WristRollKi}"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${WristPitchJointName}"
-                          parent="${WristRollLinkName}" child="${WristPitchLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${WristPitchJointName}"
+                          parent="${prefix}WristRollLink" child="${prefix}Palm"
                           origin_xyz="${WristPitchFrameOrigin_X} ${WristPitchFrameOrigin_Y} ${WristPitchFrameOrigin_Z}"
                           origin_rpy="${WristPitchFrameOrientation_Roll} ${WristPitchFrameOrientation_Pitch} ${WristPitchFrameOrientation_Yaw}" 
                           axis="${WristPitchRotationAxis}"
@@ -162,7 +162,7 @@
 
   <xacro:macro name="make_arm" params="prefix reflect arm_root_link">
     <xacro:make_upper_arm prefix="${prefix}" reflect="${reflect}" upper_arm_root_link="${arm_root_link}" />
-    <xacro:make_lower_arm prefix="${prefix}" reflect="${reflect}" lower_arm_root_link="${ElbowPitchLinkName}" />
+    <xacro:make_lower_arm prefix="${prefix}" reflect="${reflect}" lower_arm_root_link="${prefix}ElbowPitchLink" />
   </xacro:macro>
 
   <xacro:macro name="make_arm_no_hands" params="prefix reflect arm_root_link">
@@ -170,43 +170,43 @@
   </xacro:macro>
 
   <xacro:macro name="make_arm_mass_sims" params="prefix reflect arm_root_link">
-    <xacro:standard_link name="${ShoulderPitchLinkName}"
+    <xacro:standard_link name="${prefix}ShoulderPitchLink"
                     mass="${ShoulderPitchLinkMass}"
-                    origin_xyz="${ShoulderPitchLinkComPosition}" origin_rpy="0 0 0"
+                    origin_xyz="${reflect*-0.012000} ${reflect*0.251000} 0.000000" origin_rpy="0 0 0"
                     ixx="${ShoulderPitchLinkInertia_IXX}" ixy="${ShoulderPitchLinkInertia_IXY}" ixz="${ShoulderPitchLinkInertia_IXZ}"
                     iyy="${ShoulderPitchLinkInertia_IYY}" iyz="${ShoulderPitchLinkInertia_IYZ}" izz="${ShoulderPitchLinkInertia_IZZ}"
                     visual_mesh="${arm_mesh_dir}/aj1_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj1_${prefix}.dae" />
 
-    <xacro:standard_link name="${ShoulderRollLinkName}"
+    <xacro:standard_link name="${prefix}ShoulderRollLink"
                     mass="${ShoulderRollLinkMass}"
-                    origin_xyz="${ShoulderRollLinkComPosition}" 
-                    ixx="${ShoulderRollLinkInertia_IXX}" ixy="${ShoulderRollLinkInertia_IXY}" ixz="${ShoulderRollLinkInertia_IXZ}"
-                    iyy="${ShoulderRollLinkInertia_IYY}" iyz="${ShoulderRollLinkInertia_IYZ}" izz="${ShoulderRollLinkInertia_IZZ}"
+                    origin_xyz="${reflect*-0.008513} ${reflect*0.020680} -0.001088" 
+                    ixx="${ShoulderRollLinkInertia_IXX}" ixy="${ShoulderRollLinkInertia_IXY}" ixz="${reflect*-0.00003629}"
+                    iyy="${ShoulderRollLinkInertia_IYY}" iyz="${reflect*-0.00008283}" izz="${ShoulderRollLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/aj2_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj2_${prefix}.dae" />
 
-    <xacro:standard_link name="${ShoulderYawLinkName}"
+    <xacro:standard_link name="${prefix}ShoulderYawLink"
                     mass="${ShoulderYawLinkMass}"
-                    origin_xyz="${ShoulderYawLinkComPosition}" 
-                    ixx="${ShoulderYawLinkInertia_IXX}" ixy="${ShoulderYawLinkInertia_IXY}" ixz="${ShoulderYawLinkInertia_IXZ}"
-                    iyy="${ShoulderYawLinkInertia_IYY}" iyz="${ShoulderYawLinkInertia_IYZ}" izz="${ShoulderYawLinkInertia_IZZ}"
+                    origin_xyz="-0.004304	${reflect*0.209832}	${reflect*0.007295}" 
+                    ixx="${ShoulderYawLinkInertia_IXX}" ixy="${reflect*-0.007827077}" ixz="${reflect*-0.000753947}"
+                    iyy="${ShoulderYawLinkInertia_IYY}" iyz="${reflect*0.002723873}" izz="${ShoulderYawLinkInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/aj3_${prefix}.dae"
                     collision_mesh="${arm_mesh_dir}/aj3_${prefix}.dae" />
 
-    <xacro:standard_link name="${ElbowPitchLinkName}"
+    <xacro:standard_link name="${prefix}ElbowPitchLink"
                     mass="${ForearmMassSimLinkMass}"
-                    origin_xyz="${ForearmMassSimComPosition}"
-                    ixx="${ForearmMassSimInertia_IXX}" ixy="${ForearmMassSimInertia_IXY}" ixz="${ForearmMassSimInertia_IXZ}"
-                    iyy="${ForearmMassSimInertia_IYY}" iyz="${ForearmMassSimInertia_IYZ}" izz="${ForearmMassSimInertia_IZZ}"
+                    origin_xyz="-0.010000  ${reflect*0.13} 0.019564"
+                    ixx="${ForearmMassSimInertia_IXX}" ixy="${reflect*0.001300853}" ixz="${ForearmMassSimInertia_IXZ}"
+                    iyy="${ForearmMassSimInertia_IYY}" iyz="${reflect*0.001695416}" izz="${ForearmMassSimInertia_IZZ}"
                     origin_rpy="0 0 0"
                     visual_mesh="${arm_mesh_dir}/${prefix}_elbow_mass_sim.dae"
                     collision_mesh="${arm_mesh_dir}/${prefix}_elbow_mass_sim.dae" />
 
-    <xacro:revolute_joint_ex jointName="${ShoulderPitchJointName}"
-                          parent="${arm_root_link}" child="${ShoulderPitchLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ShoulderPitchJointName}"
+                          parent="${arm_root_link}" child="${prefix}ShoulderPitchLink"
                           origin_xyz="${ShoulderPitchFrameOrigin_X} ${ShoulderPitchFrameOrigin_Y} ${ShoulderPitchFrameOrigin_Z}"
                           origin_rpy="${ShoulderPitchFrameOrientation_Roll} ${ShoulderPitchFrameOrientation_Pitch} ${ShoulderPitchFrameOrientation_Yaw}" 
                           axis="${ShoulderPitchRotationAxis}"
@@ -215,9 +215,9 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${ShoulderRollJointName}"
-                          parent="${ShoulderPitchLinkName}" child="${ShoulderRollLinkName}"
-                          origin_xyz="${ShoulderRollFrameOrigin_X} ${ShoulderRollFrameOrigin_Y} ${ShoulderRollFrameOrigin_Z}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ShoulderRollJointName}"
+                          parent="${prefix}ShoulderPitchLink" child="${prefix}ShoulderRollLink"
+                          origin_xyz="${ShoulderRollFrameOrigin_X} ${reflect * 0.2499} ${ShoulderRollFrameOrigin_Z}"
                           origin_rpy="${ShoulderRollFrameOrientation_Roll} ${ShoulderRollFrameOrientation_Pitch} ${ShoulderRollFrameOrientation_Yaw}" 
                           axis="${ShoulderRollRotationAxis}"
                           damping="0.1" friction="0.0">
@@ -230,8 +230,8 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${ShoulderYawJointName}"
-                          parent="${ShoulderRollLinkName}" child="${ShoulderYawLinkName}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ShoulderYawJointName}"
+                          parent="${prefix}ShoulderRollLink" child="${prefix}ShoulderYawLink"
                           origin_xyz="${ShoulderYawFrameOrigin_X} ${ShoulderYawFrameOrigin_Y} ${ShoulderYawFrameOrigin_Z}"
                           origin_rpy="${ShoulderYawFrameOrientation_Roll} ${ShoulderYawFrameOrientation_Pitch} ${ShoulderYawFrameOrientation_Yaw}" 
                           axis="${ShoulderYawRotationAxis}"
@@ -240,9 +240,9 @@
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
 
-    <xacro:revolute_joint_ex jointName="${ElbowPitchJointName}"
-                          parent="${ShoulderYawLinkName}" child="${ElbowPitchLinkName}"
-                          origin_xyz="${ElbowPitchFrameOrigin_X} ${ElbowPitchFrameOrigin_Y} ${ElbowPitchFrameOrigin_Z}"
+    <xacro:revolute_joint_ex jointName="${prefix}${ElbowPitchJointName}"
+                          parent="${prefix}ShoulderYawLink" child="${prefix}ElbowPitchLink"
+                          origin_xyz="${ElbowPitchFrameOrigin_X} ${reflect * 0.33} ${ElbowPitchFrameOrigin_Z}"
                           origin_rpy="${ElbowPitchFrameOrientation_Roll} ${ElbowPitchFrameOrientation_Pitch} ${ElbowPitchFrameOrientation_Yaw}" 
                           axis="${ElbowPitchRotationAxis}"
                           damping="0.1" friction="0.0">
@@ -257,42 +257,48 @@
   </xacro:macro>
 
   <xacro:macro name="arm_transmissions_hw" params="prefix reflect">
-    <xacro:simple_transmission jointName="${ShoulderPitchJointName}" actuatorName="${ShoulderPitchActuatorName}" nodeName="${ShoulderPitchNode}" actuatorApi="${ShoulderPitchApi}"/>
-    <xacro:simple_transmission jointName="${ShoulderRollJointName}" actuatorName="${ShoulderRollActuatorName}" nodeName="${ShoulderRollNode}" actuatorApi="${ShoulderRollApi}"/>
-    <xacro:simple_transmission jointName="${ShoulderYawJointName}" actuatorName="${ShoulderYawActuatorName}" nodeName="${ShoulderYawNode}" actuatorApi="${ShoulderYawApi}"/>
-    <xacro:simple_transmission jointName="${ElbowPitchJointName}" actuatorName="${ElbowPitchActuatorName}" nodeName="${ElbowPitchNode}" actuatorApi="${ElbowPitchApi}"/> 
-    <xacro:simple_transmission jointName="${ForearmYawActuatorName}" actuatorName="${ForearmYawActuatorName}" nodeName="${ForearmYawNode}" actuatorApi="${ForearmYawApi}"/> 
-    <xacro:pushrod_transmission transmissionName="${prefix}WristTransmission" transmissionType="${WristTransmissionType}" joint1Name="${WristPitchJointName}" joint2Name="${WristRollJointName}" joint1Role="pitch" joint2Role="roll" actuator1Name="${WristRightActuatorName}" actuator2Name="${WristLeftActuatorName}" actuator1Node="${WristRightActuatorNode}" actuator2Node="${WristLeftActuatorNode}" actuator1Api="${WristRightActuatorApi}" actuator2Api="${WristLeftActuatorApi}" actuator1Role="bottom" actuator2Role="top"/>
-    <xacro:simple_transmission jointName="${IndexFingerPitch1ActuatorName}" actuatorName="${IndexFingerPitch1ActuatorName}" nodeName="${IndexFingerNode}" actuatorApi="${IndexFingerApi}"/> 
-    <xacro:simple_transmission jointName="${MiddleFingerPitch1ActuatorName}" actuatorName="${MiddleFingerPitch1ActuatorName}" nodeName="${MiddleFingerNode}" actuatorApi="${MiddleFingerApi}"/> 
-    <xacro:simple_transmission jointName="${PinkyPitch1ActuatorName}" actuatorName="${PinkyPitch1ActuatorName}" nodeName="${PinkyFingerNode}" actuatorApi="${PinkyFingerApi}"/> 
-    <xacro:simple_transmission jointName="${ThumbRollActuatorName}" actuatorName="${ThumbRollActuatorName}" nodeName="${ThumbRollNode}" actuatorApi="${ThumbRollFingerApi}"/> 
-    <xacro:simple_transmission jointName="${ThumbPitch1ActuatorName}" actuatorName="${ThumbPitch1ActuatorName}" nodeName="${ThumbProximalNode}" actuatorApi="${ThumbProximalFingerApi}"/> 
-    <xacro:simple_transmission jointName="${ThumbPitch2ActuatorName}" actuatorName="${ThumbPitch2ActuatorName}" nodeName="${ThumbDistalNode}" actuatorApi="${ThumbDistalFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ShoulderPitchJointName}" actuatorName="${prefix}${ShoulderPitchActuatorName}" nodeName="/trunk/${prefix}_arm_j1" actuatorApi="${ShoulderPitchApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderRollJointName}" actuatorName="${prefix}${ShoulderRollActuatorName}" nodeName="/${prefix}${ShoulderRollNode}" actuatorApi="${ShoulderRollApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderYawJointName}" actuatorName="${prefix}${ShoulderYawActuatorName}" nodeName="/${prefix}${ShoulderYawNode}" actuatorApi="${ShoulderYawApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ElbowPitchJointName}" actuatorName="${prefix}${ElbowPitchActuatorName}" nodeName="/${prefix}${ElbowPitchNode}" actuatorApi="${ElbowPitchApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ForearmYawActuatorName}" actuatorName="${prefix}${ForearmYawActuatorName}" nodeName="/${prefix}${ForearmYawNode}" actuatorApi="${ForearmYawApi}"/> 
+    <xacro:pushrod_transmission transmissionName="${prefix}WristTransmission" transmissionType="${WristTransmissionType}" joint1Name="${prefix}${WristPitchJointName}" joint2Name="${prefix}${WristRollJointName}" joint1Role="pitch" joint2Role="roll" actuator1Name="${prefix}${WristRightActuatorName}" actuator2Name="${prefix}${WristLeftActuatorName}" actuator1Node="/${prefix}${WristRightActuatorNode}" actuator2Node="/${prefix}${WristLeftActuatorNode}" actuator1Api="${WristRightActuatorApi}" actuator2Api="${WristLeftActuatorApi}" actuator1Role="bottom" actuator2Role="top"/>
+    <xacro:simple_transmission jointName="${prefix}${IndexFingerPitch1ActuatorName}" actuatorName="${prefix}${IndexFingerPitch1ActuatorName}" nodeName="/${prefix}${IndexFingerNode}" actuatorApi="${IndexFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${MiddleFingerPitch1ActuatorName}" actuatorName="${prefix}${MiddleFingerPitch1ActuatorName}" nodeName="/${prefix}${MiddleFingerNode}" actuatorApi="${MiddleFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${PinkyPitch1ActuatorName}" actuatorName="${prefix}${PinkyPitch1ActuatorName}" nodeName="/${prefix}${PinkyFingerNode}" actuatorApi="${PinkyFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbRollActuatorName}" actuatorName="${prefix}${ThumbRollActuatorName}" nodeName="/${prefix}${ThumbRollNode}" actuatorApi="${ThumbRollFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbPitch1ActuatorName}" actuatorName="${prefix}${ThumbPitch1ActuatorName}" nodeName="/${prefix}${ThumbProximalNode}" actuatorApi="${ThumbProximalFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbPitch2ActuatorName}" actuatorName="${prefix}${ThumbPitch2ActuatorName}" nodeName="/${prefix}${ThumbDistalNode}" actuatorApi="${ThumbDistalFingerApi}"/> 
   </xacro:macro>
 
   <xacro:macro name="arm_transmissions_no_hands" params="prefix">
-    <xacro:simple_transmission jointName="${ShoulderPitchJointName}" actuatorName="${ShoulderPitchActuatorName}" nodeName="${ShoulderPitchNode}" actuatorApi="${ShoulderPitchApi}"/>
-    <xacro:simple_transmission jointName="${ShoulderRollJointName}" actuatorName="${ShoulderRollActuatorName}" nodeName="${ShoulderRollNode}" actuatorApi="${ShoulderRollApi}"/>
-    <xacro:simple_transmission jointName="${ShoulderYawJointName}" actuatorName="${ShoulderYawActuatorName}" nodeName="${ShoulderYawNode}" actuatorApi="${ShoulderYawApi}"/>
-    <xacro:simple_transmission jointName="${ElbowPitchJointName}" actuatorName="${ElbowPitchActuatorName}" nodeName="${ElbowPitchNode}" actuatorApi="${ElbowPitchApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ShoulderPitchJointName}" actuatorName="${prefix}${ShoulderPitchActuatorName}" nodeName="/trunk/${prefix}_arm_j1" actuatorApi="${ShoulderPitchApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderRollJointName}" actuatorName="${prefix}${ShoulderRollActuatorName}" nodeName="/${prefix}${ShoulderRollNode}" actuatorApi="${ShoulderRollApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderYawJointName}" actuatorName="${prefix}${ShoulderYawActuatorName}" nodeName="/${prefix}${ShoulderYawNode}" actuatorApi="${ShoulderYawApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ElbowPitchJointName}" actuatorName="${prefix}${ElbowPitchActuatorName}" nodeName="/${prefix}${ElbowPitchNode}" actuatorApi="${ElbowPitchApi}"/> 
   </xacro:macro>
 
   <xacro:macro name="arm_transmissions_sim" params="prefix">
-    <xacro:simple_transmission jointName="${ShoulderPitchJointName}" actuatorName="${ShoulderPitchActuatorName}" nodeName="${ShoulderPitchNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${ShoulderRollJointName}" actuatorName="${ShoulderRollActuatorName}" nodeName="${ShoulderRollNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${ShoulderYawJointName}" actuatorName="${ShoulderYawActuatorName}" nodeName="${ShoulderYawNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${ElbowPitchJointName}" actuatorName="${ElbowPitchActuatorName}" nodeName="${ElbowPitchNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_position_transmission jointName="${ForearmYawActuatorName}" actuatorName="${ForearmYawActuatorName}" nodeName="${ForearmYawNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_position_transmission jointName="${WristRollJointName}" actuatorName="${WristRollActuatorSimName}" nodeName="${WristRollActuatorNode}" actuatorApi="${SimApi}"/> 
-    <xacro:simple_position_transmission jointName="${WristPitchJointName}" actuatorName="${WristPitchActuatorSimName}" nodeName="${WristPitchActuatorNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ShoulderPitchJointName}" actuatorName="${prefix}${ShoulderPitchActuatorName}" nodeName="/trunk/${prefix}_arm_j1" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderRollJointName}" actuatorName="${prefix}${ShoulderRollActuatorName}" nodeName="/${prefix}${ShoulderRollNode}" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderYawJointName}" actuatorName="${prefix}${ShoulderYawActuatorName}" nodeName="/${prefix}${ShoulderYawNode}" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ElbowPitchJointName}" actuatorName="${prefix}${ElbowPitchActuatorName}" nodeName="/${prefix}${ElbowPitchNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ForearmYawActuatorName}" actuatorName="${prefix}${ForearmYawActuatorName}" nodeName="/${prefix}${ForearmYawNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${WristRollJointName}" actuatorName="${prefix}${WristRollActuatorSimName}" nodeName="/${prefix}${WristRollActuatorNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${WristPitchJointName}" actuatorName="${prefix}${WristPitchActuatorSimName}" nodeName="/${prefix}${WristPitchActuatorNode}" actuatorApi="${SimApi}"/> 
   </xacro:macro>
 
   <xacro:macro name="arm_transmissions_sim_no_hands" params="prefix">
-    <xacro:simple_transmission jointName="${ShoulderPitchJointName}" actuatorName="${ShoulderPitchActuatorName}" nodeName="${ShoulderPitchNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${ShoulderRollJointName}" actuatorName="${ShoulderRollActuatorName}" nodeName="${ShoulderRollNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${ShoulderYawJointName}" actuatorName="${ShoulderYawActuatorName}" nodeName="${ShoulderYawNode}" actuatorApi="${SimApi}"/>
-    <xacro:simple_transmission jointName="${ElbowPitchJointName}" actuatorName="${ElbowPitchActuatorName}" nodeName="${ElbowPitchNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ShoulderPitchJointName}" actuatorName="${prefix}${ShoulderPitchActuatorName}" nodeName="/trunk/${prefix}_arm_j1" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderRollJointName}" actuatorName="${prefix}${ShoulderRollActuatorName}" nodeName="/${prefix}${ShoulderRollNode}" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ShoulderYawJointName}" actuatorName="${prefix}${ShoulderYawActuatorName}" nodeName="/${prefix}${ShoulderYawNode}" actuatorApi="${SimApi}"/>
+    <xacro:simple_transmission jointName="${prefix}${ElbowPitchJointName}" actuatorName="${prefix}${ElbowPitchActuatorName}" nodeName="/${prefix}${ElbowPitchNode}" actuatorApi="${SimApi}"/> 
+  </xacro:macro>
+
+  <xacro:macro name="forearm_transmissions_sim" params="prefix">
+    <xacro:simple_transmission jointName="${prefix}${ForearmYawActuatorName}" actuatorName="${prefix}${ForearmYawActuatorName}" nodeName="/${prefix}${ForearmYawNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${WristRollJointName}" actuatorName="${prefix}${WristRollActuatorSimName}" nodeName="/${prefix}${WristRollActuatorNode}" actuatorApi="${SimApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${WristPitchJointName}" actuatorName="${prefix}${WristPitchActuatorSimName}" nodeName="/${prefix}${WristPitchActuatorNode}" actuatorApi="${SimApi}"/> 
   </xacro:macro>
 
 </robot>
