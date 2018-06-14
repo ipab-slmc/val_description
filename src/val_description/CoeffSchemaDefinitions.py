@@ -236,6 +236,7 @@ location_files_definition = \
       <xs:enumeration value="neck_upper.xml"/>
       <xs:enumeration value="neck_yaw.xml"/>
       <xs:enumeration value="forearm_yaw.xml"/>
+      <xs:enumeration value="testbench.xml"/>
     </xs:restriction>
   </xs:simpleType>
 '''
