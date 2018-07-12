@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# base environment
+source "$(pkg-config --variable=prefix gazebo)/share/gazebo/setup.sh"
+
+# install path
+export GAZEBO_RESOURCE_PATH=@CMAKE_INSTALL_PREFIX@/@CATKIN_PACKAGE_SHARE_DESTINATION@:$GAZEBO_RESOURCE_PATH
+export GAZEBO_MODEL_PATH=@CMAKE_INSTALL_PREFIX@/@CATKIN_GLOBAL_SHARE_DESTINATION@:$GAZEBO_MODEL_PATH
+
