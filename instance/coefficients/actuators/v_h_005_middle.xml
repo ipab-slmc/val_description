@@ -5,7 +5,7 @@
     </Properties>
     <ClassFile id="h.xml" />
     <ControllerFile id="h_sv.xml" />
-    <LocationFile id="testbench.xml"/>
+    <LocationFile id="finger.xml"/>
     <SensorsFile id="sensors_leonidas.xml" />
     <SafetyFile id="safety_fingers.xml" />
     <Coeffs>
