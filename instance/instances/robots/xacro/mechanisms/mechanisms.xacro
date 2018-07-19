@@ -45,9 +45,11 @@
     </Mechanism>
 </xacro:macro>
 
-<xacro:macro name="hand_mechanism" params="mechanism_name serial_number index_node middle_node pinky_node thumb_prox_node thumb_dist_node thumb_roll_node wrist_left_node wrist_right_node" >
+<xacro:macro name="hand_mechanism" params="mechanism_name serial_number index_node middle_node pinky_node thumb_prox_node thumb_dist_node thumb_roll_node wrist_left_node wrist_right_node wrist_pitch_calibration_angle wrist_roll_calibration_angle" >
     <Mechanism id="${mechanism_name}" type="hand">
             <SerialNumber id="${serial_number}"/>
+            <WristPitchCalibrationAngle id="${wrist_pitch_calibration_angle}"/>
+            <WristRollCalibrationAngle id="${wrist_roll_calibration_angle}"/>
             <Nodes>
                 <Index id="${index_node}"/>
                 <Middle id="${middle_node}"/>
