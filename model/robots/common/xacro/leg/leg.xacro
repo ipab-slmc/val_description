@@ -157,6 +157,11 @@
                        parentLink="${prefix}Foot"
                        origin_xyz="0.0189 0.0 -0.0783"
                        origin_rpy="0.0 0.0 0.0"/>
+                   
+    <xacro:virtual_fixed_frame_offset name="${prefix}FootCenter"
+                       parentLink="${prefix}Foot"
+                       origin_xyz="0.045 0.0 -0.088"
+                       origin_rpy="0.0 0.0 0.0"/>
 
     <xacro:ati_force_torque_sensor sensorName="${prefix}FootSixAxis"
                         parentLink="${prefix}Foot"
