@@ -7,7 +7,7 @@
     <Coeff id="JointForceLimit_N" value="10.0"/>
     <Coeff id="JointSafety_LowerLimit_m" value="-3.14159"/>
     <Coeff id="JointSafety_UpperLimit_m" value="3.14159"/>
-    <Coeff id="JointMaxValue" value="1.0"/>
-    <Coeff id="JointMinValue" value="-1.0"/>
+    <Coeff id="JointMaxValue" value="3.14159"/>
+    <Coeff id="JointMinValue" value="-3.14159"/>
   </Coeffs>
 </CoeffData>
