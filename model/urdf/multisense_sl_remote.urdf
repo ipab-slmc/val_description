@@ -258,7 +258,7 @@
     <inertial>
       <mass value="1e-5" />
       <!-- collocate with parent link and remove mass from it -->
-      <origin xyz="-0.089923 0.074553383 0.078086" rpy="0 -0.15 0.53" />
+      <origin xyz="-0.089923 0.074553383 0.078086" rpy="0 0 0" />
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
@@ -271,7 +271,7 @@
     <inertial>
       <mass value="1e-5" />
       <!-- collocate with parent link and remove mass from it -->
-      <origin xyz="-0.089923 -0.074486617 0.07908" rpy="0 -0.15 -0.53" />
+      <origin xyz="-0.089923 -0.074486617 0.07908" rpy="0 0 0" />
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
