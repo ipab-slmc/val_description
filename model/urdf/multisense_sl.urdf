@@ -67,7 +67,7 @@
     <mu2>0.9</mu2>
   </gazebo>
 
-  <joint name="hokuyo_joint" type="continuous">
+  <joint name="hokuyo_joint" type="fixed">
     <origin xyz="-0.0446 0 0.0880" rpy="0 0 0" />
     <parent link="head" />
     <child link="hokuyo_link" />
