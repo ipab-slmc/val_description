@@ -205,7 +205,7 @@
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
   </xacro:macro>
-
+  
   <xacro:macro name="floating_joint" params="jointName parent child origin_xyz origin_rpy">
     <joint name="${jointName}" type="floating">
       <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
@@ -228,6 +228,60 @@
     <gazebo reference="${jointName}">
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
+  </xacro:macro>
+  
+  <xacro:property name="is_model_reduced" value="false"/>
+  <xacro:macro name="revolute_joint_ex_reducible" params="jointName parent child origin_xyz origin_rpy axis damping friction *limits *controller_gains">
+    <xacro:unless value="${is_model_reduced}">
+      <xacro:revolute_joint_ex 
+        jointName="${jointName}"
+        parent="${parent}"
+        child="${child}"
+        origin_xyz="${origin_xyz}"
+        origin_rpy="${origin_rpy}"
+        axis="${axis}"
+        damping="${damping}"
+        friction="${friction}">
+        <xacro:insert_block name="limits" />
+        <xacro:insert_block name="controller_gains" />
+      </xacro:revolute_joint_ex>
+    </xacro:unless>
+    <xacro:if value="${is_model_reduced}">
+      <xacro:fixed_joint 
+        jointName="${jointName}"
+        parent="${parent}"
+        child="${child}"
+        origin_xyz="${origin_xyz}"
+        origin_rpy="${origin_rpy}">
+      </xacro:fixed_joint>
+    </xacro:if>
+  </xacro:macro>
+
+  <xacro:macro name="revolute_joint_ex_mimic_reducible" params="jointName parent child origin_xyz origin_rpy axis damping friction *limits *controller_gains *mimic">
+    <xacro:unless value="${is_model_reduced}">
+      <xacro:revolute_joint_ex_mimic
+        jointName="${jointName}"
+        parent="${parent}"
+        child="${child}"
+        origin_xyz="${origin_xyz}"
+        origin_rpy="${origin_rpy}"
+        axis="${axis}"
+        damping="${damping}"
+        friction="${friction}">
+        <xacro:insert_block name="limits" />
+        <xacro:insert_block name="controller_gains" />
+        <xacro:insert_block name="mimic" />
+      </xacro:revolute_joint_ex_mimic>
+    </xacro:unless>
+    <xacro:if value="${is_model_reduced}">
+      <xacro:fixed_joint 
+        jointName="${jointName}"
+        parent="${parent}"
+        child="${child}"
+        origin_xyz="${origin_xyz}"
+        origin_rpy="${origin_rpy}">
+      </xacro:fixed_joint>
+    </xacro:if>
   </xacro:macro>
 
   <xacro:macro name="virtual_fixed_frame_offset" params="name parentLink origin_xyz origin_rpy">

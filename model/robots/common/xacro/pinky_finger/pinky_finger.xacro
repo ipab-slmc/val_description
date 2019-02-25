@@ -41,7 +41,7 @@
                     collision_mesh="${fingers_mesh_dir}/pinkyj3_${prefix}.dae"/>
     <xacro:gazebo_hand_contact link_name="${prefix}PinkyPitch3Link" />
 
-    <xacro:revolute_joint_ex jointName="${prefix}${PinkyPitch1JointName}"
+    <xacro:revolute_joint_ex_reducible jointName="${prefix}${PinkyPitch1JointName}"
                           parent="${pinky_finger_root_link}" child="${prefix}PinkyPitch1Link"
                           origin_xyz="${PinkyPitch1FrameOrigin_X} ${reflect * 0.0838} ${PinkyPitch1FrameOrigin_Z}"
                           origin_rpy="${reflect * -0.1222} ${PinkyPitch1FrameOrientation_Pitch} ${PinkyPitch1FrameOrientation_Yaw}"
@@ -53,9 +53,9 @@
           <limit effort="${PinkyFingerPitch1TorqueLimit}" lower="${PinkyFingerPitch1PositionLimit_Lower}" upper="${PinkyFingerPitch1PositionLimit_Upper}" velocity="${PinkyFingerPitch1VelocityLimit}"/>
         </xacro:if>
         <controller_gains Kp="${PinkyPitch1Kp}" Kd="${PinkyPitch1Kd}" Ki="${PinkyPitch1Ki}"/>
-    </xacro:revolute_joint_ex>
+    </xacro:revolute_joint_ex_reducible>
 
-    <xacro:revolute_joint_ex_mimic jointName="${prefix}${PinkyPitch2JointName}"
+    <xacro:revolute_joint_ex_mimic_reducible jointName="${prefix}${PinkyPitch2JointName}"
                           parent="${prefix}PinkyPitch1Link" child="${prefix}PinkyPitch2Link"
                           origin_xyz="${PinkyPitch2FrameOrigin_X} ${reflect * 0.0381} ${PinkyPitch2FrameOrigin_Z}"
                           origin_rpy="${PinkyPitch2FrameOrientation_Roll} ${PinkyPitch2FrameOrientation_Pitch} ${PinkyPitch2FrameOrientation_Yaw}"
@@ -68,9 +68,9 @@
         </xacro:if>
         <controller_gains Kp="${PinkyPitch1Kp}" Kd="${PinkyPitch1Kd}" Ki="${PinkyPitch1Ki}"/>
         <mimic joint="${prefix}${PinkyPitch1JointName}" multiplier="${Pulley2Ratio}" offset="0"/>
-    </xacro:revolute_joint_ex_mimic>
+    </xacro:revolute_joint_ex_mimic_reducible>
 
-    <xacro:revolute_joint_ex_mimic jointName="${prefix}${PinkyPitch3JointName}"
+    <xacro:revolute_joint_ex_mimic_reducible jointName="${prefix}${PinkyPitch3JointName}"
                           parent="${prefix}PinkyPitch2Link" child="${prefix}PinkyPitch3Link"
                           origin_xyz="${PinkyPitch3FrameOrigin_X} ${reflect * 0.0229} ${PinkyPitch3FrameOrigin_Z}"
                           origin_rpy="${PinkyPitch3FrameOrientation_Roll} ${PinkyPitch3FrameOrientation_Pitch} ${PinkyPitch3FrameOrientation_Yaw}"
@@ -83,7 +83,7 @@
         </xacro:if>
         <controller_gains Kp="${PinkyPitch1Kp}" Kd="${PinkyPitch1Kd}" Ki="${PinkyPitch1Ki}"/>
         <mimic joint="${prefix}${PinkyPitch1JointName}" multiplier="${Pulley3Ratio}" offset="0"/>
-    </xacro:revolute_joint_ex_mimic>
+    </xacro:revolute_joint_ex_mimic_reducible>
 
   </xacro:macro>
 

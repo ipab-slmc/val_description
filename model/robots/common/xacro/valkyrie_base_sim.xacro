@@ -25,20 +25,29 @@
     <xacro:waist_transmissions_sim />
     <xacro:leg_transmissions_sim prefix="left"/>
     <xacro:leg_transmissions_sim prefix="right"/>
-    <xacro:arm_transmissions_sim prefix="left"/>
-    <xacro:arm_transmissions_sim prefix="right"/>
+    <xacro:if value="${is_model_reduced}">
+      <xacro:arm_transmissions_sim_no_hands prefix="left"/>
+      <xacro:arm_transmissions_sim_no_hands prefix="right"/>
+    </xacro:if>
+    <xacro:unless value="${is_model_reduced}">
+      <xacro:arm_transmissions_sim prefix="left"/>
+      <xacro:arm_transmissions_sim prefix="right"/>
+    </xacro:unless>
+    
     <xacro:neck_transmissions_sim />
+    <xacro:unless value="${is_model_reduced}">
 
-    <xacro:thumb_transmissions_sim prefix="left"/>
-    <xacro:thumb_transmissions_sim prefix="right"/>
+      <xacro:thumb_transmissions_sim prefix="left"/>
+      <xacro:thumb_transmissions_sim prefix="right"/>
 
-    <xacro:index_finger_transmissions_sim prefix="left"/>
-    <xacro:index_finger_transmissions_sim prefix="right"/>
+      <xacro:index_finger_transmissions_sim prefix="left"/>
+      <xacro:index_finger_transmissions_sim prefix="right"/>
 
-    <xacro:middle_finger_transmissions_sim prefix="left"/>
-    <xacro:middle_finger_transmissions_sim prefix="right"/>
+      <xacro:middle_finger_transmissions_sim prefix="left"/>
+      <xacro:middle_finger_transmissions_sim prefix="right"/>
 
-    <xacro:pinky_transmissions_sim prefix="left"/>
-    <xacro:pinky_transmissions_sim prefix="right"/>
+      <xacro:pinky_transmissions_sim prefix="left"/>
+      <xacro:pinky_transmissions_sim prefix="right"/>
+    </xacro:unless>
 
 </robot>
