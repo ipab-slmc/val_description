@@ -153,28 +153,28 @@
 
   <xacro:macro name="v1_leg_sensors" params="prefix reflect ATI_serial_number ATI_node">
 
-    <xacro:virtual_fixed_frame_offset name="${prefix}COP"
+    <xacro:massless_virtual_fixed_frame_offset name="${prefix}COP"
                        parentLink="${prefix}Foot"
                        origin_xyz="0.0189 0.0 -0.0783"
                        origin_rpy="0.0 0.0 0.0"/>
                    
-    <xacro:virtual_fixed_frame_offset name="${prefix}FootCenter"
+    <xacro:massless_virtual_fixed_frame_offset name="${prefix}FootCenter"
                        parentLink="${prefix}Foot"
                        origin_xyz="0.045 0.0 -0.088"
                        origin_rpy="0.0 0.0 0.0"/>
-    <xacro:virtual_fixed_frame_offset name="${prefix}FootCorner1"
+    <xacro:massless_virtual_fixed_frame_offset name="${prefix}FootCorner1"
                        parentLink="${prefix}Foot"
                        origin_xyz="0.17 0.07 -0.088"
                        origin_rpy="0.0 0.0 0.0"/>
-    <xacro:virtual_fixed_frame_offset name="${prefix}FootCorner2"
+    <xacro:massless_virtual_fixed_frame_offset name="${prefix}FootCorner2"
                        parentLink="${prefix}Foot"
                        origin_xyz="0.17 -0.07 -0.088"
                        origin_rpy="0.0 0.0 0.0"/>
-    <xacro:virtual_fixed_frame_offset name="${prefix}FootCorner3"
+    <xacro:massless_virtual_fixed_frame_offset name="${prefix}FootCorner3"
                        parentLink="${prefix}Foot"
                        origin_xyz="-0.08 -0.07 -0.088"
                        origin_rpy="0.0 0.0 0.0"/>
-    <xacro:virtual_fixed_frame_offset name="${prefix}FootCorner4"
+    <xacro:massless_virtual_fixed_frame_offset name="${prefix}FootCorner4"
                        parentLink="${prefix}Foot"
                        origin_xyz="-0.08 0.07 -0.088"
                        origin_rpy="0.0 0.0 0.0"/>

@@ -294,6 +294,16 @@
                        origin_rpy="${origin_rpy}"
                        origin_xyz="${origin_xyz}"/>
   </xacro:macro>
+  <xacro:macro name="massless_virtual_fixed_frame_offset" params="name parentLink origin_xyz origin_rpy">
+    <xacro:massless_virtual_link name="${name}_Frame"
+                    origin_rpy="0 0 0"
+                    origin_xyz="0 0 0"/>
+
+    <xacro:fixed_joint jointName="${name}_Offset"
+                       parent="${parentLink}" child="${name}_Frame"
+                       origin_rpy="${origin_rpy}"
+                       origin_xyz="${origin_xyz}"/>
+  </xacro:macro>
 
   <xacro:macro name="simple_transmission" params="jointName actuatorName nodeName actuatorApi">
     <transmission name="${jointName}Transmission">
