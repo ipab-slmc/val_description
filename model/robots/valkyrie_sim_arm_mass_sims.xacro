@@ -3,8 +3,11 @@
     <gazebo>
       <plugin filename="libval_gazebo.so" name="SharedMemorySimInterfacePlugin">
           <robotNamespace>/val</robotNamespace>
+          <updateRateHz>500.0</updateRateHz>
       </plugin>
     </gazebo>
+    
+    <schedule_topic_creator_file package="val_gazebo" relative_file_path="/configuration/valkyrie_sim_shm_topics.yaml"/>
 
     <xacro:property name="leg_mesh_dir" value="model://val_description/model/meshes/legs"/>
     <xacro:property name="arm_mesh_dir" value="model://val_description/model/meshes/arms"/>
@@ -44,5 +47,8 @@
 
     <xacro:add_self_collide />
     <xacro:add_sim_harness harnessed_link="torso" />    
+    
+    <!-- Disable position control joints -->
+    <xacro:property name="is_model_reduced" value="true"/>
 
 </robot>
