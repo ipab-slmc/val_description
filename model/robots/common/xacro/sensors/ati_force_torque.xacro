@@ -21,7 +21,7 @@
         <update_rate>500.0</update_rate>
         <force_torque>
           <frame>sensor</frame>
-          <measure_direction>child_to_parent</measure_direction>
+          <measure_direction>parent_to_child</measure_direction>
         </force_torque>
     	</sensor>
     </gazebo>
