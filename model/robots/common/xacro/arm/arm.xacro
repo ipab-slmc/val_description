@@ -254,10 +254,22 @@
         </xacro:if>
         <controller_gains Kp="0.0" Kd="0.0" Ki="0.0"/>
     </xacro:revolute_joint_ex>
-    <xacro:massless_virtual_fixed_frame_offset name="${prefix}ArmTip"
+    <xacro:massless_virtual_fixed_frame_offset_with_collision_sphere name="${prefix}ArmTip"
                        parentLink="${prefix}ElbowPitchLink"
                        origin_xyz="-0.024 ${reflect * 0.400} 0.0"
-                       origin_rpy="${reflect * 1.5708} 0.0 0.0"/>
+                       origin_rpy="${reflect * 1.5708} 0.0 0.0"
+                       radius="0.055"
+                       center_xyz="0.0 0.0 0.049"/>
+    <gazebo reference="${prefix}ArmTip_Frame">
+      <!-- kp and kd for rubber -->
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+      <mu1>1.5</mu1>
+      <mu2>1.5</mu2>
+      <fdir1>1 0 0</fdir1>
+      <maxVel>1.0</maxVel>
+      <minDepth>0.00</minDepth>
+    </gazebo>
   </xacro:macro>
 
   <xacro:macro name="arm_transmissions_hw" params="prefix reflect">

@@ -117,6 +117,24 @@
       </inertial>
     </link>
   </xacro:macro>
+  <xacro:macro name="massless_virtual_link_with_collision_sphere" params="name origin_xyz origin_rpy radius center_xyz">
+    <link name="${name}">
+      <!-- Virtual Link -->
+      <inertial>
+        <mass value="${massless_virtual_link_mass}" />
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
+        <inertia ixx="${(massless_virtual_link_mass*(3*massless_virtual_link_radius*massless_virtual_link_radius + massless_virtual_link_height*massless_virtual_link_height))/12}" ixy="0.0" ixz="0.0"
+                 iyy="${(massless_virtual_link_mass*(3*massless_virtual_link_radius*massless_virtual_link_radius + massless_virtual_link_height*massless_virtual_link_height))/12}" iyz="0.0"
+                 izz="${(massless_virtual_link_mass*massless_virtual_link_radius*massless_virtual_link_radius)/2}" />
+      </inertial>
+      <collision>
+        <geometry>
+          <sphere radius="${radius}"/>
+        </geometry>
+        <origin rpy="0.0 0.0 0.0" xyz="${center_xyz}"/>
+      </collision>
+    </link>
+  </xacro:macro>
 
   <xacro:macro name="virtual_link_with_visual" params="name origin_xyz origin_rpy mesh_filename">
     <link name="${name}">
@@ -298,6 +316,18 @@
     <xacro:massless_virtual_link name="${name}_Frame"
                     origin_rpy="0 0 0"
                     origin_xyz="0 0 0"/>
+
+    <xacro:fixed_joint jointName="${name}_Offset"
+                       parent="${parentLink}" child="${name}_Frame"
+                       origin_rpy="${origin_rpy}"
+                       origin_xyz="${origin_xyz}"/>
+  </xacro:macro>
+  <xacro:macro name="massless_virtual_fixed_frame_offset_with_collision_sphere" params="name parentLink origin_xyz origin_rpy radius center_xyz">
+    <xacro:massless_virtual_link_with_collision_sphere name="${name}_Frame"
+                    origin_rpy="0 0 0"
+                    origin_xyz="0 0 0"
+                    radius="${radius}"
+                    center_xyz="${center_xyz}"/>
 
     <xacro:fixed_joint jointName="${name}_Offset"
                        parent="${parentLink}" child="${name}_Frame"
