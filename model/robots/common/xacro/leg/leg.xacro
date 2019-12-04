@@ -1,13 +1,12 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="leg">
   <xacro:macro name="make_leg_links" params="prefix reflect leg_root_link">
-    <xacro:standard_link name="${prefix}HipYawLink"
+    <xacro:standard_link_no_collision name="${prefix}HipYawLink"
                     mass="${HipYawLinkMass}"
                     origin_xyz="0.02176 ${reflect*-0.00131} 0.03867" origin_rpy="0 0 0" 
                     ixx="${HipYawLinkInertia_IXX}" ixy="${HipYawLinkInertia_IXY}" ixz="${HipYawLinkInertia_IXZ}"
                     iyy="${HipYawLinkInertia_IYY}" iyz="${HipYawLinkInertia_IYZ}" izz="${HipYawLinkInertia_IZZ}"
-                    visual_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"
-                    collision_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"/>
+                    visual_mesh="${leg_mesh_dir}/lj1_${prefix}.dae"/>
 
     <xacro:link_no_mesh_no_collision name="${prefix}HipRollLink"
                     mass="${HipRollLinkMass}"
