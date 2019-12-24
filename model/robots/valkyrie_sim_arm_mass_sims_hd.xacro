@@ -9,11 +9,11 @@
     
     <schedule_topic_creator_file package="val_gazebo" relative_file_path="/configuration/valkyrie_sim_shm_topics.yaml"/>
 
-    <xacro:property name="leg_mesh_dir" value="model://val_description/model/meshesHD"/>
-    <xacro:property name="arm_mesh_dir" value="model://val_description/model/meshesHD"/>
-    <xacro:property name="waist_mesh_dir" value="model://val_description/model/meshesHD"/>
-    <xacro:property name="head_mesh_dir" value="model://val_description/model/meshesHD"/>
-    <xacro:property name="pelvis_mesh_dir" value="model://val_description/model/meshesHD"/>
+    <xacro:property name="leg_mesh_dir" value="package://val_description/model/meshesHD"/>
+    <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshesHD"/>
+    <xacro:property name="waist_mesh_dir" value="package://val_description/model/meshesHD"/>
+    <xacro:property name="head_mesh_dir" value="package://val_description/model/meshesHD"/>
+    <xacro:property name="pelvis_mesh_dir" value="package://val_description/model/meshesHD"/>
 
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
